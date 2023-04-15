@@ -38,27 +38,29 @@ footer {
     }
 
     p {
-        color: var(--secondary);
+        text-align: left;
+        text-justify: inter-word;
         font-size: 0.9rem;
         line-height: 20px;
         margin-bottom: 15px;
-        text-align: left;
+        color: var(--secondary);
     }
 
     span {
         display: block;
-        color: var(--secondary);
-        margin: 10px 0;
-        font-size: 0.9rem;
-        line-height: 10px;
         text-align: left;
+        text-justify: inter-word;
+        font-size: 0.9rem;
+        line-height: 15px;
+        margin: 15px 0;
+        color: var(--secondary);
     }
 }
 
 .social {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 5px;
 
@@ -113,6 +115,8 @@ footer {
     }
 
     p {
+        text-align: center;
+        text-justify: inter-word;
         font-size: 0.9rem;
         letter-spacing: 1px;
         margin-bottom: 15px;

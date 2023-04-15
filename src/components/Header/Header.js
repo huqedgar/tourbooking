@@ -23,7 +23,7 @@ const categories = [
     },
     {
         link: '#about',
-        name: 'about us',
+        name: 'about',
     },
 ];
 
