@@ -1,0 +1,44 @@
+.primary {
+    padding: 10px 20px;
+    color: #000;
+    background-color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+
+    &:hover {
+        color: #fff;
+        background-color: #000;
+    }
+}
+
+.secondary {
+    padding: 0.6rem 1.2rem 0.6rem 1.2rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #0ea5e9;
+    transition: 0.3s linear;
+
+    &:hover {
+        background-color: #38bdf8;
+    }
+}
+
+.outline {
+}
+
+.small {
+    font-size: 11px;
+    padding: 6px 10px;
+}
+
+.large {
+}
+
+.title {
+}
+
+.icon {
+}

@@ -1,0 +1,232 @@
+@import 'normalize.css';
+
+:root {
+    --font-family: 'Poppins', sans-serif;
+
+    // Size
+    --margin: 70px auto;
+    --max-width: 1200px;
+    --max-width-sm: 1000px;
+
+    // Color
+    --rgb: 50, 50, 50;
+    --primary-rgb: 65, 134, 255;
+
+    --main: rgb(var(--rgb));
+    --primary: rgb(var(--primary-rgb));
+    --secondary: rgba(var(--rgb), 0.6);
+
+    --border-color: rgba(var(--rgb), 0.06);
+    --shadow-color: rgba(var(--rgb), 0.1);
+    --shadow-color-hover: rgba(var(--rgb), 0.2);
+
+    --bg-main: rgb(252, 252, 253);
+    --bg-primary: rgba(var(--primary-rgb), 0.15);
+    --bg-secondary: rgba(var(--rgb), 0.03);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    font-family: var(--font-family);
+    background-color: var(--bg-main);
+    text-rendering: optimizespeed;
+}
+
+// Scrollbar CSS
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 10px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+::placeholder,
+input[type='date'] {
+    color: var(--secondary);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button,
+input {
+    border: none;
+    outline: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+h2 {
+    font-size: 2.4rem;
+    color: var(--main);
+    font-weight: 700;
+}
+
+p {
+    color: var(--secondary);
+    margin: 10px 0;
+}
+
+// Responsive
+@media (max-width: 600px) {
+    h2 {
+        font-size: 2rem;
+        line-height: 2.9rem;
+    }
+}
+
+@media (max-width: 300px) {
+    h2 {
+        font-size: 1.7rem;
+        line-height: 2.5rem;
+    }
+}
+
+// Fonts emmbeded
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-Thin.otf');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-ThinItalic.otf');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-ExtraLight.otf');
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-ExtraLightItalic.otf');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-Light.otf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-LightItalic.otf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-Regular.otf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-RegularItalic.otf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-Medium.otf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-MediumItalic.otf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-SemiBold.otf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-SemiBoldItalic.otf');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-Bold.otf');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-BoldItalic.otf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-ExtraBold.otf');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-ExtraBoldItalic.otf');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-Black.otf');
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('/assets/fonts/Poppins-BlackItalic.otf');
+    font-weight: 900;
+    font-style: italic;
+}
