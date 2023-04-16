@@ -62,8 +62,9 @@ const Header = () => {
     return (
         <header
             style={{
-                backgroundColor: visible || showMenu ? '#232730' : 'transparent',
-                boxShadow: visible ? '2px 20px 30px var(--shadow-color)' : 'none',
+                backgroundColor: visible || showMenu ? 'background-color: rgba(0, 0, 0, 0.5)' : 'transparent',
+                backdropFilter: visible || showMenu ? 'saturate(180%) blur(10px)' : 'saturate(180%) blur(0px)',
+                boxShadow: visible ? 'inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.1)' : 'none',
             }}
         >
             <nav className={cx('navBar')}>
@@ -84,7 +85,7 @@ const Header = () => {
                             </a>
                         </li>
                     ))}
-                    <NavLink className={cx('margin')} to={'/login'}>
+                    <NavLink className="mr-4 ml-3" to={'/login'}>
                         <Button secondary>Login</Button>
                     </NavLink>
                     <NavLink to={'/register'}>

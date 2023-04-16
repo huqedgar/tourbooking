@@ -1,15 +1,11 @@
 //------------------------------ Section 2
 .wrapperTrending {
-    background-color: var(--bg-secondary);
     width: 90%;
-    // max-width: var(--max-width);
-    // margin: 10% auto;
     margin: 0 auto;
     padding: 9% 0 5px 0;
     border-radius: 20px;
     overflow: hidden;
-
-    border: 1px solid #000;
+    box-shadow: var(--border-shadow);
 }
 
 .heading {
@@ -33,22 +29,24 @@
 }
 
 .card {
-    // width: 100%;
     max-width: 350px;
     max-height: 370px;
     padding: 15px;
+    background-color: var(--black);
+    cursor: pointer;
+    border: 1px solid transparent;
     border-radius: 10px;
-    background-color: #fff;
-    border: 1px solid var(--border-color);
-    transition: all ease 0.3s;
+    box-shadow: var(--border-shadow);
+    transition: all ease 0.5s;
 
     &:hover {
-        box-shadow: 2px 20px 30px var(--shadow-color-hover);
+        border: 1px solid white;
+        background-color: var(--bg-dark);
     }
 
     hr {
         width: 100%;
-        border: 1px solid var(--border-color);
+        border: 1px solid #323232;
     }
 }
 
@@ -57,14 +55,14 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        color: var(--secondary);
+        color: var(--text-light);
         font-size: 0.75rem;
         text-transform: capitalize;
     }
 
     a {
         display: block;
-        color: var(--main);
+        color: var(--white);
         font-weight: 600;
         margin: 10px 0;
         text-transform: capitalize;
@@ -72,15 +70,13 @@
     }
 
     .faLocationDot {
-        background-color: var(--bg-primary);
-        color: var(--primary);
-        // width: 20px;
-        // height: 20px;
+        background-color: var(--bg-dark-hover);
+        color: var(--white);
         padding: 5px 5.5px;
         text-align: center;
         line-height: 20px;
         margin-right: 10px;
-        border: 1px solid var(--border-color);
+        box-shadow: var(--border-shadow);
         border-radius: 5px;
     }
 }
@@ -100,12 +96,16 @@
     justify-content: flex-start;
     align-items: center;
     gap: 15px;
+
+    span {
+        color: var(--text-light);
+    }
 }
 
 .faShoePrints,
 .faCompass,
 .faCalendarDays {
-    color: var(--primary);
+    color: var(--white);
     margin-right: 5px;
 }
 
@@ -118,12 +118,12 @@
     gap: 10px;
 
     p {
-        color: var(--main);
+        color: var(--text-light);
         font-weight: 700;
     }
 
     span {
-        color: var(--secondary);
+        color: var(--text-light);
         font-size: 0.62rem;
     }
 
@@ -133,7 +133,7 @@
         text-align: center;
         line-height: 40px;
         color: var(--primary);
-        border: 1px solid var(--bg-primary);
+        border: 1px solid var(--primary);
         border-radius: 8px;
         font-size: 0.9rem;
         font-weight: 500;
@@ -141,8 +141,8 @@
         transition: all ease 0.3s;
 
         &:hover {
-            background-color: var(--bg-primary);
-            color: var(--primary);
+            background-color: var(--primary);
+            color: var(--white);
         }
     }
 }

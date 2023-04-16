@@ -1,11 +1,10 @@
 .wrapperDestinations {
     width: 90%;
-    max-width: var(--max-width);
+    max-width: 1200px;
     margin: 50px auto;
     padding: 7% 0 12px 0;
     overflow: hidden;
-
-    border: 1px solid #000;
+    // border: 1px solid #fff;
 }
 
 .grid {
@@ -61,8 +60,8 @@
 }
 
 .star {
-    background: #fff;
-    color: #333;
+    background: var(--white);
+    color: var(--black);
     border-radius: 10px;
     width: 55px;
     height: 25px;
@@ -70,7 +69,6 @@
     font-weight: 500;
     text-align: center;
     line-height: 25px;
-    box-shadow: 2px 20px 30px var(--shadow-color);
 }
 
 .faStar {
@@ -83,7 +81,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    color: #fff;
+    color: var(--white);
 }
 
 .text {
@@ -100,7 +98,6 @@
         gap: 5px;
         margin-top: 10px;
         font-size: 0.8rem;
-        color: #e6e6e6;
         font-weight: 500;
         letter-spacing: 1px;
         text-transform: capitalize;

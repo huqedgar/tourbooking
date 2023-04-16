@@ -7,13 +7,7 @@ header {
     z-index: 100;
     user-select: none;
     transition: all ease-in-out 0.3s;
-
-    border: 1px solid #000;
-}
-
-.margin {
-    margin-right: 15px;
-    margin-left: 10px;
+    // border: 1px solid #000;
 }
 
 .navBar {
@@ -24,12 +18,12 @@ header {
     justify-content: space-between;
     margin: 0 auto;
     padding: 22px 45px;
-
-    border: 1px solid #000;
+    // border: 1px solid #000;
 
     h3 {
-        font-weight: bolder;
-        color: #0ea5e9;
+        background: -webkit-linear-gradient(90deg, #007cf0, #00dfd8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     ul {
@@ -42,50 +36,50 @@ header {
 .navLink {
     font-size: 0.9rem;
     padding: 0 15px;
-    color: #fff;
+    color: var(--white);
     user-select: none;
     transition: all ease 0.3s;
     text-transform: capitalize;
 
     &:is(:hover, .active) {
-        text-decoration: 2px overline #fff;
+        text-decoration: 2px overline var(--white);
     }
 }
 
 .btnMenu {
     font-size: 1.8rem;
     cursor: pointer;
-    color: var(--main);
+    color: var(--white);
     display: none;
 }
 
 // Responsive
-@media (max-width: 650px) {
-    .navBar {
-        width: 100%;
-        justify-content: space-between;
+// @media (max-width: 650px) {
+//     .navBar {
+//         width: 100%;
+//         justify-content: space-between;
 
-        ul {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--bg-main);
-            display: block;
-            width: 100%;
-            box-shadow: 2px 20px 30px var(--shadow-color);
-            transition: all ease-in-out 0.3s;
-            height: 0px;
-            overflow: hidden;
-        }
-    }
+//         ul {
+//             position: absolute;
+//             top: 100%;
+//             left: 0;
+//             background-color: var(--bg-main);
+//             display: block;
+//             width: 100%;
+//             box-shadow: 2px 20px 30px var(--shadow-color);
+//             transition: all ease-in-out 0.3s;
+//             height: 0px;
+//             overflow: hidden;
+//         }
+//     }
 
-    .navLink {
-        display: block;
-        padding: 20px 15px;
-        border-bottom: 1px solid var(--border-color);
-    }
+//     .navLink {
+//         display: block;
+//         padding: 20px 15px;
+//         border-bottom: 1px solid var(--border-color);
+//     }
 
-    .btnMenu {
-        display: block;
-    }
-}
+//     .btnMenu {
+//         display: block;
+//     }
+// }

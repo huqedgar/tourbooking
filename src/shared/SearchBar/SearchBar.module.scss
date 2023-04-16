@@ -15,23 +15,22 @@
 // }
 
 .searchBar {
-    width: 90%;
-    max-width: var(--max-width-sm);
+    max-width: 80%;
     text-align: center;
-    margin: var(--margin);
+    margin: 50px auto;
 
     form {
         width: 100%;
-        margin: 30px auto;
         display: flex;
         justify-content: space-around;
         align-items: center;
         flex-wrap: wrap;
         gap: 15px;
-        padding: 30px 20px;
+        // margin: 30px auto;
+        padding: 20px;
         border-radius: 10px;
-        background-color: var(--bg-main);
-        box-shadow: 2px 20px 30px var(--shadow-color);
+        background-color: var(--bg-dark);
+        box-shadow: var(--border-shadow);
     }
 
     button {
@@ -43,14 +42,14 @@
         justify-content: center;
         align-items: center;
         border-radius: 10px;
-        background-color: #24acf2;
-        color: #fff;
+        background-color: var(--primary);
+        color: var(--white);
         cursor: pointer;
-        box-shadow: 2px 20px 30px var(--shadow-color);
+        box-shadow: var(--box-shadow-small);
         transition: all ease 0.3s;
 
         &:hover {
-            box-shadow: 2px 20px 30px var(--shadow-color-hover);
+            background-color: var(--primary-hover);
         }
     }
 }
@@ -70,8 +69,8 @@
     height: 50px;
     text-align: center;
     line-height: 50px;
-    color: #666;
-    background-color: var(--bg-secondary);
+    color: var(--text-light);
+    background-color: var(--bg-dark-hover);
     border-radius: 50%;
 }
 
@@ -80,11 +79,11 @@
     flex-direction: column;
     width: 100%;
     min-width: 150px;
+    font-size: 0.8rem;
 
     label {
         font-weight: 500;
-        font-size: 0.9rem;
-        color: #666;
+        color: var(--text-light);
         margin-bottom: 4px;
         text-align: left;
     }
@@ -92,6 +91,17 @@
     input {
         width: 100%;
         padding: 5px 10px;
-        background-color: var(--bg-secondary);
+        color: var(--text-light);
+        background-color: var(--bg-dark-hover);
     }
+}
+
+::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(1);
+}
+
+::placeholder,
+input[type='date'] {
+    color: var(--text-light);
 }

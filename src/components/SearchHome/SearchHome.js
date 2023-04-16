@@ -57,7 +57,7 @@ const SearchHome = () => {
                 <SearchBar />
             </div>
             <div className={cx('travelBox')}>
-                <h3>Treding 2023</h3>
+                <h3>Treding</h3>
                 <div className={cx('cardBox')}>
                     {destinations.map((destinations) => (
                         <div className={cx('card')} key={destinations.id}>

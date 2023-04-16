@@ -4,7 +4,6 @@ footer {
     align-items: center;
     justify-content: center;
     margin-top: 80px;
-    background: #f8f8f8;
 }
 
 .container {
@@ -15,12 +14,14 @@ footer {
     justify-content: center;
     gap: 30px;
     padding: 50px 30px 30px 30px;
+    color: var(--text-light);
+    box-shadow: var(--border-shadow);
 }
 .box {
     text-align: center;
     width: 50%;
     letter-spacing: 1px;
-    border: 1px solid #000;
+    // border: 1px solid #fff;
 
     &:first-child {
         margin-left: 10%;
@@ -34,7 +35,6 @@ footer {
         font-size: 1.6rem;
         font-weight: 700;
         margin-bottom: 15px;
-        color: var(--main);
     }
 
     p {
@@ -43,7 +43,6 @@ footer {
         font-size: 0.9rem;
         line-height: 20px;
         margin-bottom: 15px;
-        color: var(--secondary);
     }
 
     span {
@@ -53,7 +52,6 @@ footer {
         font-size: 0.9rem;
         line-height: 15px;
         margin: 15px 0;
-        color: var(--secondary);
     }
 }
 
@@ -71,13 +69,13 @@ footer {
         justify-content: center;
         align-items: center;
         border-radius: 5px;
-        border: 1px solid var(--border-color);
+        border: 1px solid var(--primary);
         color: var(--primary);
         transition: all ease 0.3s;
 
         &:hover {
             background-color: var(--primary);
-            color: #fff;
+            color: var(--white);
         }
     }
 }
@@ -94,10 +92,9 @@ footer {
     text-align: center;
     padding: 15px;
     font-size: 0.8rem;
-    color: var(--main);
     font-weight: 400;
     letter-spacing: 1px;
-    background: #ececec;
+    color: var(--text-light);
 }
 
 .subscribe {
@@ -107,8 +104,8 @@ footer {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-
-    border: 1px solid #000;
+    color: var(--white);
+    // border: 1px solid #fff;
 
     h2 {
         line-height: 40px;
@@ -121,7 +118,6 @@ footer {
         letter-spacing: 1px;
         margin-bottom: 15px;
         line-height: 20px;
-        color: var(--secondary);
     }
 
     ul {
@@ -144,18 +140,20 @@ footer {
         font-size: 12px;
         font-weight: 600;
         line-height: 20px;
-        border-top: 2px solid #000;
+        border-top: 2px solid var(--white);
     }
 }
 
 .input {
-    box-shadow: 2px 2px 30px var(--shadow-color);
+    display: flex;
+    background-color: #fff;
     border-radius: 5px;
+    box-shadow: 2px 2px 30px var(--shadow-color);
 
     input {
         font-size: 12px;
         padding: 10px 15px;
-        background-color: #f9f9ff;
         border-radius: 5px;
+        background-color: #fff;
     }
 }

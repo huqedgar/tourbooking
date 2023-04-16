@@ -6,26 +6,22 @@
 :root {
     --font-family: 'Poppins', sans-serif;
 
-    // Size
-    --margin: 70px auto;
-    --max-width: 1200px;
-    --max-width-sm: 1000px;
+    //Dark mode
+    --black: #000;
+    --white: #fff;
 
-    // Color
-    --rgb: 50, 50, 50;
-    --primary-rgb: 65, 134, 255;
+    --primary: #0ea5e9;
+    --primary-hover: #38bdf8;
+    --secondary: linear-gradient(90deg, #007cf0, #00dfd8);
 
-    --main: rgb(var(--rgb));
-    --primary: rgb(var(--primary-rgb));
-    --secondary: rgba(var(--rgb), 0.6);
+    --text-light: #a3b0c2;
 
-    --border-color: rgba(var(--rgb), 0.06);
-    --shadow-color: rgba(var(--rgb), 0.1);
-    --shadow-color-hover: rgba(var(--rgb), 0.2);
+    --bg-dark: #141414;
+    --bg-dark-hover: #ffffff1a;
 
-    --bg-main: rgb(252, 252, 253);
-    --bg-primary: rgba(var(--primary-rgb), 0.15);
-    --bg-secondary: rgba(var(--rgb), 0.03);
+    --border-shadow: 0 0 0 1px #404040;
+    --box-shadow-small: 2px 20px 30px #3232321a;
+    --box-shadow-medium: #ffffff33 0px 0px 15px, #ffffff26 0px 0px 3px 1px;
 }
 
 * {
@@ -38,7 +34,7 @@
 body {
     width: 100%;
     font-family: var(--font-family);
-    background-color: var(--bg-main);
+    background-color: var(--black);
     text-rendering: optimizespeed;
 }
 
@@ -56,15 +52,6 @@ html *::-webkit-scrollbar-thumb {
 html *::-webkit-scrollbar-track {
     border-radius: 0;
     background-color: rgba(0, 0, 0, 0);
-}
-
-::-webkit-calendar-picker-indicator {
-    cursor: pointer;
-}
-
-::placeholder,
-input[type='date'] {
-    color: var(--secondary);
 }
 
 a {
@@ -90,15 +77,29 @@ img {
     object-position: center;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+    color: var(--white);
+}
+
 h2 {
     font-size: 2.4rem;
-    color: var(--main);
     font-weight: 700;
 }
 
+h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
 p {
-    color: var(--secondary);
     margin: 10px 0;
+    color: var(--text-light);
 }
 
 // Responsive
