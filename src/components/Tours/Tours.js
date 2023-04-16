@@ -52,7 +52,7 @@ const Tours = () => {
     return (
         <section id="tours" className={cx('wrapperTrending')}>
             <div className={cx('heading')}>
-                <h2>Treding 2023</h2>
+                <h2>Tours</h2>
                 <p>Find Your Destination - The Ultimate Guide to Your Dream Destination</p>
             </div>
 

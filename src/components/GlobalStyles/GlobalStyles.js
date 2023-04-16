@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './GlobalStyles.module.scss';
+import './GlobalStyles.scss';
 
 const GlobalStyles = ({ children }) => {
     return children;
