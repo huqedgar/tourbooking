@@ -55,7 +55,6 @@ const Tours = () => {
                 <h2>Tours</h2>
                 <p>Find Your Destination - The Ultimate Guide to Your Dream Destination</p>
             </div>
-
             <div className={cx('wrapper')}>
                 {trends.map((trend) => (
                     <div className={cx('card')} key={trend.id}>

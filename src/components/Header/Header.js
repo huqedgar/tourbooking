@@ -63,7 +63,7 @@ const Header = () => {
         <header
             style={{
                 backgroundColor: visible || showMenu ? 'background-color: rgba(0, 0, 0, 0.5)' : 'transparent',
-                backdropFilter: visible || showMenu ? 'saturate(180%) blur(10px)' : 'saturate(180%) blur(0px)',
+                backdropFilter: visible || showMenu ? 'saturate(180%) blur(10px)' : '',
                 boxShadow: visible ? 'inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.1)' : 'none',
             }}
         >

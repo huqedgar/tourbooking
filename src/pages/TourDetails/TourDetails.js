@@ -4,7 +4,7 @@ import styles from './TourDetails.module.scss';
 const cx = classNames.bind(styles);
 
 const TourDetails = () => {
-    return <div>TourDetails</div>;
+    return <div>OK</div>;
 };
 
 export default TourDetails;

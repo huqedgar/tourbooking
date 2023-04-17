@@ -16,10 +16,11 @@
 
     --text-light: #a3b0c2;
 
-    --bg-dark: #141414;
-    --bg-dark-hover: #ffffff1a;
+    --bg-dark: #111;
+    --bg-dark-hover: rgba(255, 255, 255, 0.125);
 
     --border-shadow: 0 0 0 1px #404040;
+    --border-shadow-hover: 0 0.25rem 2rem 0 rgba(0, 0, 0, 0.15);
     --box-shadow-small: 2px 20px 30px #3232321a;
     --box-shadow-medium: #ffffff33 0px 0px 15px, #ffffff26 0px 0px 3px 1px;
 }

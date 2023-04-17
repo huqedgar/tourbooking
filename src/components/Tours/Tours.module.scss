@@ -6,6 +6,8 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--border-shadow);
+
+    border: 5px solid white;
 }
 
 .heading {
@@ -32,16 +34,17 @@
     max-width: 350px;
     max-height: 370px;
     padding: 15px;
-    background-color: var(--black);
-    cursor: pointer;
+    background-color: var(--bg-dark);
+    box-shadow: var(--border-shadow);
     border: 1px solid transparent;
     border-radius: 10px;
-    box-shadow: var(--border-shadow);
+    cursor: pointer;
     transition: all ease 0.5s;
 
     &:hover {
-        border: 1px solid white;
-        background-color: var(--bg-dark);
+        background-color: var(--bg-dark-hover);
+        box-shadow: var(--border-shadow-hover);
+        border: 1px solid var(--primary);
     }
 
     hr {
