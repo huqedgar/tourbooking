@@ -37,23 +37,30 @@
     }
 }
 
-.cardBox {
+.carousel {
     width: 95%;
+    overflow: hidden;
+    margin: auto;
+    cursor: grab;
+}
+
+.cardBox {
+    width: 100%;
     margin: 10px auto 0px auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    // border: 1px solid #fff;
 }
 
 .card {
-    width: 230px;
-    height: 150px;
-    border-radius: 20px;
-    overflow: hidden;
     position: relative;
+    min-width: 230px;
+    min-height: 150px;
+    overflow: hidden;
+    margin-right: 3%;
     user-select: none;
-    cursor: pointer;
+    border-radius: 20px;
+    // cursor: pointer;
 
     img {
         transition: all linear 0.5s;

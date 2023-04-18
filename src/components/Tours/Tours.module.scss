@@ -6,8 +6,7 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--border-shadow);
-
-    border: 5px solid white;
+    // border: 5px solid white;
 }
 
 .heading {
@@ -123,29 +122,10 @@
     p {
         color: var(--text-light);
         font-weight: 700;
-    }
 
-    span {
-        color: var(--text-light);
-        font-size: 0.62rem;
-    }
-
-    a {
-        width: 120px;
-        height: 40px;
-        text-align: center;
-        line-height: 40px;
-        color: var(--primary);
-        border: 1px solid var(--primary);
-        border-radius: 8px;
-        font-size: 0.9rem;
-        font-weight: 500;
-        letter-spacing: 1px;
-        transition: all ease 0.3s;
-
-        &:hover {
-            background-color: var(--primary);
-            color: var(--white);
+        span {
+            color: var(--text-light);
+            font-size: 0.62rem;
         }
     }
 }

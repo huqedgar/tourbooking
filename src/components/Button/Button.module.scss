@@ -3,35 +3,34 @@
     padding: 10px 20px;
     color: var(--white);
     background-color: var(--primary);
+    border: 2px solid var(--primary);
     border-radius: 5px;
     cursor: pointer;
     transition: all ease 0.3s;
 
     &:hover {
         background-color: var(--primary-hover);
+        border: 2px solid var(--primary-hover);
     }
 }
 
 .secondary {
-    font-weight: 400;
-    padding: 0.4rem 1rem 0.4rem 1rem;
+    font-weight: 600;
+    padding: 10px 20px;
     color: var(--white);
-    background-color: var(--primary);
+    border: 2px solid var(--primary);
     border-radius: 5px;
     cursor: pointer;
     transition: all ease 0.3s;
 
     &:hover {
-        background-color: var(--primary-hover);
+        background-color: var(--primary);
     }
 }
 
-.outline {
-}
-
 .small {
-    font-size: 11px;
-    padding: 6px 10px;
+    font-weight: 400;
+    padding: 0.3rem 1rem 0.3rem 1rem;
 }
 
 .large {

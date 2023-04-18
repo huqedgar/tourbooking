@@ -74,7 +74,7 @@ const Header = () => {
                 <div className={cx('btnMenu')} onClick={() => setShowMenu((value) => !value)}>
                     {showMenu ? <FontAwesomeIcon icon={faBars} /> : <FontAwesomeIcon icon={faXmark} />}
                 </div>
-                <ul style={{ height: showMenu ? 360 : 0 }}>
+                <ul className="ml-16" style={{ height: showMenu ? 360 : 0 }}>
                     {categories.map((category, index) => (
                         <li key={index}>
                             <a
@@ -85,13 +85,19 @@ const Header = () => {
                             </a>
                         </li>
                     ))}
-                    <NavLink className="mr-4 ml-3" to={'/login'}>
-                        <Button secondary>Login</Button>
+                </ul>
+                <div>
+                    <NavLink className="mr-4" to={'/login'}>
+                        <Button secondary small>
+                            Login
+                        </Button>
                     </NavLink>
                     <NavLink to={'/register'}>
-                        <Button secondary>Register</Button>
+                        <Button primary small>
+                            Register
+                        </Button>
                     </NavLink>
-                </ul>
+                </div>
             </nav>
         </header>
     );

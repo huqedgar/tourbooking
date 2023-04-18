@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './Tours.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays, faCompass, faLocationDot, faShoePrints } from '@fortawesome/free-solid-svg-icons';
+import Button from '../Button/Button';
 
 const cx = classNames.bind(styles);
 
@@ -100,7 +101,9 @@ const Tours = () => {
                                 From ${trend.price}
                                 <span>{' /Person'}</span>
                             </p>
-                            <a href="#">Book Now</a>
+                            <Button className="text-sm" secondary small>
+                                Book Now
+                            </Button>
                         </div>
                     </div>
                 ))}
