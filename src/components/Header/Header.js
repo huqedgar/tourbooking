@@ -10,19 +10,19 @@ const cx = classNames.bind(styles);
 
 const categories = [
     {
-        link: '#',
+        link: '/home#',
         name: 'home',
     },
     {
-        link: '#tours',
+        link: '/home#tours',
         name: 'tours',
     },
     {
-        link: '#destinations',
+        link: '/home#destinations',
         name: 'destinations',
     },
     {
-        link: '#about',
+        link: '/home#about',
         name: 'about',
     },
 ];

@@ -12,6 +12,10 @@
         background-color: var(--primary-hover);
         border: 2px solid var(--primary-hover);
     }
+
+    &:active {
+        transform: scale(0.95);
+    }
 }
 
 .secondary {
@@ -24,7 +28,12 @@
     transition: all ease 0.3s;
 
     &:hover {
-        background-color: var(--primary);
+        background-color: var(--primary-hover);
+        border: 2px solid var(--primary-hover);
+    }
+
+    &:active {
+        transform: scale(0.95);
     }
 }
 
@@ -40,4 +49,5 @@
 }
 
 .icon {
+    margin-right: 10px;
 }
