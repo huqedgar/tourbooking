@@ -9,6 +9,11 @@
 
 .searchBox {
     position: relative;
+    max-width: 80%;
+    text-align: center;
+    margin: 50px auto;
+    background-color: var(--bg-dark);
+    border-radius: 10px;
     transform: translateY(100%);
     z-index: 1;
 }

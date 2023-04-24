@@ -1,0 +1,203 @@
+.searchResultWrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.searchResultHeader {
+    position: relative;
+    padding: 8% 5% 5% 5%;
+    background-image: url(https://images.unsplash.com/photo-1504814532849-cff240bbc503?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    h2 {
+        font-weight: 500;
+    }
+}
+
+.searchResultBody {
+    position: relative;
+    width: 90%;
+    top: -7vh;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+}
+
+.searchWrapper {
+    display: flex;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--black);
+    border-radius: 5px;
+}
+
+.filterBox {
+    width: 12%;
+    font-size: 14px;
+    border-left: 1px solid var(--black);
+
+    select {
+        width: 100%;
+        height: 100%;
+        padding: 0px 20px;
+        background: transparent;
+        background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        background-repeat: no-repeat;
+        background-position-x: 96%;
+        background-position-y: 49%;
+        outline: none;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+}
+
+.paginationBox {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    border-left: 1px solid var(--black);
+}
+
+.numPage {
+    width: 50%;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.prev,
+.next {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 200;
+    font-size: 1.75rem;
+    cursor: pointer;
+    border-left: 1px solid var(--black);
+
+    &:hover {
+        color: var(--primary);
+    }
+
+    &:active {
+        color: var(--black);
+    }
+}
+
+.cardWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 40px auto;
+    padding: 0px 20px;
+}
+
+.card {
+    max-width: 350px;
+    max-height: 370px;
+    padding: 15px;
+    background-color: var(--bg-dark);
+    box-shadow: var(--border-shadow);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all ease 0.5s;
+
+    &:hover {
+        background-color: var(--bg-dark-hover);
+        box-shadow: var(--border-shadow-hover);
+        border: 1px solid var(--primary);
+    }
+
+    hr {
+        width: 100%;
+        border: 1px solid #323232;
+    }
+}
+
+.title {
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: var(--text-light);
+        font-size: 0.75rem;
+        text-transform: capitalize;
+    }
+
+    a {
+        display: block;
+        color: var(--white);
+        font-weight: 600;
+        margin: 10px 0;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+    }
+
+    .faLocationDot {
+        background-color: var(--bg-dark-hover);
+        color: var(--white);
+        padding: 5px 5.5px;
+        text-align: center;
+        line-height: 20px;
+        margin-right: 10px;
+        box-shadow: var(--border-shadow);
+        border-radius: 5px;
+    }
+}
+
+.imgContainer {
+    width: 100%;
+    height: 160px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.text {
+    margin: 15px 0;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+
+    span {
+        color: var(--text-light);
+    }
+}
+
+.faShoePrints,
+.faCompass,
+.faCalendarDays {
+    color: var(--white);
+    margin-right: 5px;
+}
+
+.price {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    p {
+        color: var(--text-light);
+        font-weight: 700;
+
+        span {
+            color: var(--text-light);
+            font-size: 0.62rem;
+        }
+    }
+}

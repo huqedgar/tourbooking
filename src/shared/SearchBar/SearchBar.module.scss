@@ -1,37 +1,11 @@
-// .searchBox {
-//     position: absolute;
-//     top: 0px;
-//     left: 0px;
-//     z-index: 1;
-//     // width: 63.5%;
-//     // height: 50px;
-//     // display: flex;
-//     // align-items: center;
-//     // justify-content: center;
-//     // background-color: #fff;
-//     // border-radius: 5px;
-//     // box-shadow: 0px 10px 25px #727272;
-//     // padding: 10px 20px;
-// }
-
-.searchBar {
-    max-width: 80%;
-    text-align: center;
-    margin: 50px auto;
-
-    form {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 15px;
-        // margin: 30px auto;
-        padding: 20px;
-        border-radius: 10px;
-        background-color: var(--bg-dark);
-        box-shadow: var(--box-shadow-small);
-    }
+form {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
 
     button {
         flex: 1;
@@ -94,14 +68,4 @@
         color: var(--text-light);
         background-color: var(--bg-dark-hover);
     }
-}
-
-::-webkit-calendar-picker-indicator {
-    cursor: pointer;
-    filter: invert(1);
-}
-
-::placeholder,
-input[type='date'] {
-    color: var(--text-light);
 }

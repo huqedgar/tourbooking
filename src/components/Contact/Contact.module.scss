@@ -1,0 +1,87 @@
+.container {
+    max-width: 85%;
+    margin: 0 auto;
+    padding: 8% 0 12px 0;
+}
+
+.titleBox {
+    position: absolute;
+    left: 17%;
+    padding: 20px 0;
+    text-align: start;
+    text-transform: capitalize;
+    letter-spacing: 1.5px;
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    span {
+        display: block;
+        margin: auto;
+        font-weight: 300;
+        font-size: 1.15rem;
+        line-height: 1.75;
+        color: var(--text-light);
+    }
+}
+
+.contactBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.contactLeft {
+    position: relative;
+    left: 20%;
+    padding: 25px;
+    background-color: var(--bg-dark);
+    border-radius: 5px;
+    border: 1px solid var(--black);
+}
+
+.contactFlex {
+    display: flex;
+    gap: 15px;
+}
+
+.contactColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-light);
+
+    label {
+        font-weight: 600;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 10px 15px;
+        outline: none;
+        border: 1px solid var(--black);
+        border-radius: 2px;
+    }
+
+    textarea {
+        margin-bottom: 10px;
+    }
+}
+
+.contactRight img {
+    width: 500px;
+    height: 700px;
+    border-radius: 10px;
+    object-fit: cover;
+}

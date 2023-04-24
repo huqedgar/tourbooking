@@ -2,20 +2,31 @@
 .wrapperTrending {
     width: 90%;
     margin: 0 auto;
-    padding: 9% 0 5px 0;
-    border-radius: 20px;
+    padding: 5% 0 0 0;
     overflow: hidden;
-    box-shadow: var(--border-shadow);
-    // border: 5px solid white;
+    border: 2px solid var(--black);
+    border-top: none;
+    border-radius: 0 0 20px 20px;
 }
 
-.heading {
-    width: 90%;
-    margin: 0 25px;
+.titleBox {
+    margin-left: 20px;
+    padding: 20px 0;
+    text-align: start;
+    text-transform: capitalize;
+    letter-spacing: 1.5px;
 
-    p {
-        line-height: 1.15;
-        letter-spacing: 1px;
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    span {
+        display: block;
+        margin: auto;
+        font-weight: 300;
+        font-size: 1.15rem;
+        line-height: 1.75;
+        color: var(--text-light);
     }
 }
 
@@ -25,7 +36,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
-    margin: 40px auto;
+    margin: 15px auto;
     padding: 0px 20px;
 }
 

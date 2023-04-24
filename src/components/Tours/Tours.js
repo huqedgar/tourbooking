@@ -52,9 +52,9 @@ const trends = [
 const Tours = () => {
     return (
         <section id="tours" className={cx('wrapperTrending')}>
-            <div className={cx('heading')}>
+            <div className={cx('titleBox')}>
                 <h2>Tours</h2>
-                <p>Find Your Destination - The Ultimate Guide to Your Dream Destination</p>
+                <span>Occaecat minim adipisicing deserunt excepteur nulla incididunt laboris fugiat anim ipsum.</span>
             </div>
             <div className={cx('wrapper')}>
                 {trends.map((trend) => (

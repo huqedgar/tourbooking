@@ -3,6 +3,7 @@ import SearchHome from '../../components/SearchHome/SearchHome';
 import Tours from '../../components/Tours/Tours';
 import Destinations from '../../components/Destinations/Destinations';
 import About from '../../components/About/About';
+import Contact from '../../components/Contact/Contact';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <Tours />
             <Destinations />
             <About />
+            <Contact />
         </>
     );
 };

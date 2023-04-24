@@ -59,9 +59,9 @@ const destinations = [
 const Destinations = () => {
     return (
         <section id="destinations" className={cx('wrapperDestinations')}>
-            <div>
+            <div className={cx('titleBox')}>
                 <h2>Popular Destinations</h2>
-                <p>Occaecat minim adipisicing deserunt excepteur nulla incididunt laboris fugiat anim ipsum.</p>
+                <span>Occaecat minim adipisicing deserunt excepteur nulla incididunt laboris fugiat anim ipsum.</span>
             </div>
             <div className={cx('grid')}>
                 {destinations.map((destinations, index) => (

@@ -25,6 +25,10 @@ const categories = [
         link: '/home#about',
         name: 'about',
     },
+    {
+        link: '/home#contact',
+        name: 'contact',
+    },
 ];
 
 const Header = () => {

@@ -1,7 +1,9 @@
 import { BrowserRouter } from 'react-router-dom';
 import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
+import 'moment/locale/vi';
+import moment from 'moment';
 
-import Login from './pages/Login/Login';
+moment().local('vi');
 
 function App() {
     return (

@@ -7,8 +7,8 @@ const About = () => {
     return (
         <section id="about" className={cx('container')}>
             <div className={cx('titleBox')}>
-                <span>things to know about us</span>
                 <h2>our story</h2>
+                <span>things to know about us</span>
             </div>
             <div className={cx('aboutBox')}>
                 <div className={cx('aboutLeft')}>

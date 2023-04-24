@@ -36,7 +36,7 @@ const Footer = () => {
                         excepteur consequat ipsum qui.
                     </p>
                     <div className={cx('input')}>
-                        <input type="text" placeholder="Enter your Email Address" />
+                        <input type="email" placeholder="Enter your Email Address" />
                         <Button primary>Subscribe</Button>
                     </div>
                     <ul>
@@ -70,7 +70,7 @@ const Footer = () => {
                     </span>
                 </div>
             </div>
-            <span className={cx('copyright')}>huqedgar - All Copyright Reserved</span>
+            <span className={cx('copyright')}>Created by huqedgar</span>
         </footer>
     );
 };

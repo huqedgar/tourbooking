@@ -14,9 +14,9 @@
     --primary-hover: #38bdf8;
     --secondary: linear-gradient(90deg, #007cf0, #00dfd8);
 
-    --text-light: #a3b0c2;
+    --text-light: rgba(0, 0, 0, 0.75);
 
-    --bg-dark: #111;
+    --bg-dark: rgba(255, 255, 255, 0.85);
     --bg-dark-hover: rgba(255, 255, 255, 0.125);
 
     --border-shadow: 0 0 0 1px #404040;
@@ -35,8 +35,24 @@
 body {
     width: 100%;
     font-family: var(--font-family);
-    background-color: var(--black);
     text-rendering: optimizespeed;
+    background: linear-gradient(pink, transparent), linear-gradient(90deg, white, transparent),
+        linear-gradient(-90deg, skyblue, transparent);
+    background-blend-mode: screen;
+}
+
+body *::-webkit-animation {
+    animation: hue 30s infinite linear;
+
+    @keyframes hue {
+        from {
+            -webkit-filter: hue-rotate(0deg);
+        }
+
+        to {
+            -webkit-filter: hue-rotate(-360deg);
+        }
+    }
 }
 
 // Scrollbar CSS
@@ -78,15 +94,15 @@ img {
     object-position: center;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong {
-    color: var(--white);
-}
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// strong {
+//     color: var(--black);
+// }
 
 h2 {
     font-size: 2.4rem;
@@ -100,6 +116,16 @@ h3 {
 
 p {
     margin: 10px 0;
+    color: var(--text-light);
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(0);
+}
+
+::placeholder,
+input[type='date'] {
     color: var(--text-light);
 }
 

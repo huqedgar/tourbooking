@@ -5,6 +5,7 @@ import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
 import SearchResultList from '../pages/SearchResultList/SearchResultList';
 import TourDetails from '../pages/TourDetails/TourDetails';
+import NotFound404 from '../pages/NotFound404/NotFound404';
 
 const Routers = () => {
     return (
@@ -15,6 +16,7 @@ const Routers = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/search" element={<SearchResultList />} />
+            <Route path="/404" element={<NotFound404 />} />
         </Routes>
     );
 };
