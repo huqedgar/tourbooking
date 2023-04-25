@@ -4,7 +4,6 @@
     top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // border: 1px solid #000;
 }
 
 .searchBox {
@@ -12,32 +11,30 @@
     max-width: 80%;
     text-align: center;
     margin: 50px auto;
-    background-color: var(--bg-dark);
+    background-color: var(--bg);
     border-radius: 10px;
     transform: translateY(100%);
+    border: 1px solid var(--text-light);
     z-index: 1;
 }
 
 .travelBox {
     position: relative;
     padding-bottom: 25px;
-    // box-shadow: 0px 20px 25px -10px var(--shadow-color);
-    // border: 1px solid #000;
 
     &::before {
         content: '';
         width: 100%;
         height: 100%;
         position: absolute;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: var(--bg-hover);
         backdrop-filter: blur(5px);
-        box-shadow: var(--border-shadow);
         border-radius: 10px;
         z-index: -1;
     }
 
     h3 {
-        margin: 0;
+        color: var(--white);
         padding: 30px 0px 10px 35px;
     }
 }
@@ -64,8 +61,8 @@
     overflow: hidden;
     margin-right: 3%;
     user-select: none;
-    border-radius: 20px;
-    // cursor: pointer;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-primary);
 
     img {
         transition: all linear 0.5s;
@@ -90,7 +87,6 @@
     justify-content: space-between;
     padding: 15px;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.6) 100%);
-    box-shadow: var(--border-shadow);
 }
 
 .star {
@@ -119,22 +115,21 @@
 }
 
 .text {
+    text-transform: capitalize;
+    letter-spacing: 1.5px;
+
     strong {
-        display: block;
         font-size: 1.6rem;
         font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: capitalize;
     }
 
     span {
         display: flex;
+        align-items: center;
         gap: 5px;
-        margin-top: 10px;
+        margin-top: 5px;
         font-size: 0.8rem;
         font-weight: 500;
-        letter-spacing: 1px;
-        text-transform: capitalize;
     }
 }
 
@@ -142,14 +137,3 @@
     font-size: 1.3rem;
     font-weight: 700;
 }
-
-// @media (max-width: 600px) {
-//     .contentBox {
-//         margin: 0 30px;
-
-//         h1 {
-//             font-size: 1.9rem;
-//             line-height: 2.3rem;
-//         }
-//     }
-// }

@@ -22,6 +22,10 @@ const categories = [
         name: 'destinations',
     },
     {
+        link: '/home#blog',
+        name: 'blog',
+    },
+    {
         link: '/home#about',
         name: 'about',
     },
@@ -68,7 +72,7 @@ const Header = () => {
             style={{
                 backgroundColor: visible || showMenu ? 'background-color: rgba(0, 0, 0, 0.5)' : 'transparent',
                 backdropFilter: visible || showMenu ? 'saturate(180%) blur(10px)' : '',
-                boxShadow: visible ? 'inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.1)' : 'none',
+                boxShadow: visible ? 'var(--box-shadow-primary)' : 'none',
             }}
         >
             <nav className={cx('navBar')}>
@@ -83,25 +87,26 @@ const Header = () => {
                         <li key={index}>
                             <a
                                 href={category.link}
-                                className={id === category.name ? cx('navLink', 'active') : cx('navLink')}
+                                className={
+                                    id === category.name
+                                        ? visible || showMenu
+                                            ? cx('navLink', 'navLinkScroll', 'active')
+                                            : cx('navLink', 'active')
+                                        : visible || showMenu
+                                        ? cx('navLink', 'navLinkScroll')
+                                        : cx('navLink')
+                                }
                             >
                                 {category.name}
                             </a>
                         </li>
                     ))}
                 </ul>
-                <div>
-                    <NavLink className="mr-4" to={'/login'}>
-                        <Button secondary small>
-                            Login
-                        </Button>
-                    </NavLink>
-                    <NavLink to={'/register'}>
-                        <Button primary small>
-                            Register
-                        </Button>
-                    </NavLink>
-                </div>
+                <NavLink to={'/login'}>
+                    <Button primary small>
+                        Login / Register
+                    </Button>
+                </NavLink>
             </nav>
         </header>
     );

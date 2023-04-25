@@ -7,18 +7,15 @@ header {
     z-index: 100;
     user-select: none;
     transition: all ease-in-out 0.3s;
-    // border: 1px solid #000;
 }
 
 .navBar {
     width: 100%;
-    // max-width: var(--max-width);
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
     padding: 22px 45px;
-    // border: 1px solid #000;
 
     h3 {
         background: -webkit-linear-gradient(90deg, #007cf0, #00dfd8);
@@ -43,6 +40,14 @@ header {
 
     &:is(:hover, .active) {
         text-decoration: 2px overline var(--white);
+    }
+}
+
+.navLinkScroll {
+    color: var(--black);
+
+    &:is(:hover, .active) {
+        text-decoration: 2px overline var(--black);
     }
 }
 

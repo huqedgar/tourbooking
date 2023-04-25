@@ -8,20 +8,18 @@ footer {
 
 .container {
     width: 100%;
-    // display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     display: flex;
     justify-content: center;
     gap: 30px;
     padding: 50px 30px 30px 30px;
     color: var(--text-light);
-    box-shadow: var(--border-shadow);
+    border-top: 1px solid var(--text-light);
+    border-bottom: 1px solid var(--text-light);
 }
 .box {
     text-align: center;
     width: 50%;
     letter-spacing: 1px;
-    // border: 1px solid #fff;
 
     &:first-child {
         margin-left: 10%;
@@ -87,16 +85,6 @@ footer {
     margin-right: 6px;
 }
 
-.copyright {
-    width: 100%;
-    text-align: center;
-    padding: 15px;
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 1px;
-    color: var(--text-light);
-}
-
 .subscribe {
     width: 100%;
     display: flex;
@@ -104,8 +92,6 @@ footer {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    color: var(--white);
-    // border: 1px solid #fff;
 
     h2 {
         line-height: 40px;
@@ -140,20 +126,29 @@ footer {
         font-size: 12px;
         font-weight: 600;
         line-height: 20px;
-        border-top: 2px solid var(--white);
+        border-top: 2px solid var(--text-light);
     }
 }
 
 .input {
     display: flex;
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 5px;
-    box-shadow: 2px 2px 30px var(--shadow-color);
+    box-shadow: var(--box-shadow-primary);
 
     input {
         font-size: 12px;
         padding: 10px 15px;
         border-radius: 5px;
-        background-color: #fff;
     }
+}
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--text-light);
 }

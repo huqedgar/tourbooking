@@ -32,23 +32,23 @@ const Register = () => {
                         <div className={cx('login-form-content')}>
                             <div className={cx('form-item')}>
                                 <label htmlFor="name">Name</label>
-                                <input type="text" id="name" />
+                                <input type="text" id="name" placeholder="Enter your name." />
                             </div>
                             <div className={cx('form-item')}>
                                 <label htmlFor="emailAddress">Email Address</label>
-                                <input type="email" id="emailAddress" />
+                                <input type="email" id="emailAddress" placeholder="Enter your email address." />
                             </div>
                             <div className={cx('form-item')}>
                                 <label htmlFor="username">Username</label>
-                                <input type="text" id="username" />
+                                <input type="text" id="username" placeholder="Enter your username." />
                             </div>
                             <div className={cx('form-item')}>
                                 <label htmlFor="password">Password</label>
-                                <input type="password" id="password" />
+                                <input type="password" id="password" placeholder="Enter your password." />
                             </div>
                             <div className={cx('form-item')}>
                                 <label htmlFor="repeatPassword">Repeat Password</label>
-                                <input type="password" id="repeatPassword" />
+                                <input type="password" id="repeatPassword" placeholder="Enter your repeat password." />
                             </div>
                             <div className={cx('form-item')}>
                                 <Button type="submit" className="w-full" primary>

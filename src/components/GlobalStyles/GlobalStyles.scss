@@ -12,17 +12,17 @@
 
     --primary: #0ea5e9;
     --primary-hover: #38bdf8;
-    --secondary: linear-gradient(90deg, #007cf0, #00dfd8);
+    --secondary: linear-gradient(pink, transparent), linear-gradient(90deg, white, transparent),
+        linear-gradient(-90deg, skyblue, transparent);
 
     --text-light: rgba(0, 0, 0, 0.75);
 
-    --bg-dark: rgba(255, 255, 255, 0.85);
-    --bg-dark-hover: rgba(255, 255, 255, 0.125);
+    --bg: rgba(255, 255, 255, 0.75);
+    --bg-hover: rgba(255, 255, 255, 0.15);
 
-    --border-shadow: 0 0 0 1px #404040;
-    --border-shadow-hover: 0 0.25rem 2rem 0 rgba(0, 0, 0, 0.15);
-    --box-shadow-small: 2px 20px 30px #3232321a;
-    --box-shadow-medium: #ffffff33 0px 0px 15px, #ffffff26 0px 0px 3px 1px;
+    --box-shadow-primary: 0 3px 6px #00000030;
+    --box-shadow-small: 2.5px 20px 30px rgba(50, 50, 50, 0.1);
+    --box-shadow-medium: #ffffff35 0px 0px 15px, #ffffff25 0px 0px 3px 1px;
 }
 
 * {
@@ -94,18 +94,8 @@ img {
     object-position: center;
 }
 
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6,
-// strong {
-//     color: var(--black);
-// }
-
 h2 {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     font-weight: 700;
 }
 
@@ -127,21 +117,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
 ::placeholder,
 input[type='date'] {
     color: var(--text-light);
-}
-
-// Responsive
-@media (max-width: 600px) {
-    h2 {
-        font-size: 2rem;
-        line-height: 2.9rem;
-    }
-}
-
-@media (max-width: 300px) {
-    h2 {
-        font-size: 1.7rem;
-        line-height: 2.5rem;
-    }
 }
 
 // Fonts emmbeded

@@ -8,51 +8,45 @@ const cx = classNames.bind(styles);
 const destinations = [
     {
         id: 1,
-        name: 'vinpearl',
-        location: 'nha trang',
+        location: 'Viet Nam',
+        places: 100,
         star: 4.8,
-        price: 99,
         img: '../../assets/images/d-1.jpg',
     },
     {
         id: 2,
-        name: 'vinpearl',
-        location: 'nha trang',
+        location: 'Viet Nam',
+        places: 100,
         star: 4.8,
-        price: 99,
-        img: '../../assets/images/d-2.jpg',
+        img: '../../assets/images/d-1.jpg',
     },
     {
         id: 3,
-        name: 'vinpearl',
-        location: 'nha trang',
+        location: 'Viet Nam',
+        places: 100,
         star: 4.8,
-        price: 99,
-        img: '../../assets/images/d-3.jpg',
+        img: '../../assets/images/d-1.jpg',
     },
     {
         id: 4,
-        name: 'vinpearl',
-        location: 'nha trang',
+        location: 'Viet Nam',
+        places: 100,
         star: 4.8,
-        price: 99,
-        img: '../../assets/images/d-4.jpg',
+        img: '../../assets/images/d-1.jpg',
     },
     {
         id: 5,
-        name: 'vinpearl',
-        location: 'nha trang',
+        location: 'Viet Nam',
+        places: 100,
         star: 4.8,
-        price: 99,
-        img: '../../assets/images/d-5.jpg',
+        img: '../../assets/images/d-1.jpg',
     },
     {
         id: 6,
-        name: 'vinpearl',
-        location: 'nha trang',
+        location: 'Viet Nam',
+        places: 100,
         star: 4.8,
-        price: 99,
-        img: '../../assets/images/d-6.jpg',
+        img: '../../assets/images/d-1.jpg',
     },
 ];
 
@@ -65,27 +59,25 @@ const Destinations = () => {
             </div>
             <div className={cx('grid')}>
                 {destinations.map((destinations, index) => (
-                    <div className={cx('card', `card-${index}`)} key={destinations.id}>
+                    <div className={cx('cardBox', `cardBox-${index}`)} key={destinations.id}>
                         <img
                             src={require('../../assets/images/d-1.jpg')}
                             alt={destinations.img}
                             width={600}
                             height={600}
                         />
-                        <div className={cx('box')}>
+                        <div className={cx('card')}>
                             <span className={cx('star')}>
                                 <FontAwesomeIcon className={cx('faStar')} icon={faStar} />
                                 {destinations.star}
                             </span>
-                            <div className={cx('group')}>
-                                <div className={cx('text')}>
-                                    <strong>{destinations.name}</strong>
-                                    <span>
-                                        <FontAwesomeIcon className={cx('faLocationDot')} icon={faLocationDot} />
-                                        {destinations.location}
-                                    </span>
-                                </div>
-                                <span className={cx('price')}>${destinations.price}</span>
+                            <div className={cx('title')}>
+                                <strong>{destinations.location}</strong>
+                                <span>
+                                    <FontAwesomeIcon className={cx('faLocationDot')} icon={faLocationDot} />
+                                    {destinations.places}
+                                    {' Places'}
+                                </span>
                             </div>
                         </div>
                     </div>

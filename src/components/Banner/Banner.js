@@ -2,6 +2,7 @@ import React, { useState, memo, useCallback, useRef } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Banner.module.scss';
 import Button from '../Button/Button';
+import { NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -90,9 +91,11 @@ const Banner = memo(() => {
             <div className={cx('contentBox')}>
                 <strong>Explore The World</strong>
                 <h1>The right destination for you and your family</h1>
-                <Button style={{ marginTop: '20px' }} primary>
-                    Explore Now
-                </Button>
+                <NavLink to={'/search'}>
+                    <Button style={{ marginTop: '20px' }} primary>
+                        Explore Now
+                    </Button>
+                </NavLink>
             </div>
         </section>
     );

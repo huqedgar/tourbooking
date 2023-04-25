@@ -6,7 +6,7 @@
 
 .titleBox {
     position: absolute;
-    left: 17%;
+    left: 15.8%;
     padding: 20px 0;
     text-align: start;
     text-transform: capitalize;
@@ -36,9 +36,9 @@
     position: relative;
     left: 20%;
     padding: 25px;
-    background-color: var(--bg-dark);
-    border-radius: 5px;
-    border: 1px solid var(--black);
+    background-color: var(--bg);
+    border-radius: 10px;
+    border: 1px solid var(--text-light);
 }
 
 .contactFlex {
@@ -70,8 +70,8 @@
         width: 100%;
         padding: 10px 15px;
         outline: none;
-        border: 1px solid var(--black);
-        border-radius: 2px;
+        border: 1px solid var(--text-light);
+        border-radius: 5px;
     }
 
     textarea {

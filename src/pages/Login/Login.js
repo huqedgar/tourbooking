@@ -17,11 +17,11 @@ const Login = () => {
                         <div className={cx('login-form-content')}>
                             <div className={cx('form-item')}>
                                 <label htmlFor="username">Username</label>
-                                <input type="text" id="username" />
+                                <input type="text" id="username" placeholder="Enter your username." />
                             </div>
                             <div className={cx('form-item')}>
                                 <label htmlFor="password">Password</label>
-                                <input type="password" id="password" />
+                                <input type="password" id="password" placeholder="Enter your password." />
                             </div>
                             <div className={cx('form-item', 'checkbox')}>
                                 <input type="checkbox" id="rememberMeCheckbox" />
@@ -30,7 +30,7 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className={cx('form-item')}>
-                                <Button type="submit" className="w-full" primary>
+                                <Button type="submit" primary>
                                     Login
                                 </Button>
                             </div>
