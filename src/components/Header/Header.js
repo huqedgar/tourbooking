@@ -22,8 +22,8 @@ const categories = [
         name: 'destinations',
     },
     {
-        link: '/home#blog',
-        name: 'blog',
+        link: '/home#blogs',
+        name: 'blogs',
     },
     {
         link: '/home#about',

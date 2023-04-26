@@ -4,6 +4,7 @@ import Tours from '../../components/Tours/Tours';
 import Destinations from '../../components/Destinations/Destinations';
 import About from '../../components/About/About';
 import Contact from '../../components/Contact/Contact';
+import Blogs from '../../components/Blogs/Blogs';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <SearchHome />
             <Tours />
             <Destinations />
+            <Blogs />
             <About />
             <Contact />
         </>
