@@ -1,0 +1,326 @@
+.wrapperProfile {
+    width: fit-content;
+    position: relative;
+    display: flex;
+    gap: 25px;
+    padding-top: 15vh;
+    margin: auto;
+    font-size: 0.9rem;
+}
+
+.sideLeft {
+    min-width: 300px;
+    height: fit-content;
+    padding: 10px 0;
+    overflow: hidden;
+    background-color: var(--bg);
+    border: 1px solid var(--text-light);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-primary);
+}
+
+.avatarBox {
+    display: flex;
+    padding: 0 15px 10px 15px;
+    align-items: center;
+    gap: 10px;
+
+    img {
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}
+
+.nameBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 600;
+
+    span:last-child {
+        font-weight: 400;
+    }
+}
+
+.chooseItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:nth-child(1),
+    &:nth-child(4) {
+        border-top: 1px solid var(--text-light);
+    }
+
+    &:hover {
+        background-color: rgba(210, 210, 210, 0.25);
+    }
+
+    .faRectangleList,
+    .faUser,
+    .faCreditCard,
+    .faRightFromBracket {
+        color: var(--primary);
+        width: 20px;
+    }
+}
+
+///////////////////////////////////////////////////////////
+///
+.sideRight {
+    min-width: 830px;
+}
+
+///////////////////////////
+///
+.myBooking {
+    padding: 15px;
+    background-color: var(--bg);
+    border-radius: 10px;
+    border: 1px solid var(--text-light);
+    box-shadow: var(--box-shadow-primary);
+}
+
+.myBookingHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #000;
+}
+
+.filterBox {
+    min-width: 150px;
+    padding: 5px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--text-light);
+}
+
+.myBookingTable {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 10px;
+    background-color: rgba(211, 211, 211, 0.25);
+
+    th,
+    td {
+        padding: 8px;
+        text-align: center;
+    }
+}
+
+.tableHead tr th {
+    font-weight: 500;
+    border-bottom: 1px solid var(--text-light);
+
+    &:nth-child(3) {
+        width: 35%;
+    }
+}
+
+.tableBody {
+    tr {
+        border-bottom: 1px solid var(--text-light);
+    }
+
+    tr td {
+        &:nth-child(1) {
+            display: flex;
+            justify-content: center;
+
+            img {
+                width: 50px;
+                height: 65px;
+                border-radius: 5px;
+            }
+        }
+
+        &:nth-child(4) span {
+            padding: 5px;
+            font-size: 0.8rem;
+            color: var(--white);
+            border-radius: 5px;
+            background-color: green;
+            // background-color: red;
+            // background-color: darkgray;
+            // background-color: yellowgreen;
+            // background-color: var(--primary);
+        }
+
+        &:nth-child(6) {
+            color: var(--primary);
+            cursor: pointer;
+        }
+    }
+}
+
+///////////////////////////
+///
+.myAccount {
+    padding: 15px;
+    background-color: var(--bg);
+    border-radius: 10px;
+    border: 1px solid var(--text-light);
+    box-shadow: var(--box-shadow-primary);
+
+    hr {
+        margin: 15px 0;
+        border: 0.5px solid var(--text-light);
+    }
+}
+
+.changeAvatarBox {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: auto;
+    border: 1px solid #000;
+
+    img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}
+
+.infoBox {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    border: 1px solid #000;
+}
+
+.inputFlex {
+    display: flex;
+    gap: 15px;
+}
+
+.input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    label,
+    span {
+        font-weight: 600;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+    input,
+    select {
+        width: 100%;
+        padding: 10px 15px;
+        border: 1px solid var(--text-light);
+        border-radius: 5px;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+.infoBottom {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+///////////////////////////
+///
+.myCards {
+    padding: 15px;
+    background-color: var(--bg);
+    border-radius: 10px;
+    border: 1px solid var(--text-light);
+    box-shadow: var(--box-shadow-primary);
+}
+
+.myCardsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.myCardsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.card {
+    width: 315px;
+    height: 235px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--text-light);
+    box-shadow: var(--box-shadow-primary);
+
+    hr {
+        margin: 10px 0 15px 0;
+        border: 0.5px solid var(--text-light);
+    }
+}
+
+.cardIcon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+        width: fit-content;
+        object-fit: fill;
+
+        &:nth-child(1) {
+            height: 25px;
+        }
+
+        &:nth-child(2) {
+            height: 30px;
+        }
+    }
+}
+
+.cardFlex {
+    display: flex;
+    justify-content: space-between;
+
+    .cardInfo:nth-child(2) {
+        align-items: center;
+    }
+}
+
+.cardInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+
+    span:nth-child(1) {
+        letter-spacing: 0.5px;
+    }
+
+    span:nth-child(2) {
+        font-weight: 500;
+        letter-spacing: 1.5px;
+    }
+}
+
+.cardAction {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}

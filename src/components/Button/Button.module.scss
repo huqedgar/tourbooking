@@ -39,12 +39,30 @@
     }
 }
 
+.third {
+    font-weight: 600;
+    padding: 10px 20px;
+    color: var(--black);
+    background-color: rgb(226 232 240);
+    border: 2px solid transparent;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-primary);
+    cursor: pointer;
+    transition: all ease 0.3s;
+
+    &:hover {
+        background-color: var(--primary-hover);
+        border: 2px solid var(--primary-hover);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
 .small {
     font-weight: 400;
     padding: 0.3rem 1rem 0.3rem 1rem;
-}
-
-.large {
 }
 
 .title {

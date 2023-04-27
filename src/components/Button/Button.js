@@ -10,9 +10,9 @@ function Button({
     href,
     primary = false,
     secondary = false,
+    third = false,
     disabled = false,
     small = false,
-    large = false,
     children,
     className,
     leftIcon,
@@ -47,9 +47,9 @@ function Button({
         [className]: className,
         primary,
         secondary,
+        third,
         disabled,
         small,
-        large,
     });
 
     return (
@@ -66,9 +66,9 @@ Button.propTypes = {
     href: PropTypes.string,
     primary: PropTypes.bool,
     secondary: PropTypes.bool,
+    third: PropTypes.bool,
     disabled: PropTypes.bool,
     small: PropTypes.bool,
-    large: PropTypes.bool,
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     leftIcon: PropTypes.node,
