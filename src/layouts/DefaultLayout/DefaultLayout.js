@@ -1,5 +1,5 @@
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import Header from '../../layouts/components/Header/Header';
+import Footer from '../../layouts/components/Footer/Footer';
 import Routers from '../../router/Routers';
 
 const DefaultLayout = () => {

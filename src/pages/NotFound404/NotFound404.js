@@ -1,4 +1,4 @@
-import Button from '../../components/Button/Button';
+import Button from '../../shared/Button/Button';
 import { NavLink } from 'react-router-dom';
 
 const NotFound404 = () => {

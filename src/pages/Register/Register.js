@@ -1,9 +1,12 @@
-import classNames from 'classnames/bind';
-import styles from './Register.module.scss';
-import Button from '../../components/Button/Button';
+import { useRef, useState } from 'react';
+import API, { endpoints } from '../../configs/API';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { NavLink } from 'react-router-dom';
+import classNames from 'classnames/bind';
+import styles from './Register.module.scss';
+import Button from '../../shared/Button/Button';
+import InputField from '../../shared/InputField/InputField';
 
 const cx = classNames.bind(styles);
 
@@ -30,31 +33,38 @@ const Register = () => {
                     <h1>Register</h1>
                     <form className={cx('login-form')}>
                         <div className={cx('login-form-content')}>
-                            <div className={cx('form-item')}>
-                                <label htmlFor="name">Name</label>
-                                <input type="text" id="name" placeholder="Enter your name." />
-                            </div>
-                            <div className={cx('form-item')}>
-                                <label htmlFor="emailAddress">Email Address</label>
-                                <input type="email" id="emailAddress" placeholder="Enter your email address." />
-                            </div>
-                            <div className={cx('form-item')}>
-                                <label htmlFor="username">Username</label>
-                                <input type="text" id="username" placeholder="Enter your username." />
-                            </div>
-                            <div className={cx('form-item')}>
-                                <label htmlFor="password">Password</label>
-                                <input type="password" id="password" placeholder="Enter your password." />
-                            </div>
-                            <div className={cx('form-item')}>
-                                <label htmlFor="repeatPassword">Repeat Password</label>
-                                <input type="password" id="repeatPassword" placeholder="Enter your repeat password." />
-                            </div>
-                            <div className={cx('form-item')}>
-                                <Button type="submit" className="w-full" primary>
-                                    Register
-                                </Button>
-                            </div>
+                            <InputField id="name" label="Name" type="text" placeholder="Enter your name." required />
+                            <InputField
+                                id="emailAddress"
+                                label="Email Address"
+                                type="email"
+                                placeholder="Enter your email address."
+                                required
+                            />
+                            <InputField
+                                id="username"
+                                label="Username"
+                                type="text"
+                                placeholder="Enter your username."
+                                required
+                            />
+                            <InputField
+                                id="password"
+                                label="Password"
+                                type="password"
+                                placeholder="Enter your password."
+                                required
+                            />
+                            <InputField
+                                id="repeatPassword"
+                                label="Repeat Password"
+                                type="password"
+                                placeholder="Enter your repeat password."
+                                required
+                            />
+                            <Button type="submit" className="w-full" primary>
+                                Register
+                            </Button>
                             <hr />
                         </div>
                         <div className={cx('login-form-footer')}>

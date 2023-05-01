@@ -1,0 +1,47 @@
+.input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-light);
+    font-size: 0.95rem;
+
+    label {
+        font-weight: 500;
+        margin-bottom: 5px;
+        text-align: left;
+        user-select: none;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 10px 15px;
+        border: 1px solid var(--text-light);
+        border-radius: 5px;
+    }
+
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--primary);
+        cursor: pointer;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+
+    label {
+        font-weight: 400;
+        cursor: pointer;
+    }
+}

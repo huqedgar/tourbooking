@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Contact.module.scss';
-import Button from '../Button/Button';
+import Button from '../../shared/Button/Button';
+import InputField from '../../shared/InputField/InputField';
 
 const cx = classNames.bind(styles);
 
@@ -12,29 +13,38 @@ const Contact = () => {
                 <span>contact for any query</span>
             </div>
             <div className={cx('contactBox')}>
-                <div className={cx('contactLeft')}>
+                <form className={cx('contactLeft')}>
                     <div className={cx('contactFlex')}>
-                        <div className={cx('input')}>
-                            <label htmlFor="yourname">Your Name</label>
-                            <input type="text" id="yourname" placeholder="Enter your name." required />
-                        </div>
-                        <div className={cx('input')}>
-                            <label htmlFor="youremail">Your Email</label>
-                            <input type="email" id="youremail" placeholder="Enter your email." required />
-                        </div>
+                        <InputField
+                            id="yourname"
+                            label="Your Name"
+                            type="text"
+                            placeholder="Enter your name."
+                            required
+                        />
+                        <InputField
+                            id="youremail"
+                            label="Your Email"
+                            type="email"
+                            placeholder="Enter your email."
+                            required
+                        />
                     </div>
                     <div className={cx('contactColumn')}>
-                        <div className={cx('input')}>
-                            <label htmlFor="subject">Subject</label>
-                            <input type="text" id="subject" placeholder="Enter subject." required />
-                        </div>
-                        <div className={cx('input')}>
-                            <label htmlFor="message">Message</label>
-                            <textarea id="message" placeholder="Enter message" required />
-                        </div>
-                        <Button primary>Send Message</Button>
+                        <InputField id="subject" label="Subject" type="text" placeholder="Enter subject." required />
+                        <InputField
+                            textarea
+                            id="message"
+                            label="Message"
+                            placeholder="Enter message."
+                            className="mb-4"
+                            required
+                        />
                     </div>
-                </div>
+                    <Button type="submit" primary>
+                        Send Message
+                    </Button>
+                </form>
                 <div className={cx('contactRight')}>
                     <img src={require('../../assets/images/contact.jpg')} alt="about img" />
                 </div>

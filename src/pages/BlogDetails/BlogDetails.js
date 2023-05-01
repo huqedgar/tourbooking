@@ -3,7 +3,8 @@ import classNames from 'classnames/bind';
 import styles from './BlogDetails.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays, faMessage, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import Button from '../../components/Button/Button';
+import Button from '../../shared/Button/Button';
+import InputField from '../../shared/InputField/InputField';
 import Moment from 'react-moment';
 import moment from 'moment-timezone';
 
@@ -158,13 +159,10 @@ const BlogDetails = () => {
                         an experience that's truly unforgettable!
                     </p>
                 </div>
-                <div className={cx('sideRight')} ref={sideRightRef} style={{ position: 'sticky', top: '90px' }}>
+                <div className={cx('sideRight')} ref={sideRightRef} style={{ position: 'sticky', top: '100px' }}>
                     <form className={cx('card1')} action="submit">
                         <h3>LEAVE A COMMENT</h3>
-                        <div className={cx('inputBox')}>
-                            <label htmlFor="message">Message</label>
-                            <textarea id="message" placeholder="Enter message" required />
-                        </div>
+                        <InputField textarea id="message" label="Message" placeholder="Enter message." required />
                         <Button type="submit" primary small>
                             Send Message
                         </Button>

@@ -9,7 +9,8 @@ import {
     faRightFromBracket,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import Button from '../../components/Button/Button';
+import Button from '../../shared/Button/Button';
+import InputField from '../../shared/InputField/InputField';
 
 const cx = classNames.bind(styles);
 
@@ -49,14 +50,14 @@ const Profile = () => {
                     <div className={cx('myBookingHeader')}>
                         <h3>Your Booking</h3>
                         <select className={cx('filterBox')} id="slFilter" name="slFilter">
-                            <option value="" selected disabled hidden>
+                            <option value="filter" selected disabled hidden>
                                 Filter
                             </option>
-                            <option value="">Success</option>
-                            <option value="">Paid</option>
-                            <option value="">Processed</option>
-                            <option value="">Failure</option>
-                            <option value="">Expired</option>
+                            <option value="success">Success</option>
+                            <option value="paid">Paid</option>
+                            <option value="processed">Processed</option>
+                            <option value="failure">Failure</option>
+                            <option value="expired">Expired</option>
                         </select>
                     </div>
                     <table className={cx('myBookingTable')}>
@@ -120,49 +121,58 @@ const Profile = () => {
                     <hr />
                     <div className={cx('changeAvatarBox')}>
                         <img src={require('../../assets/images/t-1.png')} alt="" />
-                        <Button primary small>
+                        <Button third small>
                             Change Avatar
                         </Button>
                     </div>
                     <div className={cx('infoBox')}>
-                        <div className={cx('input')}>
-                            <label htmlFor="fullname">Full Name</label>
-                            <input type="text" id="fullname" placeholder="Enter your full name." required />
-                        </div>
+                        <InputField
+                            id="fullname"
+                            label="Full Name"
+                            type="text"
+                            placeholder="Enter your full name."
+                            required
+                        />
                         <div className={cx('inputFlex')}>
-                            <div className={cx('input')}>
-                                <label htmlFor="email">Email</label>
-                                <input type="email" id="email" placeholder="Enter your email." required />
-                            </div>
-                            <div className={cx('input')}>
-                                <label htmlFor="phoneNumber">Phone Number</label>
-                                <input type="number" id="phoneNumber" placeholder="Enter your phone number." required />
-                            </div>
+                            <InputField
+                                id="email"
+                                label="Email"
+                                type="email"
+                                placeholder="Enter your email."
+                                required
+                            />
+                            <InputField
+                                id="phoneNumber"
+                                label="Phone Number"
+                                type="number"
+                                placeholder="Enter your phone number."
+                                required
+                            />
                         </div>
                         <div className={cx('inputFlex')}>
                             <div className={cx('input')}>
                                 <span>Gender</span>
                                 <select className={cx('genderBox')} id="slGender" name="slGender">
-                                    <option value="" selected disabled hidden>
+                                    <option value="gender" selected disabled hidden>
                                         Gender
                                     </option>
-                                    <option value="">Female</option>
-                                    <option value="">Male</option>
-                                    <option value="">Other</option>
+                                    <option value="female">Female</option>
+                                    <option value="male">Male</option>
+                                    <option value="other">Other</option>
                                 </select>
                             </div>
-                            <div className={cx('input')}>
-                                <label htmlFor="birthdate">Birthdate</label>
-                                <input type="date" id="birthdate" required />
-                            </div>
+                            <InputField id="birthdate" label="Birthdate" type="date" required />
                         </div>
-                        <div className={cx('input')}>
-                            <label htmlFor="address">Your Address</label>
-                            <input type="text" id="address" placeholder="Enter your address." required />
-                        </div>
+                        <InputField
+                            id="address"
+                            label="Your Address"
+                            type="text"
+                            placeholder="Enter your address."
+                            required
+                        />
                     </div>
                     <div className={cx('infoBottom')}>
-                        <Button secondary small className="text-black">
+                        <Button third small className="text-black">
                             Cancel
                         </Button>
                         <Button primary small>

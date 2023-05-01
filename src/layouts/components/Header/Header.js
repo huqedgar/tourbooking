@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faChevronDown, faRightFromBracket, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import Button from '../Button/Button';
+import { MyUserContext } from '../../../contexts/MyContext';
+import Button from '../../../shared/Button/Button';
+import Image from '../../../shared/Image/Image';
 
 const cx = classNames.bind(styles);
 
@@ -36,8 +38,10 @@ const categories = [
 ];
 
 const Header = () => {
+    const [user, dispatch] = useContext(MyUserContext);
     const [visible, setVisible] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
     const [id, setId] = useState('home');
 
     const touggleVisible = () => {
@@ -67,6 +71,16 @@ const Header = () => {
         };
     }, []);
 
+    const handleClick = () => {
+        setIsClicked(!isClicked);
+    };
+
+    const handleClickLogout = () => {
+        dispatch({
+            type: 'logout',
+        });
+    };
+
     return (
         <header
             style={{
@@ -82,7 +96,7 @@ const Header = () => {
                 <div className={cx('btnMenu')} onClick={() => setShowMenu((value) => !value)}>
                     {showMenu ? <FontAwesomeIcon icon={faBars} /> : <FontAwesomeIcon icon={faXmark} />}
                 </div>
-                <ul className="ml-16" style={{ height: showMenu ? 360 : 0 }}>
+                <ul style={{ height: showMenu ? 360 : 0 }}>
                     {categories.map((category, index) => (
                         <li key={index}>
                             <a
@@ -102,11 +116,41 @@ const Header = () => {
                         </li>
                     ))}
                 </ul>
-                <NavLink to={'/login'}>
-                    <Button primary small>
-                        Login / Register
-                    </Button>
-                </NavLink>
+                {user !== null ? (
+                    <div className={cx('userAvatarBox')}>
+                        <Button
+                            btnFlex
+                            third
+                            small
+                            leftIcon={<Image className={cx('userAvatar')} src={user.avatar} alt={user.avatar} />}
+                            rightIcon={<FontAwesomeIcon className={cx('faChevronDown')} icon={faChevronDown} />}
+                            className="font-semithin"
+                            onClick={handleClick}
+                        >
+                            {user.first_name}
+                        </Button>
+                        <div className={cx('userSelectBox', isClicked ? 'userSelectBoxShow' : 'userSelectBoxHide')}>
+                            <ul className={cx('userSelect')}>
+                                <li onClick={handleClick}>
+                                    <NavLink className={cx('userSelectItem')} to={'/profile'}>
+                                        <FontAwesomeIcon className={cx('faUser')} icon={faUser} />
+                                        Profile
+                                    </NavLink>
+                                </li>
+                                <li className={cx('userSelectItem')} onClick={handleClickLogout}>
+                                    <FontAwesomeIcon className={cx('faRightFromBracket')} icon={faRightFromBracket} />
+                                    Log Out
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                ) : (
+                    <NavLink to={'/login'}>
+                        <Button primary small>
+                            Login / Register
+                        </Button>
+                    </NavLink>
+                )}
             </nav>
         </header>
     );

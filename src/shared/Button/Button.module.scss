@@ -1,3 +1,10 @@
+.btnFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 .primary {
     font-weight: 600;
     padding: 10px 20px;
@@ -65,9 +72,10 @@
     padding: 0.3rem 1rem 0.3rem 1rem;
 }
 
-.title {
-}
+button[type='submit'] {
+    background-color: var(--primary);
 
-.icon {
-    margin-right: 10px;
+    &:hover {
+        background-color: var(--primary-hover);
+    }
 }

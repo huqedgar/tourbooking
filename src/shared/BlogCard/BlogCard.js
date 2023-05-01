@@ -3,7 +3,7 @@ import { faLocationDot, faMessage, faShoePrints, faThumbsUp } from '@fortawesome
 import { faCalendarDays, faCompass } from '@fortawesome/free-regular-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './BlogCard.module.scss';
-import Button from '../../components/Button/Button';
+import Button from '../Button/Button';
 import moment from 'moment-timezone';
 
 const cx = classNames.bind(styles);

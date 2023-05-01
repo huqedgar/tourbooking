@@ -1,7 +1,7 @@
 import React, { useState, memo, useCallback, useRef } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Banner.module.scss';
-import Button from '../Button/Button';
+import Button from '../../shared/Button/Button';
 import { NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
@@ -60,7 +60,7 @@ const Banner = memo(() => {
 
     return (
         <section id="home" className={cx('wrapperHome')}>
-            <div className={cx('videos')}>{videos.map(renderVideo)}</div>
+            {/* <div className={cx('videos')}>{videos.map(renderVideo)}</div> */}
             <div className={cx('videoControls')}>
                 <svg
                     className={cx('prev')}

@@ -1,11 +1,10 @@
 .card {
-    max-width: 350px;
-    max-height: 370px;
+    width: 320px;
+    height: 370px;
     padding: 15px;
     background-color: var(--white);
     border: 1px solid var(--text-light);
     border-radius: 10px;
-    cursor: pointer;
     transition: all ease 0.3s;
 
     &:hover {
@@ -23,17 +22,19 @@
     text-transform: capitalize;
 
     span {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        font-size: 0.75rem;
-    }
+        &:nth-child(1) {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 0.75rem;
+        }
 
-    a {
-        display: block;
-        font-weight: 600;
-        margin: 10px 0;
-        letter-spacing: 1px;
+        &:nth-child(2) {
+            display: block;
+            font-weight: 600;
+            margin: 10px 0;
+            letter-spacing: 1px;
+        }
     }
 
     .faLocationDot {
@@ -65,8 +66,8 @@
     font-weight: 500;
     color: var(--text-light);
 
+    .faStar,
     .faShoePrints,
-    .faCompass,
     .faCalendarDays {
         color: var(--primary);
         margin-right: 5px;
@@ -80,13 +81,6 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    font-weight: 700;
     color: var(--text-light);
-
-    p {
-        font-weight: 700;
-
-        span {
-            font-size: 0.62rem;
-        }
-    }
 }

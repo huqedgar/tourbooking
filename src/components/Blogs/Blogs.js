@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Blogs.module.scss';
-import BlogCard from '../BlogCard/BlogCard';
+import BlogCard from '../../shared/BlogCard/BlogCard';
 
 const cx = classNames.bind(styles);
 

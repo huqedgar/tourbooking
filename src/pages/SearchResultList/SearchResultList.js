@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './SearchResultList.module.scss';
 import SearchBar from '../../shared/SearchBar/SearchBar';
-import TourCard from '../../components/TourCard/TourCard';
+import TourCard from '../../shared/TourCard/TourCard';
 
 const cx = classNames.bind(styles);
 

@@ -8,6 +8,7 @@ const cx = classNames.bind(styles);
 function Button({
     to,
     href,
+    btnFlex = false,
     primary = false,
     secondary = false,
     third = false,
@@ -45,6 +46,7 @@ function Button({
 
     const classes = cx({
         [className]: className,
+        btnFlex,
         primary,
         secondary,
         third,
@@ -64,6 +66,7 @@ function Button({
 Button.propTypes = {
     to: PropTypes.string,
     href: PropTypes.string,
+    btnFlex: PropTypes.bool,
     primary: PropTypes.bool,
     secondary: PropTypes.bool,
     third: PropTypes.bool,

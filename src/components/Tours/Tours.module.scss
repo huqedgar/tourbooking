@@ -29,6 +29,42 @@
     }
 }
 
+.paginationBox {
+    position: absolute;
+    top: 105%;
+    right: 5%;
+    width: 15%;
+    height: 7%;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    box-shadow: var(--box-shadow-primary);
+    border-radius: 5px;
+}
+
+.numPage {
+    width: 50%;
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.prev,
+.next {
+    width: 25%;
+    font-size: 1.75rem;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--primary);
+    }
+
+    &:active {
+        color: var(--black);
+    }
+}
+
 .wrapper {
     width: 100%;
     display: flex;
