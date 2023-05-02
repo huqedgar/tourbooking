@@ -46,7 +46,7 @@ form {
     color: var(--text-light);
     background-color: var(--white);
     border-radius: 50%;
-    border: 1px solid var(--text-light);
+    box-shadow: var(--box-shadow-primary);
 }
 
 .input {
@@ -69,6 +69,6 @@ form {
         color: var(--text-light);
         background-color: var(--white);
         border-radius: 5px;
-        border: 1px solid var(--text-light);
+        box-shadow: var(--box-shadow-primary);
     }
 }

@@ -48,7 +48,7 @@ const Login = () => {
 
                 Cookies.set('access-token', res.data.access_token);
 
-                const user = await authAPI.get(endpoints['current-user']);
+                const user = await authAPI().get(endpoints['current-user']);
 
                 Cookies.set('current-user', user.data);
 
@@ -102,6 +102,7 @@ const Login = () => {
                                 className="w-full font-light"
                                 leftIcon={<FontAwesomeIcon icon={faFacebookF} />}
                                 secondary
+                                btnFlex
                             >
                                 Facebook
                             </Button>
@@ -110,6 +111,7 @@ const Login = () => {
                                 className="w-full font-light"
                                 leftIcon={<FontAwesomeIcon icon={faGoogle} />}
                                 secondary
+                                btnFlex
                             >
                                 Google
                             </Button>

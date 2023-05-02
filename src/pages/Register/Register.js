@@ -33,7 +33,13 @@ const Register = () => {
                     <h1>Register</h1>
                     <form className={cx('login-form')}>
                         <div className={cx('login-form-content')}>
-                            <InputField id="name" label="Name" type="text" placeholder="Enter your name." required />
+                            <InputField
+                                id="lastname"
+                                label="Last Name"
+                                type="text"
+                                placeholder="Enter your last name."
+                                required
+                            />
                             <InputField
                                 id="emailAddress"
                                 label="Email Address"
@@ -72,6 +78,7 @@ const Register = () => {
                                 className="w-full font-light"
                                 leftIcon={<FontAwesomeIcon icon={faFacebookF} />}
                                 secondary
+                                btnFlex
                             >
                                 Facebook
                             </Button>
@@ -80,6 +87,7 @@ const Register = () => {
                                 className="w-full font-light"
                                 leftIcon={<FontAwesomeIcon icon={faGoogle} />}
                                 secondary
+                                btnFlex
                             >
                                 Google
                             </Button>

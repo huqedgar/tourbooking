@@ -1,4 +1,4 @@
-import React, { useState, memo, useCallback, useRef } from 'react';
+import React, { useState, memo, useCallback, useRef, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Banner.module.scss';
 import Button from '../../shared/Button/Button';
@@ -7,9 +7,11 @@ import { NavLink } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 const countries = ['Vietnam', 'Dubai', 'Luxurious', 'Desert', 'Seashore'];
-const videoSources = Array.from({ length: 5 }, (_, i) => ({
-    src: require(`../../assets/videos/vid-${i + 1}.mp4`),
-}));
+const videoSources = Array(5)
+    .fill()
+    .map((_, i) => ({
+        src: require(`../../assets/videos/vid-${i + 1}.mp4`),
+    }));
 
 const Banner = memo(() => {
     const [videos, setVideos] = useState(videoSources.map((source, i) => ({ src: source.src, isActive: i === 0 })));
@@ -38,6 +40,17 @@ const Banner = memo(() => {
         [videos],
     );
 
+    useEffect(() => {
+        videos.forEach((video, i) => {
+            const videoElement = document.getElementById(`video${i + 1}`);
+            if (i === indexRef.current) {
+                videoElement.play();
+            } else {
+                videoElement.pause();
+            }
+        });
+    }, [videos, indexRef.current]);
+
     const showNextVideo = useCallback(() => showVideo(indexRef.current + 1), [showVideo]);
     const showPrevVideo = useCallback(() => showVideo(indexRef.current - 1), [showVideo]);
 
@@ -49,7 +62,7 @@ const Banner = memo(() => {
                 className={cx('video', { live: video.isActive })}
                 id={`video${i + 1}`}
                 alt={`Video ${i + 1}`}
-                onEnded={showNextVideo} // thêm sự kiện ended và kích hoạt showNextVideo
+                onEnded={showNextVideo}
                 autoPlay
                 muted
                 preload="auto"
@@ -60,7 +73,7 @@ const Banner = memo(() => {
 
     return (
         <section id="home" className={cx('wrapperHome')}>
-            {/* <div className={cx('videos')}>{videos.map(renderVideo)}</div> */}
+            <div className={cx('videos')}>{videos.map(renderVideo)}</div>
             <div className={cx('videoControls')}>
                 <svg
                     className={cx('prev')}

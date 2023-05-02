@@ -10,6 +10,7 @@
 }
 
 .titleBox {
+    position: relative;
     margin-left: 20px;
     padding: 20px 0;
     text-align: start;
@@ -27,6 +28,42 @@
         font-size: 1.15rem;
         line-height: 1.75;
         color: var(--text-light);
+    }
+}
+
+.paginationBox {
+    position: absolute;
+    top: 40%;
+    right: 1.75%;
+    width: 15%;
+    padding: 8px 0 8px 5px;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    box-shadow: var(--box-shadow-primary);
+    border-radius: 5px;
+}
+
+.numPage {
+    width: 50%;
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.prev,
+.next {
+    width: 25%;
+    font-size: 1.75rem;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--primary);
+    }
+
+    &:active {
+        color: var(--black);
     }
 }
 

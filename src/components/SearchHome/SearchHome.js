@@ -4,69 +4,53 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './SearchHome.module.scss';
-
+import API, { endpoints } from '../../configs/API';
 import SearchBar from '../../shared/SearchBar/SearchBar';
+import { Link } from 'react-router-dom';
+import Image from '../../shared/Image/Image';
 
 const cx = classNames.bind(styles);
 
-const destinations = [
-    {
-        id: 1,
-        name: 'vinpearl',
-        location: 'nha trang',
-        star: 4.8,
-        price: 99,
-        img: '../../assets/images/d-1.jpg',
-    },
-    {
-        id: 2,
-        name: 'vinpearl',
-        location: 'nha trang',
-        star: 4.8,
-        price: 99,
-        img: '../../assets/images/d-2.jpg',
-    },
-    {
-        id: 3,
-        name: 'vinpearl',
-        location: 'nha trang',
-        star: 4.8,
-        price: 99,
-        img: '../../assets/images/d-3.jpg',
-    },
-    {
-        id: 4,
-        name: 'vinpearl',
-        location: 'nha trang',
-        star: 4.8,
-        price: 99,
-        img: '../../assets/images/d-4.jpg',
-    },
-    {
-        id: 5,
-        name: 'vinpearl',
-        location: 'nha trang',
-        star: 4.8,
-        price: 99,
-        img: '../../assets/images/d-5.jpg',
-    },
-    {
-        id: 6,
-        name: 'vinpearl',
-        location: 'nha trang',
-        star: 4.8,
-        price: 99,
-        img: '../../assets/images/d-5.jpg',
-    },
-];
-
 const SearchHome = () => {
-    const [width, setWidth] = useState(0);
     const carousel = useRef();
+    const [width, setWidth] = useState(0);
+    const [tours, setTours] = useState(null);
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
-        setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-    }, []);
+        const loadTours = async () => {
+            try {
+                let res = await API.get(`${endpoints['tours']}?page=${page}`);
+                setTours(res.data.results);
+                setTotalPages(Math.ceil(res.data.count / 20));
+                setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+            } catch (ex) {
+                setPage(1);
+            }
+        };
+        loadTours();
+    }, [page]);
+
+    const nextPage = () => {
+        if (page < totalPages) {
+            setPage((current) => current + 1);
+        }
+    };
+
+    const prevPage = () => {
+        if (page > 1) {
+            setPage((current) => current - 1);
+        }
+    };
+
+    if (tours === null) {
+        return <div>Loading...</div>;
+    }
+
+    if (!tours?.length) {
+        return <div>Không có chuyến đi nào!</div>;
+    }
 
     return (
         <section id="search" className={cx('wrapperSearch')}>
@@ -75,36 +59,44 @@ const SearchHome = () => {
             </div>
             <div className={cx('travelBox')}>
                 <h3>Treding</h3>
-                <motion.div ref={carousel} whileTap={{ cursor: 'grabbing' }} className={cx('carousel')}>
+                <motion.div ref={carousel} whileHover={{ cursor: 'grabbing' }} className={cx('carousel')}>
                     <motion.div drag="x" dragConstraints={{ right: 0, left: -width }} className={cx('cardBox')}>
-                        {destinations.map((destinations) => (
-                            <motion.div className={cx('card')} key={destinations.id}>
-                                <img
-                                    src={require('../../assets/images/d-1.jpg')}
-                                    alt={destinations.img}
-                                    width={600}
-                                    height={600}
-                                />
+                        {tours.map((tour) => (
+                            <motion.div className={cx('card')} key={tour.id}>
+                                <Image src={tour.image_tour} alt={tour.image_tour} />
                                 <div className={cx('box')}>
                                     <span className={cx('star')}>
                                         <FontAwesomeIcon className={cx('faStar')} icon={faStar} />
-                                        {destinations.star}
+                                        {tour.rating_count_tour}
                                     </span>
                                     <div className={cx('group')}>
                                         <div className={cx('text')}>
-                                            <strong>{destinations.name}</strong>
+                                            <Link to={`/tours/${tour.id}/details-tour/`}>
+                                                <strong>{tour.address_tour}</strong>
+                                            </Link>
                                             <span>
                                                 <FontAwesomeIcon className={cx('faLocationDot')} icon={faLocationDot} />
-                                                {destinations.location}
+                                                {tour.country_tour}
                                             </span>
                                         </div>
-                                        <span className={cx('price')}>${destinations.price}</span>
+                                        <span className={cx('price')}>
+                                            {Number(tour.price_tour / 1000000)}
+                                            {' tr'}
+                                        </span>
                                     </div>
                                 </div>
                             </motion.div>
                         ))}
                     </motion.div>
                 </motion.div>
+                <div className={cx('paginationBox')}>
+                    <span className={cx('prev')} onClick={prevPage}>
+                        {'<'}
+                    </span>
+                    <span className={cx('next')} onClick={nextPage}>
+                        {'>'}
+                    </span>
+                </div>
             </div>
         </section>
     );

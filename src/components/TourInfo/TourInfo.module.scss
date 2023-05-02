@@ -9,7 +9,6 @@
 .sideLeft {
     width: 100%;
     flex: 3;
-    // border: 1px solid #000;
 }
 
 .info {
@@ -17,7 +16,6 @@
     border-radius: 10px;
     background-color: var(--bg);
     box-shadow: var(--box-shadow-primary);
-    border: 1px solid var(--text-light);
 
     h3 {
         margin-bottom: 20px;
@@ -26,7 +24,6 @@
 
 .highlight {
     padding: 20px;
-    // border: 1px solid #000;
 
     h3 {
         text-transform: capitalize;
@@ -40,7 +37,6 @@
 
 .timeline {
     padding: 20px;
-    // border: 1px solid #000;
 
     h3 {
         text-transform: capitalize;
@@ -50,7 +46,6 @@
         display: flex;
         flex-direction: column;
         padding: 20px;
-        // border: 1px solid #000;
     }
 
     li::before {
@@ -68,7 +63,6 @@
 
 .experience {
     padding: 20px;
-    // border: 1px solid #000;
 
     h3 {
         text-transform: capitalize;
@@ -88,8 +82,6 @@
     border-radius: 10px;
     background-color: var(--bg);
     box-shadow: var(--box-shadow-primary);
-    border: 1px solid var(--text-light);
-    // border: 1px solid #000;
 
     span {
         display: flex;
@@ -112,8 +104,6 @@
     border-radius: 10px;
     background-color: var(--bg);
     box-shadow: var(--box-shadow-primary);
-    border: 1px solid var(--text-light);
-    // border: 1px solid #000;
 
     h3 {
         text-transform: capitalize;
@@ -132,7 +122,6 @@
     width: 100%;
     height: 100%;
     flex: 1;
-    // border: 1px solid #000;
 }
 
 .card {
@@ -142,7 +131,6 @@
     border-radius: 10px;
     background-color: var(--bg);
     box-shadow: var(--box-shadow-primary);
-    border: 1px solid var(--text-light);
 }
 
 ///////////////////////////
@@ -155,6 +143,7 @@
     padding: 15px;
     background-color: rgba($color: #000000, $alpha: 0.05);
     border-radius: 5px;
+    box-shadow: var(--box-shadow-primary);
 
     span {
         display: flex;
@@ -202,7 +191,7 @@
     padding-left: 10px;
     background-color: rgba($color: #000000, $alpha: 0.05);
     border-radius: 5px;
-    border: 1px solid var(--text-light);
+    box-shadow: var(--box-shadow-primary);
 
     input[type='date'] {
         width: 100%;
@@ -221,7 +210,6 @@
     flex-direction: column;
     margin-top: 15px;
     color: var(--text-light);
-    // border: 1px solid #000;
 
     h4 {
         font-weight: bold;
@@ -237,7 +225,7 @@
     padding: 0px 10px;
     background-color: rgba($color: #000000, $alpha: 0.05);
     border-radius: 5px;
-    border: 1px solid var(--text-light);
+    box-shadow: var(--box-shadow-primary);
 
     .faUsers,
     .faCaretDown {
@@ -264,6 +252,7 @@
     border-radius: 10px;
     box-shadow: var(--box-shadow-primary);
     transform: translate(0, 10px);
+    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.95);
     visibility: hidden;
     opacity: 0;
 }
@@ -281,14 +270,12 @@
 }
 
 .visitorBoxSelectShow {
-    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.95);
     visibility: visible;
     opacity: 1;
     z-index: 10;
 }
 
 .visitorBoxSelectHide {
-    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.95);
     visibility: hidden;
     opacity: 0;
     z-index: 0;

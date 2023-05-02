@@ -9,6 +9,7 @@
 }
 
 .titleBox {
+    position: relative;
     margin-left: 20px;
     padding: 20px 0;
     text-align: start;
@@ -31,10 +32,10 @@
 
 .paginationBox {
     position: absolute;
-    top: 105%;
-    right: 5%;
+    top: 40%;
+    right: 1.75%;
     width: 15%;
-    height: 7%;
+    padding: 8px 0 8px 5px;
     display: flex;
     align-items: center;
     user-select: none;

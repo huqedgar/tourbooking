@@ -32,7 +32,7 @@
     display: flex;
     border-radius: 10px;
     background-color: var(--bg);
-    border: 1px solid var(--text-light);
+    box-shadow: var(--box-shadow-primary);
 }
 
 .filterBox {

@@ -1,54 +1,65 @@
+import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Blogs.module.scss';
+import API, { endpoints } from '../../configs/API';
 import BlogCard from '../../shared/BlogCard/BlogCard';
 
 const cx = classNames.bind(styles);
 
-const blogs = [
-    {
-        id: 1,
-        title: 'Du lịch Đà Lạt – Cẩm nang từ A đến Z',
-        date: '2023-04-21T12:59-0500',
-        img: '../../assets/images/t-1.jpg',
-        content: 'Ipsum proident veniam deserunt commodo sit irure adipisicing enim est excepteur sunt ex.',
-        liked: 132,
-        comments: 212,
-    },
-    {
-        id: 2,
-        title: 'Du lịch Đà Lạt – Cẩm nang từ A đến Z',
-        date: '2023-04-21T12:59-0500',
-        img: '../../assets/images/t-1.jpg',
-        content: 'Ipsum proident veniam deserunt commodo sit irure adipisicing enim est excepteur sunt ex.',
-        liked: 132,
-        comments: 212,
-    },
-    {
-        id: 3,
-        title: 'Du lịch Đà Lạt – Cẩm nang từ A đến Z',
-        date: '2023-04-21T12:59-0500',
-        img: '../../assets/images/t-1.jpg',
-        content: 'Ipsum proident veniam deserunt commodo sit irure adipisicing enim est excepteur sunt ex.',
-        liked: 132,
-        comments: 212,
-    },
-    {
-        id: 4,
-        title: 'Du lịch Đà Lạt – Cẩm nang từ A đến Z',
-        date: '2023-04-21T12:59-0500',
-        img: '../../assets/images/t-1.jpg',
-        content: 'Ipsum proident veniam deserunt commodo sit irure adipisicing enim est excepteur sunt ex.',
-        liked: 132,
-        comments: 212,
-    },
-];
-
 const Blogs = () => {
+    const [blogs, setBlogs] = useState(null);
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+
+    useEffect(() => {
+        const loadBlogs = async () => {
+            try {
+                let res = await API.get(`${endpoints['blogs']}?page=${page}`);
+                setBlogs(res.data.results);
+                setTotalPages(Math.ceil(res.data.count / 20));
+            } catch (ex) {
+                setPage(1);
+            }
+        };
+        loadBlogs();
+    }, [page]);
+
+    const nextPage = () => {
+        if (page < totalPages) {
+            setPage((current) => current + 1);
+        }
+    };
+
+    const prevPage = () => {
+        if (page > 1) {
+            setPage((current) => current - 1);
+        }
+    };
+
+    if (blogs === null) {
+        return <div>Loading...</div>;
+    }
+
+    if (!blogs?.length) {
+        return <div>Không có chuyến đi nào!</div>;
+    }
+
     return (
         <section id="blogs" className={cx('wrapperBlogs')}>
             <div className={cx('titleBox')}>
                 <h2>Blogs</h2>
                 <span>Occaecat minim adipisicing deserunt excepteur nulla incididunt laboris fugiat anim ipsum.</span>
+                <div className={cx('paginationBox')}>
+                    <span className={cx('numPage')}>
+                        {'Page'} {page}/{totalPages}
+                    </span>
+                    <span className={cx('prev')} onClick={prevPage}>
+                        {'<'}
+                    </span>
+                    <span className={cx('next')} onClick={nextPage}>
+                        {'>'}
+                    </span>
+                </div>
             </div>
             <div className={cx('wrapper')}>
                 {blogs.map((blog) => (

@@ -6,6 +6,7 @@ import Button from '../Button/Button';
 import Moment from 'react-moment';
 import { NumericFormat } from 'react-number-format';
 import { Link } from 'react-router-dom';
+import Image from '../Image/Image';
 
 const cx = classNames.bind(styles);
 
@@ -22,7 +23,7 @@ const TourCard = ({ tour }) => {
             </div>
 
             <div className={cx('imgContainer')}>
-                <img src={tour.image_tour} alt={tour.image_tour} width={350} height={170} />
+                <Image src={tour.image_tour} alt={tour.image_tour} />
             </div>
 
             <div className={cx('text')}>

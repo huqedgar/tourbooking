@@ -8,18 +8,20 @@
 
 .searchBox {
     position: relative;
-    max-width: 80%;
+    max-width: 77%;
     text-align: center;
     margin: 50px auto;
     background-color: var(--bg);
     border-radius: 10px;
     transform: translateY(100%);
-    border: 1px solid var(--text-light);
+    box-shadow: var(--box-shadow-primary);
     z-index: 1;
 }
 
 .travelBox {
     position: relative;
+    width: 95%;
+    margin: auto;
     padding-bottom: 25px;
 
     &::before {
@@ -30,12 +32,13 @@
         background-color: var(--bg-hover);
         backdrop-filter: blur(5px);
         border-radius: 10px;
+        box-shadow: var(--box-shadow-primary);
         z-index: -1;
     }
 
     h3 {
         color: var(--white);
-        padding: 30px 0px 10px 35px;
+        padding: 20px 0 10px 25px;
     }
 }
 
@@ -48,7 +51,7 @@
 
 .cardBox {
     width: 100%;
-    margin: 10px auto 0px auto;
+    margin: 10px auto 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,10 +59,10 @@
 
 .card {
     position: relative;
-    min-width: 230px;
+    min-width: 225px;
     min-height: 150px;
     overflow: hidden;
-    margin-right: 3%;
+    margin-right: 2.3%;
     user-select: none;
     border-radius: 10px;
     box-shadow: var(--box-shadow-primary);
@@ -115,12 +118,13 @@
 }
 
 .text {
-    text-transform: capitalize;
+    text-transform: uppercase;
     letter-spacing: 1.5px;
 
     strong {
-        font-size: 1.6rem;
+        font-size: 1.35rem;
         font-weight: 700;
+        cursor: pointer;
     }
 
     span {
@@ -136,4 +140,35 @@
 .price {
     font-size: 1.3rem;
     font-weight: 700;
+}
+
+.paginationBox {
+    position: absolute;
+    top: 6%;
+    right: 2.5%;
+    width: 5%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    background-color: var(--bg-hover);
+    box-shadow: var(--box-shadow-primary);
+    border-radius: 5px;
+}
+
+.prev,
+.next {
+    width: 50%;
+    font-size: 1.75rem;
+    text-align: center;
+    cursor: pointer;
+    color: var(--white);
+
+    &:hover {
+        color: var(--primary);
+    }
+
+    &:active {
+        color: var(--white);
+    }
 }

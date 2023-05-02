@@ -13,8 +13,7 @@ footer {
     gap: 30px;
     padding: 50px 30px 30px 30px;
     color: var(--text-light);
-    border-top: 1px solid var(--text-light);
-    border-bottom: 1px solid var(--text-light);
+    box-shadow: var(--box-shadow-primary);
 }
 .box {
     text-align: center;

@@ -40,7 +40,7 @@
     padding: 25px;
     background-color: var(--bg);
     border-radius: 10px;
-    border: 1px solid var(--text-light);
+    box-shadow: var(--box-shadow-primary);
 }
 
 .contactFlex {
@@ -60,6 +60,7 @@
 .contactRight img {
     width: 500px;
     height: 700px;
-    border-radius: 10px;
     object-fit: cover;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-primary);
 }
