@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faChevronDown, faRightFromBracket, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
@@ -10,7 +10,7 @@ import Image from '../../../shared/Image/Image';
 
 const cx = classNames.bind(styles);
 
-const categories = [
+const navBar = [
     {
         link: '/home#',
         name: 'home',
@@ -43,6 +43,8 @@ const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
     const [id, setId] = useState('home');
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const touggleVisible = () => {
         const scrolled = document.documentElement.scrollTop;
@@ -75,7 +77,12 @@ const Header = () => {
         setIsClicked(!isClicked);
     };
 
+    const handleClickLogin = () => {
+        navigate('/login', { state: { from: location.pathname } });
+    };
+
     const handleClickLogout = () => {
+        setIsClicked(!isClicked);
         dispatch({
             type: 'logout',
         });
@@ -97,12 +104,12 @@ const Header = () => {
                     {showMenu ? <FontAwesomeIcon icon={faBars} /> : <FontAwesomeIcon icon={faXmark} />}
                 </div>
                 <ul style={{ height: showMenu ? 360 : 0 }}>
-                    {categories.map((category, index) => (
+                    {navBar.map((nav, index) => (
                         <li key={index}>
                             <a
-                                href={category.link}
+                                href={nav.link}
                                 className={
-                                    id === category.name
+                                    id === nav.name
                                         ? visible || showMenu
                                             ? cx('navLink', 'navLinkScroll', 'active')
                                             : cx('navLink', 'active')
@@ -111,7 +118,7 @@ const Header = () => {
                                         : cx('navLink')
                                 }
                             >
-                                {category.name}
+                                {nav.name}
                             </a>
                         </li>
                     ))}
@@ -145,11 +152,9 @@ const Header = () => {
                         </div>
                     </div>
                 ) : (
-                    <NavLink to={'/login'}>
-                        <Button primary small>
-                            Login / Register
-                        </Button>
-                    </NavLink>
+                    <Button primary small onClick={handleClickLogin}>
+                        Login / Register
+                    </Button>
                 )}
             </nav>
         </header>

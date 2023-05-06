@@ -1,16 +1,85 @@
-import { useRef, useState } from 'react';
-import API, { endpoints } from '../../configs/API';
+import { useState, useCallback } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import API, { endpoints } from '../../configs/API';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './Register.module.scss';
 import Button from '../../shared/Button/Button';
 import InputField from '../../shared/InputField/InputField';
+import LoadingSpinner from '../../shared/LoadingSpinner/LoadingSpinner';
 
 const cx = classNames.bind(styles);
 
 const Register = () => {
+    const [user, setUser] = useState({
+        firstName: '',
+        lastName: '',
+        username: '',
+        password: '',
+        confirmPassword: '',
+    });
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+
+    const handleRegister = useCallback(
+        async (evt) => {
+            evt.preventDefault();
+            try {
+                if (
+                    user.firstName.trim() === '' ||
+                    user.lastName.trim() === '' ||
+                    user.username.trim() === '' ||
+                    user.password.trim() === ''
+                ) {
+                    return toast.warning('Input fields cannot be left blank!');
+                }
+                if (user.password !== user.confirmPassword) {
+                    return toast.warning('Password and confirm password do not match!');
+                }
+                setLoading(true);
+                const form = new FormData();
+                form.append('first_name', user.firstName);
+                form.append('last_name', user.lastName);
+                form.append('username', user.username);
+                form.append('password', user.password);
+                const res = await API.post(endpoints['register'], form, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                });
+                if (res.status === 201) {
+                    toast.promise(
+                        () =>
+                            new Promise((resolve) => {
+                                setTimeout(() => resolve('Successfully!'), 1500);
+                            }),
+                        {
+                            pending: 'Processing!',
+                            success: 'Successfully!',
+                            error: 'Error!',
+                        },
+                    );
+                    setTimeout(() => navigate('/login'), 4500);
+                } else {
+                    return toast.error('The system is having an error! Please come back later!');
+                }
+            } catch (ex) {
+                toast.error(ex.message);
+            } finally {
+                setLoading(false);
+            }
+        },
+        [navigate, user],
+    );
+
+    const setValue = useCallback((e) => {
+        const { name, value } = e.target;
+        setUser((current) => ({ ...current, [name]: value }));
+    }, []);
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
@@ -31,53 +100,74 @@ const Register = () => {
 
                 <div className={cx('login-left')}>
                     <h1>Register</h1>
-                    <form className={cx('login-form')}>
+                    <form onSubmit={handleRegister} className={cx('login-form')}>
                         <div className={cx('login-form-content')}>
                             <InputField
-                                id="lastname"
-                                label="Last Name"
+                                id="firstName"
+                                label="First Name"
                                 type="text"
-                                placeholder="Enter your last name."
+                                name="firstName"
+                                placeholder="Enter your first name."
+                                value={user.firstName}
+                                onChange={setValue}
                                 required
                             />
                             <InputField
-                                id="emailAddress"
-                                label="Email Address"
-                                type="email"
-                                placeholder="Enter your email address."
+                                id="lastName"
+                                label="Last Name"
+                                type="text"
+                                name="lastName"
+                                placeholder="Enter your last name."
+                                value={user.lastName}
+                                onChange={setValue}
                                 required
                             />
                             <InputField
                                 id="username"
                                 label="Username"
                                 type="text"
+                                name="username"
                                 placeholder="Enter your username."
+                                value={user.username}
+                                onChange={setValue}
                                 required
                             />
                             <InputField
                                 id="password"
                                 label="Password"
                                 type="password"
+                                name="password"
                                 placeholder="Enter your password."
+                                value={user.password}
+                                onChange={setValue}
                                 required
                             />
                             <InputField
-                                id="repeatPassword"
-                                label="Repeat Password"
+                                id="confirmPassword"
+                                label="Confirm Password"
                                 type="password"
-                                placeholder="Enter your repeat password."
+                                name="confirmPassword"
+                                placeholder="Enter your confirm password."
+                                value={user.confirmPassword}
+                                onChange={setValue}
                                 required
                             />
-                            <Button type="submit" className="w-full" primary>
-                                Register
-                            </Button>
+                            {loading ? (
+                                <Button className="w-full" third disabled>
+                                    <LoadingSpinner />
+                                </Button>
+                            ) : (
+                                <Button type="submit" className="w-full" primary>
+                                    Register
+                                </Button>
+                            )}
                             <hr />
                         </div>
                         <div className={cx('login-form-footer')}>
                             <Button
                                 className="w-full font-light"
                                 leftIcon={<FontAwesomeIcon icon={faFacebookF} />}
-                                secondary
+                                third
                                 btnFlex
                             >
                                 Facebook
@@ -86,7 +176,7 @@ const Register = () => {
                             <Button
                                 className="w-full font-light"
                                 leftIcon={<FontAwesomeIcon icon={faGoogle} />}
-                                secondary
+                                third
                                 btnFlex
                             >
                                 Google
@@ -95,6 +185,7 @@ const Register = () => {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

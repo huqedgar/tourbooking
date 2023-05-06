@@ -1,0 +1,40 @@
+.modalBackground {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color: #000000, $alpha: 0.25);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}
+
+.modalContent {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 20px;
+    text-align: center;
+    background-color: var(--bg);
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-primary);
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.35rem;
+    }
+
+    img {
+        width: 235px;
+        height: 130px;
+        object-fit: contain;
+    }
+}

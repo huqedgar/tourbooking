@@ -9,7 +9,6 @@ import {
     faRightFromBracket,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
-
 import MyBookings from '../../components/MyBookings/MyBookings';
 import MyWishlist from '../../components/MyWishlist/MyWishlist';
 import MyAccount from '../../components/MyAccount/MyAccount';
@@ -28,7 +27,7 @@ const Profile = () => {
         <section className={cx('wrapperProfile')}>
             <div className={cx('sideLeft')}>
                 <div className={cx('avatarBox')}>
-                    <img src={require('../../assets/images/t-1.png')} alt="" />
+                    <img src={require('../../assets/images/d-1.jpg')} alt="" />
                     <div className={cx('nameBox')}>
                         <span>Võ Văn Hưng</span>
                         <span>vhung6252@gmail.com</span>

@@ -127,10 +127,8 @@
     }
 }
 
-.liked {
-    color: var(--primary);
-}
-
-.unlike {
-    color: var(--black);
+.loadMore {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
 }

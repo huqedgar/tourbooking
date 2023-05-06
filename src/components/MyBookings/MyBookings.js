@@ -11,7 +11,7 @@ const MyBookings = () => {
             <div className={cx('myBookingHeader')}>
                 <h3>Your Booking</h3>
                 <select className={cx('filterBox')} id="slFilter" name="slFilter">
-                    <option value="filter" selected disabled hidden>
+                    <option value="filter" defaultValue disabled hidden>
                         Filter
                     </option>
                     <option value="success">Success</option>
@@ -34,7 +34,7 @@ const MyBookings = () => {
                 <tbody className={cx('tableBody')}>
                     <tr>
                         <td>
-                            <img src={require('../../assets/images/t-1.png')} alt="" />
+                            <img src={require('../../assets/images/d-1.jpg')} alt="" />
                         </td>
                         <td>
                             <span>125021</span>

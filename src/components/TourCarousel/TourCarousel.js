@@ -1,56 +1,70 @@
-import classNames from 'classnames/bind';
-import styles from './TourCarousel.module.scss';
-import { useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { MyUserContext } from '../../contexts/MyContext';
+import { authAPI, endpoints } from '../../configs/API';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faStar, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames/bind';
+import styles from './TourCarousel.module.scss';
+import Image from '../../shared/Image/Image';
 
 const cx = classNames.bind(styles);
 
-const CAROUSEL_DATA = [
-    {
-        url: 'https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-    },
-    {
-        url: 'https://images.unsplash.com/photo-1681826415794-847bf97ad644?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80',
-    },
-    {
-        url: 'https://images.unsplash.com/photo-1681549734363-5c8a06428d5d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80',
-    },
-];
-
-const TourCarousel = () => {
+const TourCarousel = ({ tour, myWishList }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-
     const [isLiked, setIsLiked] = useState(false);
+    const [numLike, setNumLike] = useState(tour.amount_like);
+    const [user] = useContext(MyUserContext);
+    const { tourId } = useParams();
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    const [numLike, setNumLike] = useState(43);
-
-    const incrementIndex = () => {
-        console.log(currentIndex);
+    const incrementIndex = useCallback(() => {
         setCurrentIndex((currentIndex) => {
-            return (currentIndex + 1) % CAROUSEL_DATA.length;
+            return (currentIndex + 1) % tour.list_images.length;
         });
-    };
+    }, [tour.list_images.length]);
 
-    const decrementIndex = () => {
-        console.log(currentIndex);
+    const decrementIndex = useCallback(() => {
         setCurrentIndex((currentIndex) => {
-            return currentIndex === 0 ? CAROUSEL_DATA.length - 1 : currentIndex - 1;
+            return currentIndex === 0 ? tour.list_images.length - 1 : currentIndex - 1;
         });
-    };
+    }, [tour.list_images.length]);
 
-    const handleClickLike = () => {
-        setIsLiked(!isLiked);
-        if (isLiked) {
-            setNumLike(numLike - 1);
-        } else {
-            setNumLike(numLike + 1);
+    useEffect(() => {
+        const wishListTour = myWishList.find((wishListItem) => wishListItem.tour.id === Number(tourId));
+        if (wishListTour && wishListTour.is_like) {
+            setIsLiked(true);
         }
-    };
+    }, [myWishList, tourId]);
+
+    const handleClickLike = useCallback(async () => {
+        if (!user) {
+            return navigate('/login', { state: { from: location.pathname } });
+        }
+        try {
+            const res = await authAPI().post(endpoints['add-wish-list'](tourId));
+            if (res.status === 200) {
+                setIsLiked((isLiked) => !isLiked);
+                setNumLike((numLike) => (isLiked ? numLike - 1 : numLike + 1));
+                toast.promise(() => new Promise((resolve) => setTimeout(() => resolve('Successfully!'), 1000)), {
+                    pending: 'Processing!',
+                    success: 'Successfully!',
+                    error: 'Error!',
+                });
+            } else {
+                toast.error('The system is having an error! Please come back later!');
+            }
+        } catch (ex) {
+            console.error(ex);
+        }
+    }, [tourId, isLiked, user, location.pathname, navigate]);
 
     return (
         <section className={cx('wrapperCarousel')}>
-            <img src={CAROUSEL_DATA[currentIndex].url} alt="" />
+            <Image src={tour.list_images[currentIndex].image_tour} alt={tour.list_images[currentIndex].image_tour} />
             <div
                 onClick={decrementIndex}
                 className="absolute left-8 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded p-1 cursor-pointer"
@@ -82,10 +96,10 @@ const TourCarousel = () => {
                 </svg>
             </div>
             <div className={cx('title')}>
-                <h2>Phu Quoc Sunset Viewing and Night Squid Fishing</h2>
+                <h2>{tour.name_tour}</h2>
                 <span>
                     <FontAwesomeIcon className={cx('faLocationDot')} icon={faLocationDot} />
-                    Phu Quoc, Vietnam
+                    {tour.address_tour} , {tour.country_tour}
                 </span>
             </div>
             <div className={cx('interaction')}>
@@ -95,7 +109,7 @@ const TourCarousel = () => {
                 </span>
                 <span className={cx('starHeader')}>
                     <FontAwesomeIcon className={cx('faStar')} icon={faStar} />
-                    4.8
+                    {tour.rating_count_tour}
                 </span>
             </div>
         </section>

@@ -4,64 +4,68 @@ import Moment from 'react-moment';
 import { Rating } from 'react-simple-star-rating';
 import classNames from 'classnames/bind';
 import styles from './TourComments.module.scss';
-import { useState } from 'react';
+import Image from '../../shared/Image/Image';
+import React, { startTransition, useCallback, useState } from 'react';
+import Button from '../../shared/Button/Button';
 
 const cx = classNames.bind(styles);
 
-const TourComments = () => {
-    const [isLiked, setIsLiked] = useState(false);
-    const [numLike, setNumLike] = useState(43);
+const TourComments = React.memo(({ tour, comments }) => {
+    const [numComments, setNumComments] = useState(3);
 
-    const handleClickLike = () => {
-        setIsLiked(!isLiked);
-        if (isLiked) {
-            setNumLike(numLike - 1);
-        } else {
-            setNumLike(numLike + 1);
-        }
-    };
+    const handleLoadMore = useCallback(() => {
+        startTransition(() => {
+            setNumComments(numComments + 5);
+        });
+    }, [numComments]);
 
     return (
         <section className={cx('wrapperComment')}>
             <div className={cx('ratingBox')}>
                 <span className={cx('star')}>
                     <FontAwesomeIcon className={cx('faStar')} icon={faStar} />
-                    4.8
+                    {tour.rating_count_tour}
                 </span>
-                <span>2 customer's have a lot to say about their experiences:</span>
+                <span>{comments.length} khách hàng đã chia sẻ về trải nghiệm của họ:</span>
             </div>
-            <div className={cx('commentBox')}>
-                <img src={require('../../assets/images/t-1.png')} alt="" />
-                <div className={cx('commentBody')}>
-                    <div className={cx('commentNameBox')}>
-                        <div className={cx('commentName')}>
-                            <span>nhuconcac0109</span>
-                            <span>
-                                {' - '}
-                                <Moment fromNow>2023-04-21T12:59-0500</Moment>
+            {comments.slice(0, numComments).map((comment, index) => (
+                <div key={comment.id} className={cx('commentBox')}>
+                    <Image src={comment.user.avatar} alt={comment.user.avatar} />
+                    <div className={cx('commentBody')}>
+                        <div className={cx('commentNameBox')}>
+                            <div className={cx('commentName')}>
+                                <span>
+                                    {comment.user.last_name} {comment.user.first_name}
+                                </span>
+                                <span>
+                                    {' - '}
+                                    <Moment fromNow>{comment.created_date}</Moment>
+                                </span>
+                            </div>
+                            <Rating className={cx('rating')} initialValue={5} readonly></Rating>
+                        </div>
+                        <p>{comment.content_cmt}</p>
+                        <div className={cx('commentReact')}>
+                            <span className={cx('reactAction')}>
+                                <FontAwesomeIcon className={cx('faThumbsUp')} icon={faThumbsUp} />
+                                {comment.amount_like_cmt}
+                            </span>
+                            <span className={cx('reactAction')}>
+                                <FontAwesomeIcon className={cx('faThumbsDown')} icon={faThumbsDown} />
                             </span>
                         </div>
-                        <Rating className={cx('rating')} initialValue={5} readonly></Rating>
-                    </div>
-                    <p>
-                        Consequat labore pariatur ipsum aliquip eu. Esse eu id aute nostrud reprehenderit sit ea.
-                        Excepteur ut veniam tempor et do elit. Veniam sit aliquip do consectetur et laborum eu qui dolor
-                        sit aliquip incididunt aliquip veniam. Quis laborum dolor et exercitation excepteur mollit elit
-                        aliqua tempor incididunt laboris sunt.
-                    </p>
-                    <div className={cx('commentReact')}>
-                        <span className={cx('reactAction', isLiked ? 'liked' : 'unlike')} onClick={handleClickLike}>
-                            <FontAwesomeIcon className={cx('faThumbsUp')} icon={faThumbsUp} />
-                            {numLike}
-                        </span>
-                        <span className={cx('reactAction', isLiked ? 'liked' : 'unlike')} onClick={handleClickLike}>
-                            <FontAwesomeIcon className={cx('faThumbsDown')} icon={faThumbsDown} />
-                        </span>
                     </div>
                 </div>
-            </div>
+            ))}
+            {numComments < comments.length && (
+                <div className={cx('loadMore')}>
+                    <Button third small onClick={handleLoadMore}>
+                        Xem thêm
+                    </Button>
+                </div>
+            )}
         </section>
     );
-};
+});
 
 export default TourComments;

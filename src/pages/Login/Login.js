@@ -1,8 +1,10 @@
-import { useContext, useState, useCallback } from 'react';
-import { Navigate, NavLink } from 'react-router-dom';
-import Cookies from 'js-cookie';
-import API, { authAPI, endpoints } from '../../configs/API';
+import { useContext, useState, useCallback, useEffect } from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { MyUserContext } from '../../contexts/MyContext';
+import API, { authAPI, endpoints } from '../../configs/API';
+import Cookies from 'js-cookie';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import classNames from 'classnames/bind';
@@ -15,7 +17,10 @@ const cx = classNames.bind(styles);
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [remember, setRemember] = useState(false);
     const [user, dispatch] = useContext(MyUserContext);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleUsernameChange = useCallback((e) => {
         setUsername(e.target.value);
@@ -25,12 +30,15 @@ const Login = () => {
         setPassword(e.target.value);
     }, []);
 
+    const handleRememberChange = useCallback(() => {
+        setRemember(!remember);
+    }, [remember]);
+
     const handleLogin = useCallback(
         async (evt) => {
             evt.preventDefault();
-            if (username === '' || password === '') {
-                alert('Phải nhập username và password!');
-                return;
+            if (username.trim() === '' || password.trim() === '') {
+                return toast.warning('Must enter username and password!');
             }
             try {
                 const formData = new FormData();
@@ -46,27 +54,43 @@ const Login = () => {
                     },
                 });
 
-                Cookies.set('access-token', res.data.access_token);
+                var date = new Date();
+                date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
+
+                if (remember) {
+                    Cookies.set('access-token', res.data.access_token, { expires: date });
+                } else {
+                    Cookies.set('access-token', res.data.access_token);
+                }
 
                 const user = await authAPI().get(endpoints['current-user']);
 
-                Cookies.set('current-user', user.data);
+                if (remember) {
+                    Cookies.set('current-user', JSON.stringify(user.data), { expires: date });
+                } else {
+                    Cookies.set('current-user', JSON.stringify(user.data));
+                }
 
                 dispatch({
                     type: 'login',
-                    payload: user.data,
+                    payload: JSON.stringify(user.data),
                 });
-            } catch (error) {
-                console.error(error);
-                alert('An error occurred while logging in. Please try again later.');
+            } catch (ex) {
+                toast.error(ex.message);
             }
         },
-        [dispatch, username, password],
+        [dispatch, username, password, remember],
     );
 
-    if (user !== null) {
-        return <Navigate to="/" />;
-    }
+    useEffect(() => {
+        if (user !== null) {
+            if (location.state && location.state.from) {
+                navigate(location.state.from);
+            } else {
+                navigate('/');
+            }
+        }
+    }, [user, navigate, location]);
 
     return (
         <div className={cx('wrapper')}>
@@ -91,7 +115,13 @@ const Login = () => {
                                 onChange={handlePasswordChange}
                                 required
                             />
-                            <InputField id="rememberMeCheckbox" label="Remember me" type="checkbox" />
+                            <InputField
+                                id="rememberMeCheckbox"
+                                label="Remember me"
+                                type="checkbox"
+                                defaultChecked={remember}
+                                onChange={handleRememberChange}
+                            />
                             <Button type="submit" primary>
                                 Login
                             </Button>
@@ -101,7 +131,7 @@ const Login = () => {
                             <Button
                                 className="w-full font-light"
                                 leftIcon={<FontAwesomeIcon icon={faFacebookF} />}
-                                secondary
+                                third
                                 btnFlex
                             >
                                 Facebook
@@ -110,7 +140,7 @@ const Login = () => {
                             <Button
                                 className="w-full font-light"
                                 leftIcon={<FontAwesomeIcon icon={faGoogle} />}
-                                secondary
+                                third
                                 btnFlex
                             >
                                 Google
@@ -133,6 +163,7 @@ const Login = () => {
                     </NavLink>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

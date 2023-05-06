@@ -10,13 +10,17 @@ import moment from 'moment';
 moment().local('vi');
 
 function App() {
-    const [user, dispatch] = useReducer(MyUserReducer, Cookies.get('current-user') || null);
+    const [user, dispatch] = useReducer(
+        MyUserReducer,
+        Cookies.get('current-user') ? JSON.parse(Cookies.get('current-user')) : null,
+    );
+
     return (
-        <MyUserContext.Provider value={[user, dispatch]}>
-            <BrowserRouter>
+        <BrowserRouter>
+            <MyUserContext.Provider value={[user, dispatch]}>
                 <DefaultLayout />
-            </BrowserRouter>
-        </MyUserContext.Provider>
+            </MyUserContext.Provider>
+        </BrowserRouter>
     );
 }
 

@@ -1,4 +1,4 @@
-form {
+.searchBarBox {
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -29,7 +29,7 @@ form {
 }
 
 .box {
-    flex: 4;
+    flex: 6;
     min-width: 200px;
     display: flex;
     justify-content: center;

@@ -11,7 +11,7 @@ const MyAccount = () => {
             <h3>Personal Data</h3>
             <hr />
             <div className={cx('changeAvatarBox')}>
-                <img src={require('../../assets/images/t-1.png')} alt="" />
+                <img src={require('../../assets/images/d-1.jpg')} alt="" />
                 <Button third small>
                     Change Avatar
                 </Button>
@@ -32,7 +32,7 @@ const MyAccount = () => {
                     <div className={cx('input')}>
                         <span>Gender</span>
                         <select className={cx('genderBox')} id="slGender" name="slGender">
-                            <option value="gender" selected disabled hidden>
+                            <option value="gender" defaultValue disabled hidden>
                                 Gender
                             </option>
                             <option value="female">Female</option>

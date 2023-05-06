@@ -3,11 +3,13 @@ import Cookies from 'js-cookie';
 const MyUserReducer = (state, action) => {
     switch (action.type) {
         case 'login':
-            return action.payload;
+            return JSON.parse(action.payload);
         case 'logout':
             Cookies.remove('access-token');
             Cookies.remove('current-user');
             return null;
+        case 'TOUR_DETAILS':
+            return { ...state, ...action.payload };
         default:
             return state;
     }

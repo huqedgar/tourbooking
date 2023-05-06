@@ -53,7 +53,7 @@ const TourCard = ({ tour }) => {
                 />
                 <Link to={url}>
                     <Button className="text-sm" primary small>
-                        Book Now
+                        Details
                     </Button>
                 </Link>
             </div>

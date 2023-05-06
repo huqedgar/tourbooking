@@ -129,7 +129,7 @@
     flex-direction: column;
     padding: 10px;
     border-radius: 10px;
-    background-color: var(--bg);
+    background-color: var(--white);
     box-shadow: var(--box-shadow-primary);
 }
 
@@ -269,13 +269,13 @@
     z-index: -1;
 }
 
-.visitorBoxSelectShow {
+.show {
     visibility: visible;
     opacity: 1;
     z-index: 10;
 }
 
-.visitorBoxSelectHide {
+.hide {
     visibility: hidden;
     opacity: 0;
     z-index: 0;
@@ -286,7 +286,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 5px 10px;
-    background-color: var(--bg);
+    background-color: var(--white);
     border-radius: 5px;
     border: 1px solid var(--text-light);
 
@@ -313,7 +313,6 @@
 
 .visitorSelectCounter {
     display: flex;
-    // border: 1px solid #000;
 
     input[type='number'] {
         width: 50px;
@@ -332,7 +331,7 @@
     align-items: flex-end;
     padding: 30px 5px 5px 5px;
     margin-top: 15px;
-    background-color: var(--bg);
+    background-color: var(--white);
     border-radius: 5px;
     border: 1px solid var(--text-light);
 }
@@ -358,11 +357,19 @@
 .cardFooter {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     margin-top: 15px;
-    padding-top: 30px;
     border-top: 2px solid var(--text-light);
+}
+
+.payMethods {
+    margin: 10px 0 20px 0;
+    color: var(--text-light);
+
+    span {
+        line-height: 2.75;
+        font-weight: bold;
+    }
 }
 
 .priceBox {
@@ -379,5 +386,123 @@
         font-size: 20px;
         font-weight: bold;
         color: var(--primary);
+    }
+}
+
+///////////////////////////////////////////////////////////
+///
+.modalBackground {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color: #000000, $alpha: 0.25);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}
+
+.modalContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    overflow-y: scroll;
+    padding: 15px 20px;
+    background-color: var(--bg);
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-primary);
+    z-index: 1000;
+
+    h2 {
+        text-align: center;
+        background: -webkit-linear-gradient(90deg, #007cf0, #00dfd8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+///////////////////////////
+///
+.orderDetails {
+    background-color: var(--white);
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-primary);
+
+    h3 {
+        padding: 15px 20px;
+    }
+}
+
+.orderTour {
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    border-top: 1px solid var(--text-light);
+
+    img {
+        width: 155px;
+        height: 100px;
+        border-radius: 10px;
+    }
+}
+
+.orderTourInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 15px;
+
+    h4 {
+        font-weight: 500;
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.9rem;
+    }
+
+    .faLocationDot,
+    .faCalendarDays {
+        width: 15px;
+    }
+}
+
+.billDetails {
+    li {
+        display: flex;
+        padding: 15px 20px;
+        border-top: 1px solid var(--text-light);
+
+        span:first-child {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 25%;
+        }
+    }
+
+    .faBarcode,
+    .faCalendarDays,
+    .faUsers,
+    .faMoneyBill,
+    .faUser,
+    .faEnvelope,
+    .faPhone {
+        width: 1.2rem;
     }
 }

@@ -180,7 +180,7 @@ const BlogDetails = () => {
                 </div>
 
                 <div className={cx('commentBox')}>
-                    <img src={require('../../assets/images/t-1.png')} alt="" />
+                    <img src={require('../../assets/images/d-1.jpg')} alt="" />
                     <div className={cx('commentBody')}>
                         <div className={cx('commentName')}>
                             <span>huycacto0109</span>
@@ -211,7 +211,7 @@ const BlogDetails = () => {
                 </div>
 
                 <div className={cx('commentBox')}>
-                    <img src={require('../../assets/images/t-1.png')} alt="" />
+                    <img src={require('../../assets/images/d-1.jpg')} alt="" />
                     <div className={cx('commentBody')}>
                         <div className={cx('commentName')}>
                             <span>huycacto0109</span>
