@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import API, { endpoints } from '../../configs/API';
 import { Link } from 'react-router-dom';
 import moment from 'moment-timezone';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
@@ -36,7 +36,7 @@ const BlogCard = ({ blog }) => {
                 <div className={cx('title')}>
                     <span>
                         <FontAwesomeIcon className={cx('faCalendarDays')} icon={faCalendarDays} />
-                        {moment(blog.created_date).format('DD/MM/YYYY')}
+                        {moment.tz(blog.created_date, 'UTC').format('DD/MM/YYYY')}
                     </span>
                     <span>{blog.title_blog && blog.title_blog.split(' ').slice(0, 10).join(' ') + '...'}</span>
                 </div>
@@ -68,7 +68,6 @@ const BlogCard = ({ blog }) => {
                     </Button>
                 </Link>
             </div>
-            <ToastContainer />
         </>
     );
 };

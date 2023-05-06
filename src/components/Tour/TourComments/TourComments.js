@@ -4,9 +4,9 @@ import Moment from 'react-moment';
 import { Rating } from 'react-simple-star-rating';
 import classNames from 'classnames/bind';
 import styles from './TourComments.module.scss';
-import Image from '../../shared/Image/Image';
+import Image from '../../../shared/Image/Image';
 import React, { startTransition, useCallback, useState } from 'react';
-import Button from '../../shared/Button/Button';
+import Button from '../../../shared/Button/Button';
 
 const cx = classNames.bind(styles);
 
@@ -26,9 +26,9 @@ const TourComments = React.memo(({ tour, comments }) => {
                     <FontAwesomeIcon className={cx('faStar')} icon={faStar} />
                     {tour.rating_count_tour}
                 </span>
-                <span>{comments.length} khách hàng đã chia sẻ về trải nghiệm của họ:</span>
+                <span>{comments.length} customer's have a lot to say about their experiences:</span>
             </div>
-            {comments.slice(0, numComments).map((comment, index) => (
+            {comments.slice(0, numComments).map((comment) => (
                 <div key={comment.id} className={cx('commentBox')}>
                     <Image src={comment.user.avatar} alt={comment.user.avatar} />
                     <div className={cx('commentBody')}>
@@ -60,7 +60,7 @@ const TourComments = React.memo(({ tour, comments }) => {
             {numComments < comments.length && (
                 <div className={cx('loadMore')}>
                     <Button third small onClick={handleLoadMore}>
-                        Xem thêm
+                        See More
                     </Button>
                 </div>
             )}

@@ -10,6 +10,8 @@ const MyUserReducer = (state, action) => {
             return null;
         case 'TOUR_DETAILS':
             return { ...state, ...action.payload };
+        case 'BLOG_DETAILS':
+            return { ...state, ...action.payload };
         default:
             return state;
     }

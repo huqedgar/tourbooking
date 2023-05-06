@@ -2,21 +2,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays, faLocationDot, faMagnifyingGlass, faUsers } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './SearchBar.module.scss';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 const SearchBar = () => {
-    const [kw, setKw] = useState('');
     const nav = useNavigate();
-
-    const search = (e) => {
-        e.preventDefault();
-        if (kw.trim() !== '') {
-            nav(`/search/?kw=${kw.trim()}`);
-        }
-    };
+    const dateInputRef = useRef(null);
+    const [kw, setKw] = useState('');
+    const [date, setDate] = useState('');
+    const [people, setPeople] = useState('');
 
     const handleChange = (e) => {
         const searchValue = e.target.value;
@@ -25,8 +21,38 @@ const SearchBar = () => {
         }
     };
 
+    const handleDateChange = (e) => {
+        setDate(e.target.value);
+    };
+
+    const handlePeopleChange = (e) => {
+        setPeople(e.target.value);
+    };
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+
+        let endpoint = '/search/?kw=';
+        let kwTemp = kw.trim();
+
+        if (kwTemp !== '' && !Number.isFinite(parseInt(kwTemp))) {
+            endpoint += kwTemp;
+        }
+        if (Number.isFinite(parseInt(kwTemp))) {
+            endpoint += `&tour_id=${kwTemp}`;
+        }
+        if (date !== '') {
+            endpoint += `&date=${date}`;
+        }
+        if (people !== '' && Number(people) !== 0) {
+            endpoint += `&remain=${Number(people)}`;
+        }
+
+        nav(endpoint);
+    };
+
     return (
-        <form onSubmit={search} className={cx('searchBarBox')}>
+        <form onSubmit={handleSearch} className={cx('searchBarBox')}>
             <div className={cx('box')}>
                 <div className={cx('icon')}>
                     <FontAwesomeIcon icon={faLocationDot} />
@@ -47,8 +73,8 @@ const SearchBar = () => {
                     <FontAwesomeIcon icon={faCalendarDays} />
                 </div>
                 <div className={cx('input')}>
-                    <label htmlFor="checkin">Check in</label>
-                    <input type="date" id="checkin" />
+                    <label htmlFor="visitDate">Visit Date</label>
+                    <input type="date" id="visitDate" ref={dateInputRef} onChange={handleDateChange} />
                 </div>
             </div>
             <div className={cx('box')}>
@@ -56,8 +82,8 @@ const SearchBar = () => {
                     <FontAwesomeIcon icon={faCalendarDays} />
                 </div>
                 <div className={cx('input')}>
-                    <label htmlFor="checkout">Check out</label>
-                    <input type="date" id="checkout" />
+                    <label htmlFor="returnDate">Return Date</label>
+                    <input type="date" id="returnDate" />
                 </div>
             </div>
             <div className={cx('box')}>
@@ -66,7 +92,14 @@ const SearchBar = () => {
                 </div>
                 <div className={cx('input')}>
                     <label htmlFor="travels">Travels</label>
-                    <input type="number" id="travels" placeholder="How many tourists?" min={1} />
+                    <input
+                        type="number"
+                        id="travels"
+                        placeholder="How many tourists?"
+                        value={people}
+                        onChange={handlePeopleChange}
+                        min={1}
+                    />
                 </div>
             </div>
             <button type="submit" aria-label="search" title="search">

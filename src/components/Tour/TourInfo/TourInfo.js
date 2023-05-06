@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { authAPI, endpoints } from '../../configs/API';
-import { MyUserContext } from '../../contexts/MyContext';
+import { authAPI, endpoints } from '../../../configs/API';
+import { MyUserContext } from '../../../contexts/MyContext';
 import { NumericFormat } from 'react-number-format';
 import Moment from 'react-moment';
 import moment from 'moment-timezone';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -22,10 +22,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './TourInfo.module.scss';
-import Image from '../../shared/Image/Image';
-import Button from '../../shared/Button/Button';
-import InputField from '../../shared/InputField/InputField';
-import Modal from '../../shared/Modal/Modal';
+import Image from '../../../shared/Image/Image';
+import Button from '../../../shared/Button/Button';
+import InputField from '../../../shared/InputField/InputField';
+import Modal from '../../../shared/Modal/Modal';
 
 const cx = classNames.bind(styles);
 
@@ -142,34 +142,37 @@ const TourInfo = ({ tour, descriptions, typesCustomer }) => {
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        const requests = [];
-        if (numAdult > 0) {
-            requests.push({
-                type_people: typesCustomer[0].id,
-                amount: numAdult,
-            });
-        }
-        if (numChild > 0) {
-            requests.push({
-                type_people: typesCustomer[1].id,
-                amount: numChild,
-            });
-        }
-        try {
-            const responses = await Promise.all(
-                requests.map((req) => {
-                    const form = new FormData();
-                    form.append('tour', tourId);
-                    form.append('type_people', req.type_people);
-                    form.append('amount', req.amount);
-                    return authAPI().post(endpoints['create-ticket'], form, {
-                        headers: {
-                            'Content-Type': 'multipart/form-data',
-                        },
-                    });
-                }),
-            );
-            if (responses.every((res) => res.status === 201)) {
+        let isSuccess = false;
+        const process = async (typePeople, amount) => {
+            try {
+                const form = new FormData();
+                form.append('tour', tourId);
+                form.append('type_people', typePeople);
+                form.append('amount', amount);
+                const res = await authAPI().post(endpoints['create-ticket'], form, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                });
+                console.log(res.status);
+                if (res.status === 200) {
+                    return toast.warning('You already have your ticket for this tour and its pending.');
+                } else if (res.status === 201) {
+                    isSuccess = true;
+                } else {
+                    isSuccess = false;
+                    return toast.error('The system is having an error! Please come back later!');
+                }
+            } catch (ex) {
+                toast.error(ex.message);
+            }
+        };
+        if (numAdult >= 1) {
+            await process(typesCustomer[0].id, numAdult);
+            if (isSuccess && numChild > 0) {
+                await process(typesCustomer[1].id, numChild);
+            }
+            if (isSuccess) {
                 toast.promise(
                     () =>
                         new Promise((resolve) => {
@@ -182,11 +185,7 @@ const TourInfo = ({ tour, descriptions, typesCustomer }) => {
                     },
                 );
                 setShowModal2(true);
-            } else {
-                toast.error('The system is having an error! Please come back later!');
             }
-        } catch (ex) {
-            toast.error(ex.message);
         }
     };
 
@@ -259,7 +258,7 @@ const TourInfo = ({ tour, descriptions, typesCustomer }) => {
                             <FontAwesomeIcon className={cx('faCalendarDays')} icon={faCalendarDays} />
                             Valid on{' '}
                             <h4 style={{ color: 'var(--text-light)' }}>
-                                <Moment format="DD/MM/YYYY">{tour.date_begin_tour}</Moment>
+                                {moment.tz(tour.date_begin_tour, 'UTC').format('DD/MM/YYYY')}
                             </h4>
                         </span>
                         <span>
@@ -269,11 +268,7 @@ const TourInfo = ({ tour, descriptions, typesCustomer }) => {
                         <span>
                             <FontAwesomeIcon className={cx('faMoneyBillTransfer')} icon={faMoneyBillTransfer} />
                             Refundable until{' '}
-                            <h4>
-                                <Moment format="DD/MM/YYYY">
-                                    {moment(tour.date_begin_tour).subtract(1, 'days').toDate()}
-                                </Moment>
-                            </h4>
+                            <h4>{moment.tz(tour.date_begin_tour, 'UTC').subtract(1, 'days').format('DD/MM/YYYY')}</h4>
                         </span>
                     </div>
                     <div className={cx('inputBox')}>
@@ -283,7 +278,7 @@ const TourInfo = ({ tour, descriptions, typesCustomer }) => {
                             <input
                                 type="date"
                                 id="checkin"
-                                value={moment(tour.date_begin_tour).format('YYYY-DD-MM')}
+                                value={moment.tz(tour.date_begin_tour, 'UTC').format('YYYY-MM-DD')}
                                 disabled
                             />
                         </div>
@@ -439,7 +434,7 @@ const TourInfo = ({ tour, descriptions, typesCustomer }) => {
                                     </span>
                                     <span>
                                         <FontAwesomeIcon className={cx('faCalendarDays')} icon={faCalendarDays} />
-                                        <Moment format="DD/MM/YYYY">{tour.date_begin_tour}</Moment>
+                                        {moment.tz(tour.date_begin_tour, 'UTC').format('DD/MM/YYYY')}
                                     </span>
                                 </div>
                             </div>
@@ -456,9 +451,7 @@ const TourInfo = ({ tour, descriptions, typesCustomer }) => {
                                         <FontAwesomeIcon className={cx('faCalendarDays')} icon={faCalendarDays} />
                                         Visit Date:
                                     </span>
-                                    <span>
-                                        <Moment format="DD/MM/YYYY">{tour.date_begin_tour}</Moment>
-                                    </span>
+                                    <span>{moment.tz(tour.date_begin_tour, 'UTC').format('DD/MM/YYYY')}</span>
                                 </li>
                                 <li>
                                     <span>
@@ -522,7 +515,6 @@ const TourInfo = ({ tour, descriptions, typesCustomer }) => {
             )}
             {showModal1 && <Modal infoUpdate onClick={handleModal1Click} />}
             {showModal2 && <Modal onClick={handleModal2Click} />}
-            <ToastContainer />
         </section>
     );
 };

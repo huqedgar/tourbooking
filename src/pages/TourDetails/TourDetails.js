@@ -5,12 +5,15 @@ import MyUserReducer from '../../reducers/MyUserReducer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../../shared/Loading/Loading';
+import { useContext } from 'react';
+import { MyUserContext } from '../../contexts/MyContext';
 
-const TourCarousel = lazy(() => import('../../components/TourCarousel/TourCarousel'));
-const TourInfo = lazy(() => import('../../components/TourInfo/TourInfo'));
-const TourComments = lazy(() => import('../../components/TourComments/TourComments'));
+const TourCarousel = lazy(() => import('../../components/Tour/TourCarousel/TourCarousel'));
+const TourInfo = lazy(() => import('../../components/Tour/TourInfo/TourInfo'));
+const TourComments = lazy(() => import('../../components/Tour/TourComments/TourComments'));
 
 const TourDetails = () => {
+    const [user] = useContext(MyUserContext);
     const { tourId } = useParams();
     const [state, dispatch] = useReducer(MyUserReducer, {
         tour: null,
@@ -24,7 +27,7 @@ const TourDetails = () => {
             try {
                 const [tourResponse, wishlistResponse, commentsResponse, typesCustomerResponse] = await Promise.all([
                     API.get(endpoints['tour-details'](tourId)),
-                    authAPI().get(endpoints['my-wish-list']),
+                    user ? authAPI().get(endpoints['my-wish-list']) : null,
                     API.get(endpoints['tour-comments'](tourId)),
                     API.get(endpoints['types-customer']),
                 ]);
@@ -32,7 +35,7 @@ const TourDetails = () => {
                     type: 'TOUR_DETAILS',
                     payload: {
                         tour: tourResponse.data,
-                        wishlist: wishlistResponse.data,
+                        wishlist: wishlistResponse?.data ?? null,
                         comments: commentsResponse.data,
                         typesCustomer: typesCustomerResponse.data.results,
                     },
@@ -43,13 +46,11 @@ const TourDetails = () => {
         };
 
         loadData();
-    }, [tourId]);
+    }, [tourId, user]);
 
     if (!state.tour || !state.comments || !state.typesCustomer) {
         return <Loading />;
     }
-
-    // console.log(state.wishlist);
 
     return (
         <Suspense fallback={<Loading />}>

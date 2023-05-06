@@ -7,6 +7,7 @@ import Moment from 'react-moment';
 import { NumericFormat } from 'react-number-format';
 import { Link } from 'react-router-dom';
 import Image from '../Image/Image';
+import moment from 'moment-timezone';
 
 const cx = classNames.bind(styles);
 
@@ -38,7 +39,7 @@ const TourCard = ({ tour }) => {
                 </span>
                 <span>
                     <FontAwesomeIcon className={cx('faCalendarDays')} icon={faCalendarDays} />
-                    <Moment format="DD/MM/YYYY">{tour.date_begin_tour}</Moment>
+                    {moment.tz(tour.date_begin_tour, 'UTC').format('DD/MM/YYYY')}
                 </span>
             </div>
             <hr />

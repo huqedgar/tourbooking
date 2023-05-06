@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import API, { endpoints } from '../../configs/API';
+import { ToastContainer } from 'react-toastify';
 import classNames from 'classnames/bind';
 import styles from './Blogs.module.scss';
-import API, { endpoints } from '../../configs/API';
 import BlogCard from '../../shared/BlogCard/BlogCard';
 
 const cx = classNames.bind(styles);
@@ -66,6 +67,7 @@ const Blogs = () => {
                     <BlogCard blog={blog} key={blog.id} />
                 ))}
             </div>
+            <ToastContainer />
         </section>
     );
 };

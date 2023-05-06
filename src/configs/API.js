@@ -17,6 +17,9 @@ export const endpoints = {
     blogs: '/blogs/',
     'blog-details': (blogId) => `/blogs/${blogId}/details-blog/`,
     'blog-comments': (blogId) => `/blogs/${blogId}/comments/`,
+    'my-like-blog': '/likes-blog/my-like-blog/',
+    'add-like-blog': (blogId) => `/likes-blog/${blogId}/add-like-blog/`,
+    'add-comment-blog': (blogId) => `/comments-blog/${blogId}/add-comment-blog/`,
 };
 
 export const authAPI = () =>

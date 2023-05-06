@@ -39,7 +39,7 @@ const MyWishlist = () => {
                             <span>Purple polo tshirt</span>
                         </td>
                         <td>
-                            <span>{moment(22 / 12 / 2012).format('DD/MM/YYYY')}</span>
+                            <span>{moment.tz('', 'UTC').format('DD/MM/YYYY')}</span>
                         </td>
                         <td>
                             <span>Available</span>

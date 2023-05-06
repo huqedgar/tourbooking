@@ -25,6 +25,21 @@ const SearchResultList = () => {
                 endpoint += `&q=${kw}`;
             }
 
+            let kwId = q.get('tour_id');
+            if (kwId !== null) {
+                endpoint += `&tour_id=${kwId}`;
+            }
+
+            let kwDate = q.get('date');
+            if (kwDate !== null) {
+                endpoint += `&date=${kwDate}`;
+            }
+
+            let kwPeople = q.get('remain');
+            if (kwPeople !== null) {
+                endpoint += `&remain=${kwPeople}`;
+            }
+
             switch (sortBy) {
                 case 'newest':
                     endpoint += '&sort_by=newest';

@@ -1,0 +1,71 @@
+.wrapperCarousel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    box-shadow: var(--box-shadow-primary);
+
+    img {
+        object-fit: cover;
+    }
+}
+
+.title {
+    width: 75%;
+    position: absolute;
+    top: 85%;
+    left: 2.5rem;
+    color: var(--white);
+    letter-spacing: 0.5px;
+    text-align: justify;
+
+    h2 {
+        font-size: 1.75rem;
+        text-transform: uppercase;
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        text-transform: capitalize;
+        gap: 10px;
+        margin-top: 5px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+    }
+}
+
+.likeHeader {
+    position: absolute;
+    top: 90%;
+    right: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    background-color: var(--bg);
+    box-shadow: var(--box-shadow-primary);
+
+    .faThumbsUp {
+        height: 20px;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.liked {
+    color: var(--primary);
+}
+
+.unlike {
+    color: var(--black);
+}
