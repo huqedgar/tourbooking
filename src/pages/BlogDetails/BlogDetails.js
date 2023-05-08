@@ -48,10 +48,6 @@ const BlogDetails = () => {
         return <Loading />;
     }
 
-    console.log(user);
-    console.log(state.blog);
-    console.log(state.likesblog);
-
     return (
         <Suspense fallback={<Loading />}>
             <BlogCarousel blog={state.blog} likesblog={state.likesblog} />

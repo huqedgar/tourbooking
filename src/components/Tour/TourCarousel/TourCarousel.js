@@ -60,7 +60,7 @@ const TourCarousel = ({ tour, myWishList }) => {
                 toast.error('The system is having an error! Please come back later!');
             }
         } catch (ex) {
-            console.error(ex);
+            toast.error(ex.message);
         }
     }, [tourId, isLiked, user, location.pathname, navigate]);
 

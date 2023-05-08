@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './MyCards.module.scss';
-import Button from '../../shared/Button/Button';
+import Button from '../../../shared/Button/Button';
 
 const cx = classNames.bind(styles);
 
@@ -18,8 +18,8 @@ const MyCards = () => {
             <div className={cx('myCardsList')}>
                 <div className={cx('card')}>
                     <div className={cx('cardIcon')}>
-                        <img src={require('../../assets/icons/mbbank.png')} alt="" />
-                        <img src={require('../../assets/icons/visa.png')} alt="" />
+                        <img src={require('../../../assets/icons/mbbank.png')} alt="" />
+                        <img src={require('../../../assets/icons/visa.png')} alt="" />
                     </div>
                     <div className={cx('cardInfo')}>
                         <span>Card Number</span>

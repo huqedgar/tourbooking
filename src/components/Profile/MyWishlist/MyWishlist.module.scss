@@ -1,16 +1,14 @@
-.myBooking {
+.myWishlist {
     padding: 15px;
     background-color: var(--bg);
     border-radius: 10px;
-    border: 1px solid var(--text-light);
     box-shadow: var(--box-shadow-primary);
 }
 
-.myBookingHeader {
+.myWishlistHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid #000;
 }
 
 .filterBox {
@@ -21,7 +19,7 @@
     border: 1px solid var(--text-light);
 }
 
-.myBookingTable {
+.myWishlistTable {
     width: 100%;
     margin-top: 15px;
     border-radius: 10px;
@@ -61,16 +59,44 @@
             font-size: 0.8rem;
             color: var(--white);
             border-radius: 5px;
-            background-color: green;
-            // background-color: red;
-            // background-color: darkgray;
-            // background-color: yellowgreen;
-            // background-color: var(--primary);
         }
 
         &:nth-child(6) {
             color: var(--primary);
             cursor: pointer;
         }
+    }
+
+    .available {
+        background-color: green;
+    }
+    .notAvailable {
+        background-color: darkgray;
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    font-weight: 600;
+
+    button {
+        padding: 5px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all ease 0.3s;
+
+        &:hover {
+            background-color: rgb(226 232 240);
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+
+    .pageActive {
+        color: var(--primary);
     }
 }

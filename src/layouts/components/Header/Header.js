@@ -83,6 +83,7 @@ const Header = () => {
 
     const handleClickLogout = () => {
         setIsClicked(!isClicked);
+        navigate('/login', { state: { from: location.pathname } });
         dispatch({
             type: 'logout',
         });
@@ -97,7 +98,7 @@ const Header = () => {
             }}
         >
             <nav className={cx('navBar')}>
-                <NavLink to={'/home'}>
+                <NavLink to={'/home/'}>
                     <h3>Tour Booking</h3>
                 </NavLink>
                 <div className={cx('btnMenu')} onClick={() => setShowMenu((value) => !value)}>
@@ -134,12 +135,12 @@ const Header = () => {
                             className="font-semithin"
                             onClick={handleClick}
                         >
-                            {user.first_name}
+                            {user.last_name}
                         </Button>
                         <div className={cx('userSelectBox', isClicked ? 'userSelectBoxShow' : 'userSelectBoxHide')}>
                             <ul className={cx('userSelect')}>
                                 <li onClick={handleClick}>
-                                    <NavLink className={cx('userSelectItem')} to={'/profile'}>
+                                    <NavLink className={cx('userSelectItem')} to={'/profile/'}>
                                         <FontAwesomeIcon className={cx('faUser')} icon={faUser} />
                                         Profile
                                     </NavLink>

@@ -12,15 +12,15 @@ import NotFound404 from '../pages/NotFound404/NotFound404';
 const Routers = () => {
     return (
         <Routes>
-            <Route path="/" element={<Navigate to={'/home'} />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/blogs/:blogId/details-blog" element={<BlogDetails />} />
-            <Route path="/tours/:tourId/details-tour" element={<TourDetails />} />
-            <Route path="/search" element={<SearchResultList />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/404" element={<NotFound404 />} />
+            <Route path="/" element={<Navigate to={'/home/'} />} />
+            <Route path="/home/" element={<Home />} />
+            <Route path="/blogs/:blogId/details-blog/" element={<BlogDetails />} />
+            <Route path="/tours/:tourId/details-tour/" element={<TourDetails />} />
+            <Route path="/search/" element={<SearchResultList />} />
+            <Route path="/profile/" element={<Profile />} />
+            <Route path="/login/" element={<Login />} />
+            <Route path="/register/" element={<Register />} />
+            <Route path="/*" element={<NotFound404 />} />
         </Routes>
     );
 };

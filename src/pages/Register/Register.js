@@ -24,6 +24,11 @@ const Register = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
+    const setValue = useCallback((e) => {
+        const { name, value } = e.target;
+        setUser((current) => ({ ...current, [name]: value }));
+    }, []);
+
     const handleRegister = useCallback(
         async (evt) => {
             evt.preventDefault();
@@ -75,11 +80,6 @@ const Register = () => {
         [navigate, user],
     );
 
-    const setValue = useCallback((e) => {
-        const { name, value } = e.target;
-        setUser((current) => ({ ...current, [name]: value }));
-    }, []);
-
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
@@ -91,7 +91,7 @@ const Register = () => {
                         mollit esse deserunt et sit veniam adipisicing do Lorem. Excepteur in pariatur proident sit
                         reprehenderit consequat non. Dolor occaecat cupidatat minim tempor.
                     </p>
-                    <NavLink to={'/login'}>
+                    <NavLink to={'/login/'}>
                         <Button className="border-white" primary>
                             Login
                         </Button>

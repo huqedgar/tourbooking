@@ -44,12 +44,14 @@ const Banner = memo(() => {
         videos.forEach((video, i) => {
             const videoElement = document.getElementById(`video${i + 1}`);
             if (i === indexRef.current) {
-                videoElement.play();
+                videoElement.addEventListener('canplaythrough', () => {
+                    videoElement.play();
+                });
             } else {
                 videoElement.pause();
             }
         });
-    }, [videos, indexRef.current]);
+    }, [videos]);
 
     const showNextVideo = useCallback(() => showVideo(indexRef.current + 1), [showVideo]);
     const showPrevVideo = useCallback(() => showVideo(indexRef.current - 1), [showVideo]);
@@ -104,7 +106,7 @@ const Banner = memo(() => {
             <div className={cx('contentBox')}>
                 <strong>Explore The World</strong>
                 <h1>The right destination for you and your family</h1>
-                <NavLink to={'/search'}>
+                <NavLink to={'/search/'}>
                     <Button style={{ marginTop: '20px' }} primary>
                         Explore Now
                     </Button>

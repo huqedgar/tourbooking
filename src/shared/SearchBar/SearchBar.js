@@ -79,15 +79,6 @@ const SearchBar = () => {
             </div>
             <div className={cx('box')}>
                 <div className={cx('icon')}>
-                    <FontAwesomeIcon icon={faCalendarDays} />
-                </div>
-                <div className={cx('input')}>
-                    <label htmlFor="returnDate">Return Date</label>
-                    <input type="date" id="returnDate" />
-                </div>
-            </div>
-            <div className={cx('box')}>
-                <div className={cx('icon')}>
                     <FontAwesomeIcon icon={faUsers} />
                 </div>
                 <div className={cx('input')}>
@@ -100,6 +91,15 @@ const SearchBar = () => {
                         onChange={handlePeopleChange}
                         min={1}
                     />
+                </div>
+            </div>
+            <div className={cx('box')}>
+                <div className={cx('icon')}>
+                    <FontAwesomeIcon icon={faCalendarDays} />
+                </div>
+                <div className={cx('input')}>
+                    <label htmlFor="returnDate">Return Date</label>
+                    <input type="date" id="returnDate" />
                 </div>
             </div>
             <button type="submit" aria-label="search" title="search">

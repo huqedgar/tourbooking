@@ -49,8 +49,6 @@ const BlogCarousel = ({ blog, likesblog }) => {
         }
         try {
             const res = await authAPI().post(endpoints['add-like-blog'](blogId));
-            console.log(res.status);
-            console.log(res.data);
             if (res.status === 200) {
                 setIsLiked((isLiked) => !isLiked);
                 setNumLike((numLike) => (isLiked ? numLike - 1 : numLike + 1));
@@ -63,7 +61,7 @@ const BlogCarousel = ({ blog, likesblog }) => {
                 toast.error('The system is having an error! Please come back later!');
             }
         } catch (ex) {
-            console.error(ex);
+            toast.error(ex.message);
         }
     }, [blogId, isLiked, user, location.pathname, navigate]);
 

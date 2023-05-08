@@ -6,7 +6,6 @@ import MyUserReducer from './reducers/MyUserReducer';
 import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
 import 'moment/locale/vi';
 import moment from 'moment';
-
 moment().local('vi');
 
 function App() {

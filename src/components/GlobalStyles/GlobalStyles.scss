@@ -36,9 +36,8 @@ body {
     width: 100%;
     font-family: var(--font-family);
     text-rendering: optimizespeed;
-    background: linear-gradient(rgb(255, 192, 203), transparent),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.75), transparent),
-        linear-gradient(-90deg, rgba(135, 206, 235, 0.75), transparent);
+    background: linear-gradient(pink, transparent), linear-gradient(90deg, white, transparent),
+        linear-gradient(-90deg, skyblue, transparent);
     background-blend-mode: screen;
 }
 

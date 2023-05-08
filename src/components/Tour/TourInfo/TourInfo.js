@@ -155,9 +155,9 @@ const TourInfo = ({ tour, descriptions, typesCustomer }) => {
                     },
                 });
                 console.log(res.status);
-                if (res.status === 200) {
+                if (res.status === 405) {
                     return toast.warning('You already have your ticket for this tour and its pending.');
-                } else if (res.status === 201) {
+                } else if (res.status === 200) {
                     isSuccess = true;
                 } else {
                     isSuccess = false;

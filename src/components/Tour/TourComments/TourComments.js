@@ -42,7 +42,7 @@ const TourComments = React.memo(({ tour, comments }) => {
                                     <Moment fromNow>{comment.created_date}</Moment>
                                 </span>
                             </div>
-                            <Rating className={cx('rating')} initialValue={5} readonly></Rating>
+                            <Rating className={cx('rating')} initialValue={comment.rating} readonly></Rating>
                         </div>
                         <p>{comment.content_cmt}</p>
                         <div className={cx('commentReact')}>

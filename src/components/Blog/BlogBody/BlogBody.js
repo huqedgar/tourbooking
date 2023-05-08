@@ -100,6 +100,7 @@ const BlogBody = ({ contentBlog, comments }) => {
         },
         [blogId, content, location.pathname, navigate, user],
     );
+
     return (
         <>
             <section className={cx('wrapperInfo')}>

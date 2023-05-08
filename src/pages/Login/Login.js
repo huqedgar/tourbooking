@@ -156,7 +156,7 @@ const Login = () => {
                         mollit esse deserunt et sit veniam adipisicing do Lorem. Excepteur in pariatur proident sit
                         reprehenderit consequat non. Dolor occaecat cupidatat minim tempor.
                     </p>
-                    <NavLink to={'/register'}>
+                    <NavLink to={'/register/'}>
                         <Button className="border-white" primary>
                             Register
                         </Button>

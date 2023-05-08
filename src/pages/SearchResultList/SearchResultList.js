@@ -96,7 +96,7 @@ const SearchResultList = () => {
 
                     <div className={cx('filterBox')}>
                         <select id="slFilter" name="slFilter" onChange={(e) => setSortBy(e.target.value)}>
-                            <option defaultValue disabled hidden>
+                            <option defaultValue hidden>
                                 Filter
                             </option>
                             <option value="newest">Newest</option>

@@ -14,6 +14,7 @@ function Button({
     third = false,
     disabled = false,
     small = false,
+    verysmall = false,
     children,
     className,
     leftIcon,
@@ -52,6 +53,7 @@ function Button({
         third,
         disabled,
         small,
+        verysmall,
     });
 
     return (
@@ -72,6 +74,7 @@ Button.propTypes = {
     third: PropTypes.bool,
     disabled: PropTypes.bool,
     small: PropTypes.bool,
+    verysmall: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
     leftIcon: PropTypes.node,
