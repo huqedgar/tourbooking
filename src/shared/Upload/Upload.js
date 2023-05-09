@@ -1,8 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Upload.module.scss';
-
 import { useState } from 'react';
-
 import { MdCloudUpload, MdDelete } from 'react-icons/md';
 import { AiFillFileImage } from 'react-icons/ai';
 

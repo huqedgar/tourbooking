@@ -3,7 +3,6 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { authAPI, endpoints } from '../../../configs/API';
 import { MyUserContext } from '../../../contexts/MyContext';
 import { NumericFormat } from 'react-number-format';
-import Moment from 'react-moment';
 import moment from 'moment-timezone';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

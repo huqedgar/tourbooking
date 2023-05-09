@@ -9,11 +9,9 @@ import classNames from 'classnames/bind';
 import styles from './Register.module.scss';
 import Button from '../../shared/Button/Button';
 import InputField from '../../shared/InputField/InputField';
-import Upload from '../../shared/Upload/Upload';
 import LoadingSpinner from '../../shared/LoadingSpinner/LoadingSpinner';
 import { MdCloudUpload, MdDelete } from 'react-icons/md';
 import { AiFillFileImage } from 'react-icons/ai';
-import Image from '../../shared/Image/Image';
 
 const cx = classNames.bind(styles);
 

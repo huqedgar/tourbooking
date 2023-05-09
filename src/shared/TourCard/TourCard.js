@@ -3,7 +3,6 @@ import { faCalendarDays, faLocationDot, faShoePrints, faStar } from '@fortawesom
 import classNames from 'classnames/bind';
 import styles from './TourCard.module.scss';
 import Button from '../Button/Button';
-import Moment from 'react-moment';
 import { NumericFormat } from 'react-number-format';
 import { Link } from 'react-router-dom';
 import Image from '../Image/Image';

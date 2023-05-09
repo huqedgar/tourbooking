@@ -1,5 +1,4 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-
 import Home from '../pages/Home/Home';
 import BlogDetails from '../pages/BlogDetails/BlogDetails';
 import TourDetails from '../pages/TourDetails/TourDetails';
