@@ -1,5 +1,4 @@
-//------------------------------ Section Home
-.wrapperHome {
+.page-wrap {
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -7,87 +6,49 @@
     user-select: none;
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
     box-shadow: var(--box-shadow-primary);
+    z-index: 0;
 }
 
-.videos {
-    &::after {
-        content: '';
+.titleSlider {
+    article {
         width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
         left: 0;
-    }
-
-    video {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -2;
-        opacity: 0;
-        transition: opacity 2s;
+        z-index: var(--i);
     }
 }
 
-video.live {
-    opacity: 1;
-}
-
-.videoControls {
+.hero-info {
     position: absolute;
-    top: 50%;
-    right: 10%;
-    transform: translateY(-175%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 25px;
-    padding: 20px;
-    z-index: 1;
+    top: 43%;
+    left: 2.9%;
+    width: 100%;
+    transform: translateY(-95%);
+    z-index: 10;
 
     h1 {
         color: var(--white);
-        font-size: 3rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        margin-inline: 1.2rem;
-        line-height: 3.8rem;
-        margin: 10px 15px;
+        font-size: clamp(3.2rem, 10vw, 6rem);
+        line-height: clamp(3.2rem, 10vw, 6rem);
+        text-transform: uppercase;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
     }
 
-    svg {
-        width: 4rem;
-        fill: var(--white);
-        cursor: pointer;
-        transition: ease-in-out 0.15s;
+    h2 {
+        font-size: clamp(2rem, 9vw, 4rem);
+        line-height: clamp(2rem, 9vw, 4rem);
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 3px var(--pill);
+        text-shadow: none;
     }
-}
 
-.prev:hover {
-    transform: translateX(-5px);
-}
-
-.next:hover {
-    transform: translateX(5px);
-}
-
-.contentBox {
-    max-width: 650px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-95%);
-    margin: 0 25px;
-    padding: 20px;
-    color: var(--white);
-    z-index: 1;
-
-    h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        line-height: 3.8rem;
-        margin: 10px 0;
+    h3 {
+        color: var(--white);
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-top: 15px;
     }
 }

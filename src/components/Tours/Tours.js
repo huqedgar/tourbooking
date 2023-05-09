@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './Tours.module.scss';
 import API, { endpoints } from '../../configs/API';
 import TourCard from '../../shared/TourCard/TourCard';
+import Loading from '../../shared/Loading/Loading';
 
 const cx = classNames.bind(styles);
 
@@ -37,11 +38,11 @@ const Tours = () => {
     };
 
     if (tours === null) {
-        return <div>Loading...</div>;
+        return <Loading />;
     }
 
     if (!tours?.length) {
-        return <div>Không có chuyến đi nào!</div>;
+        return <Loading />;
     }
 
     return (

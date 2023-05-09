@@ -8,6 +8,7 @@ import API, { endpoints } from '../../configs/API';
 import SearchBar from '../../shared/SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
 import Image from '../../shared/Image/Image';
+import Loading from '../../shared/Loading/Loading';
 
 const cx = classNames.bind(styles);
 
@@ -45,11 +46,11 @@ const SearchHome = () => {
     };
 
     if (tours === null) {
-        return <div>Loading...</div>;
+        return <Loading />;
     }
 
     if (!tours?.length) {
-        return <div>Không có chuyến đi nào!</div>;
+        return <Loading />;
     }
 
     return (

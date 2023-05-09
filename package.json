@@ -15,6 +15,7 @@
         "axios": "^1.4.0",
         "classnames": "^2.3.2",
         "framer-motion": "^10.12.4",
+        "gsap": "^3.11.5",
         "js-cookie": "^3.0.5",
         "leaflet": "^1.9.3",
         "moment-timezone": "^0.5.43",

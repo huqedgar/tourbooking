@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import classNames from 'classnames/bind';
 import styles from './Blogs.module.scss';
 import BlogCard from '../../shared/BlogCard/BlogCard';
+import Loading from '../../shared/Loading/Loading';
 
 const cx = classNames.bind(styles);
 
@@ -38,13 +39,12 @@ const Blogs = () => {
     };
 
     if (blogs === null) {
-        return <div>Loading...</div>;
+        return <Loading />;
     }
 
     if (!blogs?.length) {
-        return <div>Không có chuyến đi nào!</div>;
+        return <Loading />;
     }
-
     return (
         <section id="blogs" className={cx('wrapperBlogs')}>
             <div className={cx('titleBox')}>
