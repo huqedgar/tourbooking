@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import API, { endpoints } from '../../configs/API';
 import { ToastContainer, toast } from 'react-toastify';
@@ -9,7 +9,11 @@ import classNames from 'classnames/bind';
 import styles from './Register.module.scss';
 import Button from '../../shared/Button/Button';
 import InputField from '../../shared/InputField/InputField';
+import Upload from '../../shared/Upload/Upload';
 import LoadingSpinner from '../../shared/LoadingSpinner/LoadingSpinner';
+import { MdCloudUpload, MdDelete } from 'react-icons/md';
+import { AiFillFileImage } from 'react-icons/ai';
+import Image from '../../shared/Image/Image';
 
 const cx = classNames.bind(styles);
 
@@ -50,12 +54,15 @@ const Register = () => {
                 form.append('last_name', user.lastName);
                 form.append('username', user.username);
                 form.append('password', user.password);
+                if (avatar.current.files.length > 0) {
+                    form.append('avatar', avatar.current.files[0]);
+                }
                 const res = await API.post(endpoints['register'], form, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
                 });
-                if (res.status === 201) {
+                if (res.status === 200) {
                     toast.promise(
                         () =>
                             new Promise((resolve) => {
@@ -80,6 +87,24 @@ const Register = () => {
         [navigate, user],
     );
 
+    const [image, setImage] = useState(null);
+    const [fileName, setFileName] = useState('No selected file');
+    const avatar = useRef(null);
+
+    const handleChooseAvt = useCallback(({ target: { files } }) => {
+        if (files) {
+            files[0] && setFileName(files[0].name);
+            setImage(URL.createObjectURL(files[0]));
+        }
+    }, []);
+
+    const handleDeleteAvt = useCallback(() => {
+        setFileName('No selected file');
+        setImage(null);
+        // Clear the file input to allow re-selection of the same file
+        avatar.current.value = null;
+    }, [avatar]);
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
@@ -97,7 +122,6 @@ const Register = () => {
                         </Button>
                     </NavLink>
                 </div>
-
                 <div className={cx('login-left')}>
                     <h1>Register</h1>
                     <form onSubmit={handleRegister} className={cx('login-form')}>
@@ -152,6 +176,35 @@ const Register = () => {
                                 onChange={setValue}
                                 required
                             />
+                            <h4 className={cx('titleAvatar')}>Avatar</h4>
+                            <div
+                                className={cx('formUpload')}
+                                onClick={() => document.querySelector('.input-field').click()}
+                            >
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    className="input-field"
+                                    ref={avatar}
+                                    hidden
+                                    onChange={handleChooseAvt}
+                                />
+                                {image ? (
+                                    <img src={image} width={150} height={150} alt={fileName} />
+                                ) : (
+                                    <>
+                                        <MdCloudUpload color="#1475cf" size={60} />
+                                        <p>Browse Files to upload</p>
+                                    </>
+                                )}
+                            </div>
+                            <div className={cx('uploaded-row')}>
+                                <AiFillFileImage color="#1475cf" />
+                                <span className={cx('upload-content')}>
+                                    {fileName} -
+                                    <MdDelete onClick={handleDeleteAvt} />
+                                </span>
+                            </div>
                             {loading ? (
                                 <Button className="w-full" third disabled>
                                     <LoadingSpinner />

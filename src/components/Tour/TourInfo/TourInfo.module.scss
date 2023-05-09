@@ -83,11 +83,10 @@
     background-color: var(--bg);
     box-shadow: var(--box-shadow-primary);
 
-    span {
+    .spanLocation {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        letter-spacing: 0.5px;
         gap: 10px;
     }
 }

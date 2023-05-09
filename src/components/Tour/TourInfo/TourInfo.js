@@ -27,6 +27,17 @@ import Button from '../../../shared/Button/Button';
 import InputField from '../../../shared/InputField/InputField';
 import Modal from '../../../shared/Modal/Modal';
 
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Icon } from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
+// create custom icon
+const customIcon = new Icon({
+    // iconUrl: "https://cdn-icons-png.flaticon.com/512/447/447031.png",
+    iconUrl: require('../../../assets/icons/placeholder.png'),
+    iconSize: [38, 38], // size of the icon
+});
+
 const cx = classNames.bind(styles);
 
 const TourInfo = ({ tour, descriptions, typesCustomer }) => {
@@ -155,13 +166,13 @@ const TourInfo = ({ tour, descriptions, typesCustomer }) => {
                     },
                 });
                 console.log(res.status);
-                if (res.status === 405) {
+                if (res.status === 204) {
                     return toast.warning('You already have your ticket for this tour and its pending.');
-                } else if (res.status === 200) {
+                } else if (res.status === 201) {
                     isSuccess = true;
                 } else {
                     isSuccess = false;
-                    return toast.error('The system is having an error! Please come back later!');
+                    return toast.error(res.statusText);
                 }
             } catch (ex) {
                 toast.error(ex.message);
@@ -222,12 +233,25 @@ const TourInfo = ({ tour, descriptions, typesCustomer }) => {
                     </div>
                 </div>
                 <div className={cx('location')}>
-                    <span>
+                    <span className={cx('spanLocation')}>
                         {tour.address_tour} , {tour.country_tour}
                     </span>
-                    {/* <div>Google Map</div> */}
+                    <MapContainer
+                        center={[10.77653, 106.700981]}
+                        zoom={13}
+                        style={{ width: '100%', height: '180px' }}
+                        scrollWheelZoom={false}
+                    >
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <Marker position={[10.77653, 106.700981]} icon={customIcon}>
+                            <Popup>{'Hello, I am here!'}</Popup>
+                        </Marker>
+                    </MapContainer>
                     <div className={cx('locationFooter')}>
-                        <span>
+                        <span className={cx('spanLocation')}>
                             <FontAwesomeIcon className={cx('faPhone')} icon={faPhone} />
                             Contact Partner: +84344564075
                         </span>

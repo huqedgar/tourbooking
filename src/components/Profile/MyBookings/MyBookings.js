@@ -42,9 +42,10 @@ const MyBookings = () => {
     const [loading, setLoading] = useState(false);
 
     //--- Handle UI
-    const handleModalClick = () => {
-        setShowModal(!showModal);
-    };
+
+    const handleModalClick = useCallback(() => {
+        setShowModal((prevState) => !prevState);
+    }, []);
 
     const handleViewTicket = (ticket) => {
         setTicket(ticket);
@@ -52,36 +53,37 @@ const MyBookings = () => {
     };
 
     //--- Handle Logic
-    useEffect(() => {
-        const loadMyTickets = async () => {
-            let endpoint = endpoints['user-ticket'];
+    const loadMyTickets = useCallback(async () => {
+        let endpoint = endpoints['user-ticket'];
 
-            switch (sortBy) {
-                case 'success':
-                    endpoint += '?stt=Success';
-                    break;
-                case 'pending':
-                    endpoint += '?stt=Pending';
-                    break;
-                case 'cancel':
-                    endpoint += '?stt=Cancel';
-                    break;
-                case 'expired':
-                    endpoint += '?stt=Expired';
-                    break;
-                default:
-                    break;
-            }
+        switch (sortBy) {
+            case 'success':
+                endpoint += '?stt=Success';
+                break;
+            case 'pending':
+                endpoint += '?stt=Pending';
+                break;
+            case 'cancel':
+                endpoint += '?stt=Cancel';
+                break;
+            case 'expired':
+                endpoint += '?stt=Expired';
+                break;
+            default:
+                break;
+        }
 
-            try {
-                let res = await authAPI().get(endpoint);
-                setMyTickets(res.data);
-            } catch (ex) {
-                toast.error(ex);
-            }
-        };
-        loadMyTickets();
+        try {
+            let res = await authAPI().get(endpoint);
+            setMyTickets(res.data);
+        } catch (ex) {
+            toast.error(ex);
+        }
     }, [sortBy]);
+
+    useEffect(() => {
+        loadMyTickets();
+    }, [sortBy, loadMyTickets]);
 
     // Pagination
     const getCurrentItems = () => {
@@ -199,6 +201,7 @@ const MyBookings = () => {
                         },
                     );
                     handleModalClick();
+                    loadMyTickets();
                 }
             } catch (ex) {
                 toast.error(ex.message);
@@ -206,7 +209,7 @@ const MyBookings = () => {
                 setLoading(false);
             }
         },
-        [ticket?.bill?.code_bill, handleModalClick],
+        [ticket?.bill?.code_bill, handleModalClick, loadMyTickets],
     );
 
     if (myTickets === null) {

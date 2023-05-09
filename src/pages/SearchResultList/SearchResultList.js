@@ -35,6 +35,16 @@ const SearchResultList = () => {
                 endpoint += `&date=${kwDate}`;
             }
 
+            let kwPriceF = q.get('priceF');
+            if (kwPriceF !== null) {
+                endpoint += `&priceF=${kwPriceF}`;
+            }
+
+            let kwPriceTo = q.get('priceTo');
+            if (kwPriceTo !== null) {
+                endpoint += `&priceTo=${kwPriceTo}`;
+            }
+
             let kwPeople = q.get('remain');
             if (kwPeople !== null) {
                 endpoint += `&remain=${kwPeople}`;
@@ -93,7 +103,6 @@ const SearchResultList = () => {
             <div className={cx('searchResultBody')}>
                 <div className={cx('searchWrapper')}>
                     <SearchBar />
-
                     <div className={cx('filterBox')}>
                         <select id="slFilter" name="slFilter" onChange={(e) => setSortBy(e.target.value)}>
                             <option defaultValue hidden>

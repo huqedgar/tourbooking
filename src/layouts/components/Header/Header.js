@@ -77,6 +77,16 @@ const Header = () => {
         setIsClicked(!isClicked);
     };
 
+    const handleMouseEnter = () => {
+        setIsClicked(true);
+    };
+
+    const handleMouseLeave = () => {
+        setTimeout(() => {
+            setIsClicked(false);
+        }, 500);
+    };
+
     const handleClickLogin = () => {
         navigate('/login', { state: { from: location.pathname } });
     };
@@ -133,11 +143,14 @@ const Header = () => {
                             leftIcon={<Image className={cx('userAvatar')} src={user.avatar} alt={user.avatar} />}
                             rightIcon={<FontAwesomeIcon className={cx('faChevronDown')} icon={faChevronDown} />}
                             className="font-semithin"
-                            onClick={handleClick}
+                            onMouseEnter={handleMouseEnter}
                         >
                             {user.last_name}
                         </Button>
-                        <div className={cx('userSelectBox', isClicked ? 'userSelectBoxShow' : 'userSelectBoxHide')}>
+                        <div
+                            className={cx('userSelectBox', isClicked ? 'userSelectBoxShow' : 'userSelectBoxHide')}
+                            onMouseLeave={handleMouseLeave}
+                        >
                             <ul className={cx('userSelect')}>
                                 <li onClick={handleClick}>
                                     <NavLink className={cx('userSelectItem')} to={'/profile/'}>
