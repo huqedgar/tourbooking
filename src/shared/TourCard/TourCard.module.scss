@@ -3,17 +3,17 @@
     height: 370px;
     padding: 15px;
     background-color: var(--white);
-    border: 1px solid var(--text-light);
+    border: 2px solid hsl(0, 0%, 85%);
     border-radius: 10px;
     transition: all ease 0.3s;
 
     &:hover {
-        border: 1px solid transparent;
+        border: 2px solid transparent;
         box-shadow: var(--box-shadow-primary);
     }
 
     hr {
-        border: 1px solid var(--text-light);
+        border: 1px solid hsl(0, 0%, 75%);
     }
 }
 
