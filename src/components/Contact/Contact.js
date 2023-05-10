@@ -50,7 +50,7 @@ const Contact = () => {
                                 type="text"
                                 name="user_name"
                                 placeholder="Enter your name."
-                                require
+                                required
                             />
                             <InputField
                                 id="youremail"
@@ -58,7 +58,7 @@ const Contact = () => {
                                 type="email"
                                 name="user_email"
                                 placeholder="Enter your email."
-                                require
+                                required
                             />
                         </div>
                         <div className={cx('contactColumn')}>
@@ -68,7 +68,7 @@ const Contact = () => {
                                 type="text"
                                 name="user_subject"
                                 placeholder="Enter subject."
-                                require
+                                required
                             />
                             <InputField
                                 textarea
@@ -77,7 +77,7 @@ const Contact = () => {
                                 name="message"
                                 placeholder="Enter message."
                                 className="mb-4"
-                                require
+                                required
                             />
                         </div>
                         <Button type="submit" primary>

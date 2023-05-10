@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faChevronDown, faRightFromBracket, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
@@ -12,27 +13,27 @@ const cx = classNames.bind(styles);
 
 const navBar = [
     {
-        link: '/home#',
+        link: 'home',
         name: 'home',
     },
     {
-        link: '/home#tours',
+        link: 'tours',
         name: 'tours',
     },
     {
-        link: '/home#destinations',
+        link: 'destinations',
         name: 'destinations',
     },
     {
-        link: '/home#blogs',
+        link: 'blogs',
         name: 'blogs',
     },
     {
-        link: '/home#about',
+        link: 'about',
         name: 'about',
     },
     {
-        link: '/home#contact',
+        link: 'contact',
         name: 'contact',
     },
 ];
@@ -117,8 +118,10 @@ const Header = () => {
                 <ul style={{ height: showMenu ? 360 : 0 }}>
                     {navBar.map((nav, index) => (
                         <li key={index}>
-                            <a
-                                href={nav.link}
+                            <Link
+                                to={nav.link}
+                                smooth={true}
+                                duration={150}
                                 className={
                                     id === nav.name
                                         ? visible || showMenu
@@ -130,7 +133,7 @@ const Header = () => {
                                 }
                             >
                                 {nav.name}
-                            </a>
+                            </Link>
                         </li>
                     ))}
                 </ul>

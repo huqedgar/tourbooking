@@ -1,12 +1,11 @@
-import { useEffect, lazy, Suspense, useReducer } from 'react';
+import { useContext, useEffect, lazy, Suspense, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
 import API, { authAPI, endpoints } from '../../configs/API';
 import MyUserReducer from '../../reducers/MyUserReducer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Loading from '../../shared/Loading/Loading';
-import { useContext } from 'react';
 import { MyUserContext } from '../../contexts/MyContext';
+import SkeletonDetails from '../../shared/Skeleton/SkeletonDetails/SkeletonDetails';
 
 const TourCarousel = lazy(() => import('../../components/Tour/TourCarousel/TourCarousel'));
 const TourInfo = lazy(() => import('../../components/Tour/TourInfo/TourInfo'));
@@ -49,11 +48,11 @@ const TourDetails = () => {
     }, [tourId, user]);
 
     if (!state.tour || !state.comments || !state.typesCustomer) {
-        return <Loading />;
+        return <SkeletonDetails />;
     }
 
     return (
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<SkeletonDetails />}>
             <TourCarousel tour={state.tour} myWishList={state.wishlist} />
             <TourInfo
                 tour={state.tour}

@@ -56,6 +56,7 @@ const MyWishlist = () => {
     if (myWishlist === null) {
         return <Loading />;
     }
+
     return (
         <div className={cx('myWishlist')}>
             <div className={cx('myWishlistHeader')}>

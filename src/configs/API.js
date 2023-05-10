@@ -28,12 +28,12 @@ export const endpoints = {
 
 export const authAPI = () =>
     axios.create({
-        baseURL: 'https://thuctran2207.pythonanywhere.com/',
+        baseURL: process.env.REACT_APP_BASE_URL,
         headers: {
             Authorization: `Bearer ${Cookies.get('access-token')}`,
         },
     });
 
 export default axios.create({
-    baseURL: 'https://thuctran2207.pythonanywhere.com/',
+    baseURL: process.env.REACT_APP_BASE_URL,
 });

@@ -1,14 +1,14 @@
 import { useRef, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import API, { endpoints } from '../../configs/API';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './SearchHome.module.scss';
-import API, { endpoints } from '../../configs/API';
 import SearchBar from '../../shared/SearchBar/SearchBar';
-import { Link } from 'react-router-dom';
 import Image from '../../shared/Image/Image';
-import Loading from '../../shared/Loading/Loading';
+import SkeletonTrendCard from '../../shared/Skeleton/SkeletonTrendCard/SkeletonTrendCard';
 
 const cx = classNames.bind(styles);
 
@@ -45,14 +45,6 @@ const SearchHome = () => {
         }
     };
 
-    if (tours === null) {
-        return <Loading />;
-    }
-
-    if (!tours?.length) {
-        return <Loading />;
-    }
-
     return (
         <section id="search" className={cx('wrapperSearch')}>
             <div className={cx('searchBox')}>
@@ -62,32 +54,41 @@ const SearchHome = () => {
                 <h3>Treding</h3>
                 <motion.div ref={carousel} whileHover={{ cursor: 'grabbing' }} className={cx('carousel')}>
                     <motion.div drag="x" dragConstraints={{ right: 0, left: -width }} className={cx('cardBox')}>
-                        {tours.map((tour) => (
-                            <motion.div className={cx('card')} key={tour.id}>
-                                <Image src={tour.image_tour} alt={tour.image_tour} />
-                                <div className={cx('box')}>
-                                    <span className={cx('star')}>
-                                        <FontAwesomeIcon className={cx('faStar')} icon={faStar} />
-                                        {tour.rating_count_tour}
-                                    </span>
-                                    <div className={cx('group')}>
-                                        <div className={cx('text')}>
-                                            <Link to={`/tours/${tour.id}/details-tour/`}>
-                                                <strong>{tour.address_tour}</strong>
-                                            </Link>
-                                            <span>
-                                                <FontAwesomeIcon className={cx('faLocationDot')} icon={faLocationDot} />
-                                                {tour.country_tour}
+                        {tours === null ? (
+                            <SkeletonTrendCard cards={5} />
+                        ) : !tours?.length ? (
+                            <h4 className="relative m-auto">Không có chuyến đi nào!</h4>
+                        ) : (
+                            tours.map((tour) => (
+                                <motion.div className={cx('card')} key={tour.id}>
+                                    <Image src={tour.image_tour} alt={tour.image_tour} />
+                                    <div className={cx('box')}>
+                                        <span className={cx('star')}>
+                                            <FontAwesomeIcon className={cx('faStar')} icon={faStar} />
+                                            {tour.rating_count_tour}
+                                        </span>
+                                        <div className={cx('group')}>
+                                            <div className={cx('text')}>
+                                                <Link to={`/tours/${tour.id}/details-tour/`}>
+                                                    <strong>{tour.address_tour}</strong>
+                                                </Link>
+                                                <span>
+                                                    <FontAwesomeIcon
+                                                        className={cx('faLocationDot')}
+                                                        icon={faLocationDot}
+                                                    />
+                                                    {tour.country_tour}
+                                                </span>
+                                            </div>
+                                            <span className={cx('price')}>
+                                                {Number(tour.price_tour / 1000000)}
+                                                {' tr'}
                                             </span>
                                         </div>
-                                        <span className={cx('price')}>
-                                            {Number(tour.price_tour / 1000000)}
-                                            {' tr'}
-                                        </span>
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                                </motion.div>
+                            ))
+                        )}
                     </motion.div>
                 </motion.div>
                 <div className={cx('paginationBox')}>

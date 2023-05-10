@@ -1,12 +1,11 @@
-import { useEffect, lazy, Suspense, useReducer } from 'react';
+import { useContext, useEffect, lazy, Suspense, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
 import API, { authAPI, endpoints } from '../../configs/API';
 import MyUserReducer from '../../reducers/MyUserReducer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Loading from '../../shared/Loading/Loading';
-import { useContext } from 'react';
 import { MyUserContext } from '../../contexts/MyContext';
+import SkeletonDetails from '../../shared/Skeleton/SkeletonDetails/SkeletonDetails';
 
 const BlogCarousel = lazy(() => import('../../components/Blog/BlogCarousel/BlogCarousel'));
 const BlogBody = lazy(() => import('../../components/Blog/BlogBody/BlogBody'));
@@ -45,11 +44,11 @@ const BlogDetails = () => {
     }, [blogId, user]);
 
     if (!state.blog || !state.comments) {
-        return <Loading />;
+        return <SkeletonDetails />;
     }
 
     return (
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<SkeletonDetails />}>
             <BlogCarousel blog={state.blog} likesblog={state.likesblog} />
             <BlogBody contentBlog={state.blog.content_blog} comments={state.comments} />
             <ToastContainer />

@@ -37,6 +37,7 @@ header {
     user-select: none;
     transition: all ease 0.3s;
     text-transform: capitalize;
+    cursor: pointer;
 
     &:is(:hover, .active) {
         text-decoration: 2px overline var(--white);
@@ -137,34 +138,3 @@ header {
         width: 20px;
     }
 }
-
-// Responsive
-// @media (max-width: 650px) {
-//     .navBar {
-//         width: 100%;
-//         justify-content: space-between;
-
-//         ul {
-//             position: absolute;
-//             top: 100%;
-//             left: 0;
-//             background-color: var(--bg-main);
-//             display: block;
-//             width: 100%;
-//             box-shadow: 2px 20px 30px var(--shadow-color);
-//             transition: all ease-in-out 0.3s;
-//             height: 0px;
-//             overflow: hidden;
-//         }
-//     }
-
-//     .navLink {
-//         display: block;
-//         padding: 20px 15px;
-//         border-bottom: 1px solid var(--border-color);
-//     }
-
-//     .btnMenu {
-//         display: block;
-//     }
-// }

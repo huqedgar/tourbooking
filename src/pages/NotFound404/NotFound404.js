@@ -1,5 +1,5 @@
-import Button from '../../shared/Button/Button';
 import { Link } from 'react-router-dom';
+import Button from '../../shared/Button/Button';
 
 const NotFound404 = () => {
     return (

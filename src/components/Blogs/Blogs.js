@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import classNames from 'classnames/bind';
 import styles from './Blogs.module.scss';
 import BlogCard from '../../shared/BlogCard/BlogCard';
-import Loading from '../../shared/Loading/Loading';
+import SkeletonCard from '../../shared/Skeleton/SkeletonCard/SkeletonCard';
 
 const cx = classNames.bind(styles);
 
@@ -38,13 +38,6 @@ const Blogs = () => {
         }
     };
 
-    if (blogs === null) {
-        return <Loading />;
-    }
-
-    if (!blogs?.length) {
-        return <Loading />;
-    }
     return (
         <section id="blogs" className={cx('wrapperBlogs')}>
             <div className={cx('titleBox')}>
@@ -63,9 +56,13 @@ const Blogs = () => {
                 </div>
             </div>
             <div className={cx('wrapper')}>
-                {blogs.map((blog) => (
-                    <BlogCard blog={blog} key={blog.id} />
-                ))}
+                {blogs === null ? (
+                    <SkeletonCard cards={20} />
+                ) : !blogs?.length ? (
+                    <h4 className="relative m-auto">Không có chuyến đi nào!</h4>
+                ) : (
+                    blogs.map((blog) => <BlogCard blog={blog} key={blog.id} />)
+                )}
             </div>
             <ToastContainer />
         </section>

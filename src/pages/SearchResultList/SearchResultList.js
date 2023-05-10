@@ -1,11 +1,11 @@
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import API, { endpoints } from '../../configs/API';
 import classNames from 'classnames/bind';
 import styles from './SearchResultList.module.scss';
 import SearchBar from '../../shared/SearchBar/SearchBar';
 import TourCard from '../../shared/TourCard/TourCard';
-import { useEffect, useState } from 'react';
-import API, { endpoints } from '../../configs/API';
-import { useSearchParams } from 'react-router-dom';
-import Loading from '../../shared/Loading/Loading';
+import SkeletonCard from '../../shared/Skeleton/SkeletonCard/SkeletonCard';
 
 const cx = classNames.bind(styles);
 
@@ -90,10 +90,6 @@ const SearchResultList = () => {
         }
     };
 
-    if (tours === null) {
-        return <Loading />;
-    }
-
     return (
         <section className={cx('searchResultWrapper')}>
             <div className={cx('searchResultHeader')}>
@@ -130,7 +126,9 @@ const SearchResultList = () => {
                 </div>
 
                 <div className={cx('cardWrapper')}>
-                    {!tours?.length ? (
+                    {tours === null ? (
+                        <SkeletonCard cards={20} />
+                    ) : !tours?.length ? (
                         <h4 className="relative m-auto">Không có chuyến đi nào!</h4>
                     ) : (
                         tours.map((tour) => <TourCard tour={tour} key={tour.id} />)

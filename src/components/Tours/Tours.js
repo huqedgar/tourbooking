@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './Tours.module.scss';
 import API, { endpoints } from '../../configs/API';
 import TourCard from '../../shared/TourCard/TourCard';
-import Loading from '../../shared/Loading/Loading';
+import SkeletonCard from '../../shared/Skeleton/SkeletonCard/SkeletonCard';
 
 const cx = classNames.bind(styles);
 
@@ -37,14 +37,6 @@ const Tours = () => {
         }
     };
 
-    if (tours === null) {
-        return <Loading />;
-    }
-
-    if (!tours?.length) {
-        return <Loading />;
-    }
-
     return (
         <section id="tours" className={cx('wrapperTrending')}>
             <div className={cx('titleBox')}>
@@ -63,9 +55,13 @@ const Tours = () => {
                 </div>
             </div>
             <div className={cx('wrapper')}>
-                {tours.map((tour) => (
-                    <TourCard tour={tour} key={tour.id} />
-                ))}
+                {tours === null ? (
+                    <SkeletonCard cards={20} />
+                ) : !tours?.length ? (
+                    <h4 className="relative m-auto">Không có chuyến đi nào!</h4>
+                ) : (
+                    tours.map((tour) => <TourCard tour={tour} key={tour.id} />)
+                )}
             </div>
         </section>
     );
