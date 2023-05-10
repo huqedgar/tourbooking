@@ -68,7 +68,10 @@
     box-shadow: var(--box-shadow-primary);
 
     img {
+        min-width: 225px;
+        min-height: 150px;
         transition: all linear 0.5s;
+        object-fit: cover;
     }
 
     &:hover {

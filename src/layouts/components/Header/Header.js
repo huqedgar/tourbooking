@@ -75,7 +75,7 @@ const Header = () => {
     }, []);
 
     const handleClick = () => {
-        setIsClicked(!isClicked);
+        setIsClicked(false);
     };
 
     const handleMouseEnter = () => {
@@ -138,7 +138,7 @@ const Header = () => {
                     ))}
                 </ul>
                 {user !== null ? (
-                    <div className={cx('userAvatarBox')}>
+                    <div className={cx('userAvatarBox')} onMouseLeave={handleMouseLeave}>
                         <Button
                             btnFlex
                             third
@@ -150,10 +150,8 @@ const Header = () => {
                         >
                             {user.last_name}
                         </Button>
-                        <div
-                            className={cx('userSelectBox', isClicked ? 'userSelectBoxShow' : 'userSelectBoxHide')}
-                            onMouseLeave={handleMouseLeave}
-                        >
+                        <div className={cx('blurAvatarBox')}></div>
+                        <div className={cx('userSelectBox', isClicked ? 'userSelectBoxShow' : 'userSelectBoxHide')}>
                             <ul className={cx('userSelect')}>
                                 <li onClick={handleClick}>
                                     <NavLink className={cx('userSelectItem')} to={'/profile/'}>

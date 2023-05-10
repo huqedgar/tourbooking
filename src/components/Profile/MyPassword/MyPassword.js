@@ -70,7 +70,7 @@ const MyPassword = () => {
 
     return (
         <form onSubmit={handleUpdatePassword} className={cx('myAccount')}>
-            <h3>Personal Data</h3>
+            <h3>Change Password</h3>
             <hr />
             <div className={cx('infoBox')}>
                 <div className={cx('inputFlex')}>

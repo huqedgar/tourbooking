@@ -4,6 +4,10 @@
     border-radius: 10px;
     box-shadow: var(--box-shadow-primary);
 
+    h3 {
+        user-select: none;
+    }
+
     hr {
         margin: 15px 0;
         border: 0.5px solid var(--text-light);

@@ -167,6 +167,10 @@ const TourInfo = ({ tour, descriptions, typesCustomer }) => {
                 console.log(res.status);
                 if (res.status === 204) {
                     return toast.warning('You already have your ticket for this tour and its pending.');
+                } else if (res.status === 200) {
+                    return toast.warning(
+                        'Sorry about that you have booked more than 10 tickets pending, You must pay it!',
+                    );
                 } else if (res.status === 201) {
                     isSuccess = true;
                 } else {
