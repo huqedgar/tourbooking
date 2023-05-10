@@ -55,7 +55,7 @@ const SearchHome = () => {
                 <motion.div ref={carousel} whileHover={{ cursor: 'grabbing' }} className={cx('carousel')}>
                     <motion.div drag="x" dragConstraints={{ right: 0, left: -width }} className={cx('cardBox')}>
                         {tours === null ? (
-                            <SkeletonTrendCard cards={5} />
+                            <SkeletonTrendCard cards={20} />
                         ) : !tours?.length ? (
                             <h4 className="relative m-auto">Không có chuyến đi nào!</h4>
                         ) : (
