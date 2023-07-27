@@ -62,18 +62,20 @@ const SearchBar = () => {
       setShowSuggest(listPlace.length !== 0);
    }, [listPlace]);
 
-   const handleSuggestClick = (display_name) => {
+   const clearSuggest = () => {
       setListPlace([]);
       setShowSuggest(false);
       setIsSuggest(true);
+   };
+
+   const handleSuggestClick = (display_name) => {
+      clearSuggest();
       setKw(display_name);
    };
 
    const handleOnBlur = () => {
       setTimeout(() => {
-         setListPlace([]);
-         setShowSuggest(false);
-         setIsSuggest(true);
+         clearSuggest();
       }, 100);
    };
 
@@ -135,7 +137,7 @@ const SearchBar = () => {
       if (people !== '' && Number(people) !== 0) {
          endpoint += `&remain=${Number(people)}`;
       }
-
+      clearSuggest();
       nav(endpoint);
    };
 

@@ -103,19 +103,16 @@ const Header = () => {
    return (
       <header
          style={{
-            backgroundColor: visible || showMenu ? 'background-color: rgba(0, 0, 0, 0.5)' : 'transparent',
-            backdropFilter: visible || showMenu ? 'saturate(180%) blur(10px)' : '',
+            backgroundColor: visible ? 'background-color: rgba(0, 0, 0, 0.5)' : 'transparent',
+            backdropFilter: visible ? 'saturate(180%) blur(10px)' : '',
             boxShadow: visible ? 'var(--box-shadow-primary)' : 'none'
          }}
       >
+         <NavLink to={'/home/'}>
+            <h3>Tour Booking</h3>
+         </NavLink>
          <nav className={cx('navBar')}>
-            <NavLink to={'/home/'}>
-               <h3>Tour Booking</h3>
-            </NavLink>
-            <div className={cx('btnMenu')} onClick={() => setShowMenu((value) => !value)}>
-               {showMenu ? <FontAwesomeIcon icon={faBars} /> : <FontAwesomeIcon icon={faXmark} />}
-            </div>
-            <ul style={{ height: showMenu ? 360 : 0 }}>
+            <ul>
                {navBar.map((nav, index) => (
                   <li key={index}>
                      <Link
@@ -172,6 +169,9 @@ const Header = () => {
                </Button>
             )}
          </nav>
+         <div className={cx('btnMenu')} onClick={() => setShowMenu((value) => !value)}>
+            {showMenu ? <FontAwesomeIcon icon={faXmark} /> : <FontAwesomeIcon icon={faBars} />}
+         </div>
       </header>
    );
 };

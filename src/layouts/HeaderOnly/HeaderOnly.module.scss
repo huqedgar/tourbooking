@@ -1,27 +1,28 @@
 header {
    width: 100%;
    position: fixed;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 20px 45px;
    top: 0%;
    left: 50%;
    user-select: none;
    transform: translate(-50%, 0%);
    transition: all ease-in-out 0.3s;
    z-index: 100;
+
+   h3 {
+      font-size: 1.25rem;
+      background: -webkit-linear-gradient(90deg, #007cf0, #00dfd8);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+   }
 }
 
 .navBar {
-   width: 100%;
    display: flex;
-   align-items: center;
-   justify-content: space-between;
-   margin: 0 auto;
-   padding: 22px 45px;
-
-   h3 {
-      background: -webkit-linear-gradient(90deg, #007cf0, #00dfd8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-   }
+   gap: 15px;
 
    ul {
       display: flex;
@@ -52,13 +53,6 @@ header {
    }
 }
 
-.btnMenu {
-   font-size: 1.8rem;
-   cursor: pointer;
-   color: var(--white);
-   display: none;
-}
-
 .userAvatarBox {
    position: relative;
    font-size: 0.9rem;
@@ -69,7 +63,13 @@ header {
    height: 32px;
    object-fit: cover;
    border-radius: 50%;
-   cursor: pointer;
+}
+
+.blurAvatarBox {
+   position: absolute;
+   width: 100%;
+   height: 15px;
+   background-color: transparent;
 }
 
 .userSelectBox {
@@ -136,5 +136,22 @@ header {
    .faRightFromBracket {
       color: var(--primary);
       width: 20px;
+   }
+}
+
+.btnMenu {
+   font-size: 1.8rem;
+   cursor: pointer;
+   color: var(--white);
+   display: none;
+}
+
+@media screen and (max-width: 1280px) {
+   .btnMenu {
+      display: block;
+   }
+
+   .navBar {
+      display: none;
    }
 }

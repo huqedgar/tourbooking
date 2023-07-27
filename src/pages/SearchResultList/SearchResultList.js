@@ -93,7 +93,7 @@ const SearchResultList = () => {
    return (
       <section className={cx('searchResultWrapper')}>
          <div className={cx('searchResultHeader')}>
-            <h2>Search results: "Tour"</h2>
+            <h2>{`Search results: ${q.get('kw')}`}</h2>
          </div>
 
          <div className={cx('searchResultBody')}>

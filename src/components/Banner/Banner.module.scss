@@ -90,3 +90,13 @@ video.live {
       margin: 10px 0;
    }
 }
+
+@media screen and (max-width: 1280px) {
+   .contentBox {
+      top: 60%;
+   }
+
+   .videoControls {
+      display: none;
+   }
+}

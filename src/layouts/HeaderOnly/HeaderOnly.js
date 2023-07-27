@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faChevronDown, faRightFromBracket, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
@@ -74,7 +75,7 @@ const HeaderOnly = () => {
    }, []);
 
    const handleClick = () => {
-      setIsClicked(!isClicked);
+      setIsClicked(false);
    };
 
    const handleMouseEnter = () => {
@@ -102,23 +103,22 @@ const HeaderOnly = () => {
    return (
       <header
          style={{
-            backgroundColor: visible || showMenu ? 'background-color: rgba(0, 0, 0, 0.5)' : 'transparent',
-            backdropFilter: visible || showMenu ? 'saturate(180%) blur(10px)' : '',
+            backgroundColor: visible ? 'background-color: rgba(0, 0, 0, 0.5)' : 'transparent',
+            backdropFilter: visible ? 'saturate(180%) blur(10px)' : '',
             boxShadow: visible ? 'var(--box-shadow-primary)' : 'none'
          }}
       >
+         <NavLink to={'/home/'}>
+            <h3>Tour Booking</h3>
+         </NavLink>
          <nav className={cx('navBar')}>
-            <NavLink to={'/home/'}>
-               <h3>Tour Booking</h3>
-            </NavLink>
-            <div className={cx('btnMenu')} onClick={() => setShowMenu((value) => !value)}>
-               {showMenu ? <FontAwesomeIcon icon={faBars} /> : <FontAwesomeIcon icon={faXmark} />}
-            </div>
-            <ul style={{ height: showMenu ? 360 : 0 }}>
+            <ul>
                {navBar.map((nav, index) => (
                   <li key={index}>
                      <Link
-                        to={'/home/'}
+                        to='/home/'
+                        smooth={true}
+                        duration={150}
                         className={
                            id === nav.name
                               ? visible || showMenu
@@ -135,7 +135,7 @@ const HeaderOnly = () => {
                ))}
             </ul>
             {user !== null ? (
-               <div className={cx('userAvatarBox')}>
+               <div className={cx('userAvatarBox')} onMouseLeave={handleMouseLeave}>
                   <Button
                      btnFlex
                      third
@@ -147,10 +147,8 @@ const HeaderOnly = () => {
                   >
                      {user.last_name}
                   </Button>
-                  <div
-                     className={cx('userSelectBox', isClicked ? 'userSelectBoxShow' : 'userSelectBoxHide')}
-                     onMouseLeave={handleMouseLeave}
-                  >
+                  <div className={cx('blurAvatarBox')}></div>
+                  <div className={cx('userSelectBox', isClicked ? 'userSelectBoxShow' : 'userSelectBoxHide')}>
                      <ul className={cx('userSelect')}>
                         <li onClick={handleClick}>
                            <NavLink className={cx('userSelectItem')} to={'/profile/'}>
@@ -171,6 +169,9 @@ const HeaderOnly = () => {
                </Button>
             )}
          </nav>
+         <div className={cx('btnMenu')} onClick={() => setShowMenu((value) => !value)}>
+            {showMenu ? <FontAwesomeIcon icon={faXmark} /> : <FontAwesomeIcon icon={faBars} />}
+         </div>
       </header>
    );
 };
