@@ -1,16 +1,16 @@
 .wrapperScroll {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    transition: all 0.3s cubic-bezier(0.75, -0.02, 0.2, 0.95);
+   position: fixed;
+   bottom: 25px;
+   right: 25px;
+   transition: all 0.3s cubic-bezier(0.75, -0.02, 0.2, 0.95);
 }
 
 .show {
-    opacity: 1;
-    visibility: visible;
+   opacity: 1;
+   visibility: visible;
 }
 
 .hide {
-    opacity: 0;
-    visibility: hidden;
+   opacity: 0;
+   visibility: hidden;
 }

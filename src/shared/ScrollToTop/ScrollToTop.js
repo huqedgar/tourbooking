@@ -8,30 +8,30 @@ import Button from '../Button/Button';
 const cx = classNames.bind(styles);
 
 const ScrollToTop = () => {
-    const [backToTop, setBackToTop] = useState(false);
+   const [backToTop, setBackToTop] = useState(false);
 
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                setBackToTop(true);
-            } else {
-                setBackToTop(false);
-            }
-        });
-    }, []);
+   useEffect(() => {
+      window.addEventListener('scroll', () => {
+         if (window.scrollY > 100) {
+            setBackToTop(true);
+         } else {
+            setBackToTop(false);
+         }
+      });
+   }, []);
 
-    const handleScrollUp = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    };
+   const handleScrollUp = () => {
+      window.scrollTo({
+         top: 0,
+         behavior: 'smooth'
+      });
+   };
 
-    return (
-        <Button third small className={cx('wrapperScroll', backToTop ? 'show' : 'hide')} onClick={handleScrollUp}>
-            <FontAwesomeIcon icon={faArrowUp} />
-        </Button>
-    );
+   return (
+      <Button third small className={cx('wrapperScroll', backToTop ? 'show' : 'hide')} onClick={handleScrollUp}>
+         <FontAwesomeIcon icon={faArrowUp} />
+      </Button>
+   );
 };
 
 export default ScrollToTop;

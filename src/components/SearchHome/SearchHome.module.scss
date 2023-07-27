@@ -1,177 +1,177 @@
 .wrapperSearch {
-    position: absolute;
-    width: 90%;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+   position: absolute;
+   width: 90%;
+   top: 65%;
+   left: 50%;
+   transform: translate(-50%, -50%);
 }
 
 .searchBox {
-    position: relative;
-    max-width: 77%;
-    text-align: center;
-    margin: 50px auto;
-    background-color: var(--bg);
-    border-radius: 10px;
-    transform: translateY(100%);
-    box-shadow: var(--box-shadow-primary);
-    z-index: 1;
+   position: relative;
+   max-width: 77%;
+   text-align: center;
+   margin: 50px auto;
+   background-color: var(--bg);
+   border-radius: 10px;
+   transform: translateY(100%);
+   box-shadow: var(--box-shadow-primary);
+   z-index: 1;
 }
 
 .travelBox {
-    position: relative;
-    width: 95%;
-    margin: auto;
-    padding-bottom: 25px;
+   position: relative;
+   width: 95%;
+   margin: auto;
+   padding-bottom: 25px;
 
-    &::before {
-        content: '';
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        background-color: var(--bg-hover);
-        backdrop-filter: blur(5px);
-        border-radius: 10px;
-        box-shadow: var(--box-shadow-primary);
-        z-index: -1;
-    }
+   &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: var(--bg-hover);
+      backdrop-filter: blur(5px);
+      border-radius: 10px;
+      box-shadow: var(--box-shadow-primary);
+      z-index: -1;
+   }
 
-    h3 {
-        color: var(--white);
-        padding: 20px 0 10px 25px;
-    }
+   h3 {
+      color: var(--white);
+      padding: 20px 0 10px 25px;
+   }
 }
 
 .carousel {
-    width: 95%;
-    overflow: hidden;
-    margin: auto;
-    cursor: grab;
+   width: 95%;
+   overflow: hidden;
+   margin: auto;
+   cursor: grab;
 }
 
 .cardBox {
-    width: 100%;
-    margin: 10px auto 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+   width: 100%;
+   margin: 10px auto 0 auto;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
 
 .card {
-    position: relative;
-    min-width: 225px;
-    min-height: 150px;
-    overflow: hidden;
-    margin-right: 2.3%;
-    user-select: none;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow-primary);
+   position: relative;
+   min-width: 225px;
+   min-height: 150px;
+   overflow: hidden;
+   margin-right: 2.3%;
+   user-select: none;
+   border-radius: 10px;
+   box-shadow: var(--box-shadow-primary);
 
-    img {
-        min-width: 225px;
-        min-height: 150px;
-        transition: all linear 0.5s;
-        object-fit: cover;
-    }
+   img {
+      min-width: 225px;
+      min-height: 150px;
+      transition: all linear 0.5s;
+      object-fit: cover;
+   }
 
-    &:hover {
-        img {
-            transform: scale(1.1);
-        }
-    }
+   &:hover {
+      img {
+         transform: scale(1.1);
+      }
+   }
 }
 
 .box {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
-    padding: 15px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.6) 100%);
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: space-between;
+   padding: 15px;
+   background: linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.6) 100%);
 }
 
 .star {
-    width: 55px;
-    height: 25px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-align: center;
-    line-height: 25px;
-    color: var(--black);
-    background-color: var(--white);
-    border-radius: 10px;
+   width: 55px;
+   height: 25px;
+   font-size: 0.8rem;
+   font-weight: 500;
+   text-align: center;
+   line-height: 25px;
+   color: var(--black);
+   background-color: var(--white);
+   border-radius: 10px;
 }
 
 .faStar {
-    color: var(--primary);
-    margin-right: 2px;
+   color: var(--primary);
+   margin-right: 2px;
 }
 
 .group {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    color: var(--white);
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-end;
+   color: var(--white);
 }
 
 .text {
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+   text-transform: uppercase;
+   letter-spacing: 1.5px;
 
-    strong {
-        font-size: 1.35rem;
-        font-weight: 700;
-        cursor: pointer;
-    }
+   strong {
+      font-size: 1.35rem;
+      font-weight: 700;
+      cursor: pointer;
+   }
 
-    span {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        margin-top: 5px;
-        font-size: 0.8rem;
-        font-weight: 500;
-    }
+   span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 5px;
+      font-size: 0.8rem;
+      font-weight: 500;
+   }
 }
 
 .price {
-    font-size: 1.3rem;
-    font-weight: 700;
+   font-size: 1.3rem;
+   font-weight: 700;
 }
 
 .paginationBox {
-    position: absolute;
-    top: 6%;
-    right: 2.5%;
-    width: 5%;
-    height: 10%;
-    display: flex;
-    align-items: center;
-    user-select: none;
-    background-color: var(--bg-hover);
-    box-shadow: var(--box-shadow-primary);
-    border-radius: 5px;
+   position: absolute;
+   top: 6%;
+   right: 2.5%;
+   width: 5%;
+   height: 10%;
+   display: flex;
+   align-items: center;
+   user-select: none;
+   background-color: var(--bg-hover);
+   box-shadow: var(--box-shadow-primary);
+   border-radius: 5px;
 }
 
 .prev,
 .next {
-    width: 50%;
-    font-size: 1.75rem;
-    text-align: center;
-    cursor: pointer;
-    color: var(--white);
+   width: 50%;
+   font-size: 1.75rem;
+   text-align: center;
+   cursor: pointer;
+   color: var(--white);
 
-    &:hover {
-        color: var(--primary);
-    }
+   &:hover {
+      color: var(--primary);
+   }
 
-    &:active {
-        color: var(--white);
-    }
+   &:active {
+      color: var(--white);
+   }
 }

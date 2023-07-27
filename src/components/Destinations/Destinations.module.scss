@@ -1,129 +1,129 @@
 .wrapperDestinations {
-    width: 90%;
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 5% 0 0 0;
-    overflow: hidden;
+   width: 90%;
+   max-width: 1200px;
+   margin: 50px auto;
+   padding: 5% 0 0 0;
+   overflow: hidden;
 }
 
 .titleBox {
-    padding: 20px 0;
-    text-align: start;
-    text-transform: capitalize;
-    letter-spacing: 1.5px;
+   padding: 20px 0;
+   text-align: start;
+   text-transform: capitalize;
+   letter-spacing: 1.5px;
 
-    h2 {
-        font-size: 2.5rem;
-    }
+   h2 {
+      font-size: 2.5rem;
+   }
 
-    span {
-        display: block;
-        margin: auto;
-        font-weight: 300;
-        font-size: 1.15rem;
-        line-height: 1.75;
-        color: var(--text-light);
-    }
+   span {
+      display: block;
+      margin: auto;
+      font-weight: 300;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: var(--text-light);
+   }
 }
 
 .grid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-auto-rows: 280px;
-    grid-auto-flow: dense;
-    gap: 20px;
-    margin: 15px 0 0 0;
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   grid-auto-rows: 280px;
+   grid-auto-flow: dense;
+   gap: 20px;
+   margin: 15px 0 0 0;
 }
 
 .cardBox {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    user-select: none;
-    cursor: pointer;
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
+   overflow: hidden;
+   position: relative;
+   user-select: none;
+   cursor: pointer;
 
-    img {
-        transition: all linear 0.5s;
-    }
+   img {
+      transition: all linear 0.5s;
+   }
 
-    &:hover {
-        img {
-            transform: scale(1.1);
-        }
-    }
+   &:hover {
+      img {
+         transform: scale(1.1);
+      }
+   }
 }
 
 .cardBox-1 {
-    grid-row: 1 / span 2;
+   grid-row: 1 / span 2;
 }
 
 .cardBox-3 {
-    grid-column: span 2;
+   grid-column: span 2;
 }
 
 .card {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
-    padding: 15px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.6) 100%);
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: space-between;
+   padding: 15px;
+   background: linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.6) 100%);
 }
 
 .star {
-    background: var(--white);
-    color: var(--black);
-    border-radius: 10px;
-    width: 55px;
-    height: 25px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-align: center;
-    line-height: 25px;
+   background: var(--white);
+   color: var(--black);
+   border-radius: 10px;
+   width: 55px;
+   height: 25px;
+   font-size: 0.8rem;
+   font-weight: 500;
+   text-align: center;
+   line-height: 25px;
 
-    .faStar {
-        color: var(--primary);
-        margin-right: 2px;
-    }
+   .faStar {
+      color: var(--primary);
+      margin-right: 2px;
+   }
 }
 
 .title {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    color: var(--white);
-    letter-spacing: 1.5px;
-    text-transform: capitalize;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   color: var(--white);
+   letter-spacing: 1.5px;
+   text-transform: capitalize;
 
-    strong {
-        font-size: 1.5rem;
-        font-weight: 700;
-    }
+   strong {
+      font-size: 1.5rem;
+      font-weight: 700;
+   }
 
-    span {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 1rem;
-        font-weight: 500;
-    }
+   span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+   }
 }
 
 @media (max-width: 560px) {
-    .card-1 {
-        grid-row: span 1;
-    }
+   .card-1 {
+      grid-row: span 1;
+   }
 
-    .card-3 {
-        grid-column: 1;
-    }
+   .card-3 {
+      grid-column: 1;
+   }
 }

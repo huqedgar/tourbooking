@@ -7,17 +7,17 @@ import Contact from '../../components/Contact/Contact';
 import Blogs from '../../components/Blogs/Blogs';
 
 const Home = () => {
-    return (
-        <>
-            <Banner />
-            <SearchHome />
-            <Tours />
-            <Destinations />
-            <Blogs />
-            <About />
-            <Contact />
-        </>
-    );
+   return (
+      <>
+         <Banner />
+         <SearchHome />
+         <Tours />
+         <Destinations />
+         <Blogs />
+         <About />
+         <Contact />
+      </>
+   );
 };
 
 export default Home;

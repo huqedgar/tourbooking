@@ -1,94 +1,94 @@
 .wrapperCarousel {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    user-select: none;
+   position: relative;
+   width: 100%;
+   height: 100vh;
+   overflow: hidden;
+   user-select: none;
 
-    img {
-        object-fit: cover;
-    }
+   img {
+      object-fit: cover;
+   }
 }
 
 .title {
-    width: 45%;
-    position: absolute;
-    top: 75%;
-    left: 2.5rem;
-    color: var(--white);
-    letter-spacing: 0.5px;
-    text-align: justify;
+   width: 45%;
+   position: absolute;
+   top: 75%;
+   left: 2.5rem;
+   color: var(--white);
+   letter-spacing: 0.5px;
+   text-align: justify;
 
-    h2 {
-        text-transform: uppercase;
-    }
+   h2 {
+      text-transform: uppercase;
+   }
 
-    span {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        text-transform: capitalize;
-        gap: 10px;
-        margin-top: 5px;
-        font-size: 1.1rem;
-        font-weight: 600;
-    }
+   span {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      text-transform: capitalize;
+      gap: 10px;
+      margin-top: 5px;
+      font-size: 1.1rem;
+      font-weight: 600;
+   }
 }
 
 .interaction {
-    position: absolute;
-    top: 90%;
-    right: 2.5rem;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+   position: absolute;
+   top: 90%;
+   right: 2.5rem;
+   display: flex;
+   align-items: center;
+   gap: 20px;
 }
 
 .likeHeader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    padding: 3px 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: var(--bg);
-    box-shadow: var(--box-shadow-primary);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 5px;
+   padding: 3px 10px;
+   font-size: 1.2rem;
+   font-weight: bold;
+   cursor: pointer;
+   border-radius: 5px;
+   background-color: var(--bg);
+   box-shadow: var(--box-shadow-primary);
 
-    .faThumbsUp {
-        height: 20px;
-    }
+   .faThumbsUp {
+      height: 20px;
+   }
 
-    &:active {
-        transform: scale(0.95);
-    }
+   &:active {
+      transform: scale(0.95);
+   }
 }
 
 .unlike {
-    color: var(--black);
+   color: var(--black);
 }
 
 .liked {
-    color: var(--primary);
+   color: var(--primary);
 }
 
 .starHeader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    padding: 3px 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 5px;
-    background: linear-gradient(pink, transparent), linear-gradient(90deg, white, transparent),
-        linear-gradient(-90deg, skyblue, transparent);
-    box-shadow: var(--box-shadow-primary);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 3px;
+   padding: 3px 10px;
+   font-size: 1.2rem;
+   font-weight: bold;
+   border-radius: 5px;
+   background: linear-gradient(pink, transparent), linear-gradient(90deg, white, transparent),
+      linear-gradient(-90deg, skyblue, transparent);
+   box-shadow: var(--box-shadow-primary);
 
-    .faStar {
-        height: 18px;
-        color: var(--primary);
-    }
+   .faStar {
+      height: 18px;
+      color: var(--primary);
+   }
 }

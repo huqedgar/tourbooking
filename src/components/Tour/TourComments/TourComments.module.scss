@@ -1,133 +1,133 @@
 .wrapperComment {
-    margin: 0 25px;
-    padding: 20px 15px;
-    background-color: var(--bg);
-    border-radius: 10px;
-    box-shadow: var(--box-shadow-primary);
+   margin: 0 25px;
+   padding: 20px 15px;
+   background-color: var(--bg);
+   border-radius: 10px;
+   box-shadow: var(--box-shadow-primary);
 }
 
 .ratingBox {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   margin-bottom: 20px;
 }
 
 .star {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    padding: 3px 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 5px;
-    background: linear-gradient(pink, transparent), linear-gradient(90deg, white, transparent),
-        linear-gradient(-90deg, skyblue, transparent);
-    user-select: none;
-    box-shadow: var(--box-shadow-primary);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 3px;
+   padding: 3px 10px;
+   font-size: 1.2rem;
+   font-weight: bold;
+   border-radius: 5px;
+   background: linear-gradient(pink, transparent), linear-gradient(90deg, white, transparent),
+      linear-gradient(-90deg, skyblue, transparent);
+   user-select: none;
+   box-shadow: var(--box-shadow-primary);
 
-    .faStar {
-        height: 18px;
-        color: var(--primary);
-    }
+   .faStar {
+      height: 18px;
+      color: var(--primary);
+   }
 }
 
 .commentBox {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 5px;
-    box-shadow: var(--box-shadow-primary);
+   display: flex;
+   align-items: center;
+   padding: 15px;
+   margin-top: 15px;
+   border-radius: 5px;
+   box-shadow: var(--box-shadow-primary);
 
-    img {
-        width: 56px;
-        height: 56px;
-        object-fit: cover;
-        border-radius: 50%;
-    }
+   img {
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 50%;
+   }
 }
 
 .commentBody {
-    width: 100%;
-    height: fit-content;
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    // border: 1px solid #000;
+   width: 100%;
+   height: fit-content;
+   margin-left: 15px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: center;
+   // border: 1px solid #000;
 
-    p {
-        text-align: justify;
-    }
+   p {
+      text-align: justify;
+   }
 }
 
 .commentNameBox {
-    display: flex;
-    flex-direction: column;
-    // border: 1px solid #000;
+   display: flex;
+   flex-direction: column;
+   // border: 1px solid #000;
 }
 
 .commentName {
-    // border: 1px solid #000;
-    span {
-        font-weight: bold;
+   // border: 1px solid #000;
+   span {
+      font-weight: bold;
 
-        &:last-child {
-            color: gray;
-            font-weight: 600;
-            font-size: 0.8rem;
-        }
-    }
+      &:last-child {
+         color: gray;
+         font-weight: 600;
+         font-size: 0.8rem;
+      }
+   }
 }
 
 .rating svg {
-    width: 22px;
-    height: 26px;
-    display: inline-flex;
+   width: 22px;
+   height: 26px;
+   display: inline-flex;
 }
 
 .commentReact {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+   display: flex;
+   align-items: center;
+   gap: 10px;
 }
 
 .reactAction {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 1px 7px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    user-select: none;
-    border-radius: 5px;
-    transition: all ease 0.3s;
-    box-shadow: var(--box-shadow-primary);
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   padding: 1px 7px;
+   font-size: 0.9rem;
+   cursor: pointer;
+   user-select: none;
+   border-radius: 5px;
+   transition: all ease 0.3s;
+   box-shadow: var(--box-shadow-primary);
 
-    .faThumbsUp {
-        height: 14px;
-    }
+   .faThumbsUp {
+      height: 14px;
+   }
 
-    .faThumbsDown {
-        height: 14px;
-        margin: 4px 7px;
-    }
+   .faThumbsDown {
+      height: 14px;
+      margin: 4px 7px;
+   }
 
-    &:hover {
-        color: var(--white);
-        background-color: var(--primary-hover);
-    }
+   &:hover {
+      color: var(--white);
+      background-color: var(--primary-hover);
+   }
 
-    &:active {
-        transform: scale(0.95);
-    }
+   &:active {
+      transform: scale(0.95);
+   }
 }
 
 .loadMore {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
+   display: flex;
+   justify-content: center;
+   margin-top: 15px;
 }

@@ -1,86 +1,86 @@
 .btnFlex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
 }
 
 .primary {
-    font-weight: 600;
-    padding: 10px 20px;
-    color: var(--white);
-    background-color: var(--primary);
-    border: 2px solid var(--primary);
-    border-radius: 5px;
-    box-shadow: var(--box-shadow-primary);
-    cursor: pointer;
-    transition: all ease 0.3s;
+   font-weight: 600;
+   padding: 10px 20px;
+   color: var(--white);
+   background-color: var(--primary);
+   border: 2px solid var(--primary);
+   border-radius: 5px;
+   box-shadow: var(--box-shadow-primary);
+   cursor: pointer;
+   transition: all ease 0.3s;
 
-    &:hover {
-        background-color: var(--primary-hover);
-        border: 2px solid var(--primary-hover);
-    }
+   &:hover {
+      background-color: var(--primary-hover);
+      border: 2px solid var(--primary-hover);
+   }
 
-    &:active {
-        transform: scale(0.95);
-    }
+   &:active {
+      transform: scale(0.95);
+   }
 }
 
 .secondary {
-    font-weight: 600;
-    padding: 10px 20px;
-    color: var(--white);
-    border: 2px solid var(--primary);
-    border-radius: 5px;
-    box-shadow: var(--box-shadow-primary);
-    cursor: pointer;
-    transition: all ease 0.3s;
+   font-weight: 600;
+   padding: 10px 20px;
+   color: var(--white);
+   border: 2px solid var(--primary);
+   border-radius: 5px;
+   box-shadow: var(--box-shadow-primary);
+   cursor: pointer;
+   transition: all ease 0.3s;
 
-    &:hover {
-        background-color: var(--primary-hover);
-        border: 2px solid var(--primary-hover);
-    }
+   &:hover {
+      background-color: var(--primary-hover);
+      border: 2px solid var(--primary-hover);
+   }
 
-    &:active {
-        transform: scale(0.95);
-    }
+   &:active {
+      transform: scale(0.95);
+   }
 }
 
 .third {
-    font-weight: 600;
-    padding: 10px 20px;
-    color: var(--black);
-    background-color: rgb(226 232 240);
-    border: 2px solid transparent;
-    border-radius: 5px;
-    box-shadow: var(--box-shadow-primary);
-    cursor: pointer;
-    transition: all ease 0.3s;
+   font-weight: 600;
+   padding: 10px 20px;
+   color: var(--black);
+   background-color: rgb(226 232 240);
+   border: 2px solid transparent;
+   border-radius: 5px;
+   box-shadow: var(--box-shadow-primary);
+   cursor: pointer;
+   transition: all ease 0.3s;
 
-    &:hover {
-        background-color: var(--primary-hover);
-        border: 2px solid var(--primary-hover);
-    }
+   &:hover {
+      background-color: var(--primary-hover);
+      border: 2px solid var(--primary-hover);
+   }
 
-    &:active {
-        transform: scale(0.95);
-    }
+   &:active {
+      transform: scale(0.95);
+   }
 }
 
 .small {
-    font-weight: 400;
-    padding: 0.3rem 1rem 0.3rem 1rem;
+   font-weight: 400;
+   padding: 0.3rem 1rem 0.3rem 1rem;
 }
 
 .verysmall {
-    font-weight: 400;
-    padding: 0.15rem 0.5rem 0.15rem 0.5rem;
+   font-weight: 400;
+   padding: 0.15rem 0.5rem 0.15rem 0.5rem;
 }
 
 button[type='submit'] {
-    background-color: var(--primary);
+   background-color: var(--primary);
 
-    &:hover {
-        background-color: var(--primary-hover);
-    }
+   &:hover {
+      background-color: var(--primary-hover);
+   }
 }

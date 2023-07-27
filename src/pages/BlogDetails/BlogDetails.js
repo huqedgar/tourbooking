@@ -11,49 +11,49 @@ const BlogCarousel = lazy(() => import('../../components/Blog/BlogCarousel/BlogC
 const BlogBody = lazy(() => import('../../components/Blog/BlogBody/BlogBody'));
 
 const BlogDetails = () => {
-    const [user] = useContext(MyUserContext);
-    const { blogId } = useParams();
-    const [state, dispatch] = useReducer(MyUserReducer, {
-        blog: null,
-        likesblog: null,
-        comments: null,
-    });
+   const [user] = useContext(MyUserContext);
+   const { blogId } = useParams();
+   const [state, dispatch] = useReducer(MyUserReducer, {
+      blog: null,
+      likesblog: null,
+      comments: null
+   });
 
-    useEffect(() => {
-        const loadData = async () => {
-            try {
-                const [blogResponse, likesblogResponse, commentsResponse] = await Promise.all([
-                    API.get(endpoints['blog-details'](blogId)),
-                    user ? authAPI().get(endpoints['my-like-blog']) : null,
-                    API.get(endpoints['blog-comments'](blogId)),
-                ]);
-                dispatch({
-                    type: 'BLOG_DETAILS',
-                    payload: {
-                        blog: blogResponse.data,
-                        likesblog: likesblogResponse?.data ?? null,
-                        comments: commentsResponse.data,
-                    },
-                });
-            } catch (ex) {
-                toast.error(ex.message);
-            }
-        };
+   useEffect(() => {
+      const loadData = async () => {
+         try {
+            const [blogResponse, likesblogResponse, commentsResponse] = await Promise.all([
+               API.get(endpoints['blog-details'](blogId)),
+               user ? authAPI().get(endpoints['my-like-blog']) : null,
+               API.get(endpoints['blog-comments'](blogId))
+            ]);
+            dispatch({
+               type: 'BLOG_DETAILS',
+               payload: {
+                  blog: blogResponse.data,
+                  likesblog: likesblogResponse?.data ?? null,
+                  comments: commentsResponse.data
+               }
+            });
+         } catch (ex) {
+            toast.error(ex.message);
+         }
+      };
 
-        loadData();
-    }, [blogId, user]);
+      loadData();
+   }, [blogId, user]);
 
-    if (!state.blog || !state.comments) {
-        return <SkeletonDetails />;
-    }
+   if (!state.blog || !state.comments) {
+      return <SkeletonDetails />;
+   }
 
-    return (
-        <Suspense fallback={<SkeletonDetails />}>
-            <BlogCarousel blog={state.blog} likesblog={state.likesblog} />
-            <BlogBody contentBlog={state.blog.content_blog} comments={state.comments} />
-            <ToastContainer />
-        </Suspense>
-    );
+   return (
+      <Suspense fallback={<SkeletonDetails />}>
+         <BlogCarousel blog={state.blog} likesblog={state.likesblog} />
+         <BlogBody contentBlog={state.blog.content_blog} comments={state.comments} />
+         <ToastContainer />
+      </Suspense>
+   );
 };
 
 export default BlogDetails;

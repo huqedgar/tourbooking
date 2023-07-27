@@ -1,72 +1,72 @@
 .wrapperLoading {
-    height: 100vh;
+   height: 100vh;
 }
 
 .loading {
-    position: absolute;
-    overflow: visible;
-    width: 600px;
-    height: 36px;
-    left: 50%;
-    top: 40%;
-    margin-left: -300px;
-    user-select: none;
-    cursor: default;
+   position: absolute;
+   overflow: visible;
+   width: 600px;
+   height: 36px;
+   left: 50%;
+   top: 40%;
+   margin-left: -300px;
+   user-select: none;
+   cursor: default;
 
-    div {
-        position: absolute;
-        width: 20px;
-        height: 36px;
-        font-weight: bold;
-        color: var(--primary);
-        transform: rotate(180deg);
-        animation: move 2s linear infinite;
-        opacity: 0;
+   div {
+      position: absolute;
+      width: 20px;
+      height: 36px;
+      font-weight: bold;
+      color: var(--primary);
+      transform: rotate(180deg);
+      animation: move 2s linear infinite;
+      opacity: 0;
 
-        &:nth-child(2) {
-            animation-delay: 0.2s;
-        }
+      &:nth-child(2) {
+         animation-delay: 0.2s;
+      }
 
-        &:nth-child(3) {
-            animation-delay: 0.4s;
-        }
+      &:nth-child(3) {
+         animation-delay: 0.4s;
+      }
 
-        &:nth-child(4) {
-            animation-delay: 0.6s;
-        }
+      &:nth-child(4) {
+         animation-delay: 0.6s;
+      }
 
-        &:nth-child(5) {
-            animation-delay: 0.8s;
-        }
+      &:nth-child(5) {
+         animation-delay: 0.8s;
+      }
 
-        &:nth-child(6) {
-            animation-delay: 1s;
-        }
+      &:nth-child(6) {
+         animation-delay: 1s;
+      }
 
-        &:nth-child(7) {
-            animation-delay: 1.2s;
-        }
-    }
+      &:nth-child(7) {
+         animation-delay: 1.2s;
+      }
+   }
 }
 
 @keyframes move {
-    0% {
-        left: 0;
-        opacity: 0;
-    }
-    35% {
-        left: 41%;
-        transform: rotate(0deg);
-        opacity: 1;
-    }
-    65% {
-        left: 59%;
-        transform: rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        left: 100%;
-        transform: rotate(-180deg);
-        opacity: 0;
-    }
+   0% {
+      left: 0;
+      opacity: 0;
+   }
+   35% {
+      left: 41%;
+      transform: rotate(0deg);
+      opacity: 1;
+   }
+   65% {
+      left: 59%;
+      transform: rotate(0deg);
+      opacity: 1;
+   }
+   100% {
+      left: 100%;
+      transform: rotate(-180deg);
+      opacity: 0;
+   }
 }

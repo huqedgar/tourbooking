@@ -1,79 +1,79 @@
 .myAccount {
-    padding: 15px;
-    background-color: var(--bg);
-    border-radius: 10px;
-    box-shadow: var(--box-shadow-primary);
+   padding: 15px;
+   background-color: var(--bg);
+   border-radius: 10px;
+   box-shadow: var(--box-shadow-primary);
 
-    h3 {
-        user-select: none;
-    }
+   h3 {
+      user-select: none;
+   }
 
-    hr {
-        margin: 15px 0;
-        border: 0.5px solid var(--text-light);
-    }
+   hr {
+      margin: 15px 0;
+      border: 0.5px solid var(--text-light);
+   }
 }
 
 .changeAvatarBox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin: auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 15px;
+   margin: auto;
 
-    img {
-        width: 150px;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 50%;
-    }
+   img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+   }
 }
 
 .uploaded-row {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #e9f0ff;
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 15px;
+   border-radius: 5px;
+   background-color: #e9f0ff;
 }
 
 .upload-content {
-    display: flex;
-    align-items: center;
+   display: flex;
+   align-items: center;
 }
 
 .infoBox {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 15px;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   margin-top: 15px;
 }
 
 .inputFlex {
-    display: flex;
-    gap: 15px;
+   display: flex;
+   gap: 15px;
 }
 
 .input {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    color: var(--text-light);
-    font-size: 0.95rem;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   color: var(--text-light);
+   font-size: 0.95rem;
 
-    span {
-        font-weight: 500;
-        margin-bottom: 5px;
-        text-align: left;
-        user-select: none;
-    }
+   span {
+      font-weight: 500;
+      margin-bottom: 5px;
+      text-align: left;
+      user-select: none;
+   }
 }
 
 .infoBottom {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 30px;
+   display: flex;
+   justify-content: flex-end;
+   gap: 10px;
+   margin-top: 30px;
 }

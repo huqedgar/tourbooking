@@ -1,54 +1,54 @@
 .container {
-    max-width: 85%;
-    margin: 0 auto;
-    padding: 5% 0 12px 0;
+   max-width: 85%;
+   margin: 0 auto;
+   padding: 5% 0 12px 0;
 }
 
 .titleBox {
-    padding: 20px 0;
-    text-align: center;
-    text-transform: capitalize;
-    letter-spacing: 1.5px;
+   padding: 20px 0;
+   text-align: center;
+   text-transform: capitalize;
+   letter-spacing: 1.5px;
 
-    h2 {
-        font-size: 2.5rem;
-    }
+   h2 {
+      font-size: 2.5rem;
+   }
 
-    span {
-        display: block;
-        margin: auto;
-        font-weight: 300;
-        font-size: 1.15rem;
-        line-height: 1.75;
-        color: var(--text-light);
-    }
+   span {
+      display: block;
+      margin: auto;
+      font-weight: 300;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: var(--text-light);
+   }
 }
 
 .aboutBox {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 32px;
-    margin-top: 15px;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   align-items: center;
+   gap: 32px;
+   margin-top: 15px;
 }
 
 .aboutLeft {
-    box-shadow: var(--box-shadow-primary);
+   box-shadow: var(--box-shadow-primary);
 
-    img {
-        border-radius: 10px;
-    }
+   img {
+      border-radius: 10px;
+   }
 }
 
 .aboutRight {
-    letter-spacing: 1px;
-    h2 {
-        margin-bottom: 40px;
-    }
-    p {
-        margin-bottom: 16px;
-        line-height: 25px;
-        text-align: justify;
-        text-justify: inter-word;
-    }
+   letter-spacing: 1px;
+   h2 {
+      margin-bottom: 40px;
+   }
+   p {
+      margin-bottom: 16px;
+      line-height: 25px;
+      text-align: justify;
+      text-justify: inter-word;
+   }
 }

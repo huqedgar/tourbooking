@@ -1,174 +1,174 @@
 .wrapperInfo {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding: 25px;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   gap: 25px;
+   padding: 25px;
 }
 
 .sideLeft {
-    width: 100%;
-    flex: 3;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: var(--bg);
-    box-shadow: var(--box-shadow-primary);
+   width: 100%;
+   flex: 3;
+   padding: 20px;
+   border-radius: 10px;
+   background-color: var(--bg);
+   box-shadow: var(--box-shadow-primary);
 
-    h3 {
-        margin-bottom: 20px;
-        text-transform: capitalize;
-    }
+   h3 {
+      margin-bottom: 20px;
+      text-transform: capitalize;
+   }
 
-    p {
-        text-align: justify;
-    }
+   p {
+      text-align: justify;
+   }
 }
 
 ///////////////////////////////////////////////////////////
 ///
 .sideRight {
-    width: 100%;
-    height: 100%;
-    flex: 1;
+   width: 100%;
+   height: 100%;
+   flex: 1;
 }
 
 .card1 {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: var(--bg);
-    box-shadow: var(--box-shadow-primary);
+   display: flex;
+   flex-direction: column;
+   padding: 10px;
+   border-radius: 10px;
+   background-color: var(--bg);
+   box-shadow: var(--box-shadow-primary);
 
-    h3 {
-        margin: 10px 0;
-    }
+   h3 {
+      margin: 10px 0;
+   }
 
-    button[type='submit'] {
-        margin-top: 15px;
-        background-color: var(--primary);
+   button[type='submit'] {
+      margin-top: 15px;
+      background-color: var(--primary);
 
-        &:hover {
-            background-color: var(--primary-hover);
-        }
-    }
+      &:hover {
+         background-color: var(--primary-hover);
+      }
+   }
 }
 
 ///////////////////////////////////////////////////////////
 ///
 .wrapperComment {
-    margin: 0 25px;
-    padding: 20px 15px;
-    background-color: var(--bg);
-    border-radius: 10px;
-    box-shadow: var(--box-shadow-primary);
+   margin: 0 25px;
+   padding: 20px 15px;
+   background-color: var(--bg);
+   border-radius: 10px;
+   box-shadow: var(--box-shadow-primary);
 }
 
 .ratingBox {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   margin-bottom: 20px;
 }
 
 .likeFooter {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 3px 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 5px;
-    user-select: none;
-    background: var(--secondary);
-    box-shadow: var(--box-shadow-primary);
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   padding: 3px 10px;
+   font-size: 1.2rem;
+   font-weight: bold;
+   border-radius: 5px;
+   user-select: none;
+   background: var(--secondary);
+   box-shadow: var(--box-shadow-primary);
 
-    .faThumbsUp {
-        height: 20px;
-    }
+   .faThumbsUp {
+      height: 20px;
+   }
 }
 
 .commentBox {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 5px;
-    box-shadow: var(--box-shadow-primary);
+   display: flex;
+   align-items: center;
+   padding: 15px;
+   margin-top: 15px;
+   border-radius: 5px;
+   box-shadow: var(--box-shadow-primary);
 
-    img {
-        width: 56px;
-        height: 56px;
-        object-fit: cover;
-        border-radius: 50%;
-    }
+   img {
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 50%;
+   }
 }
 
 .commentBody {
-    width: 100%;
-    height: fit-content;
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+   width: 100%;
+   height: fit-content;
+   margin-left: 15px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: center;
 
-    p {
-        text-align: justify;
-    }
+   p {
+      text-align: justify;
+   }
 }
 
 .commentName {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-weight: bold;
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   font-weight: bold;
 
-    span:last-child {
-        color: gray;
-        font-weight: 600;
-        font-size: 0.8rem;
-    }
+   span:last-child {
+      color: gray;
+      font-weight: 600;
+      font-size: 0.8rem;
+   }
 }
 
 .commentReact {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+   display: flex;
+   align-items: center;
+   gap: 10px;
 }
 
 .reactAction {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 1px 7px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    user-select: none;
-    border-radius: 5px;
-    transition: all ease 0.3s;
-    box-shadow: var(--box-shadow-primary);
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   padding: 1px 7px;
+   font-size: 0.9rem;
+   cursor: pointer;
+   user-select: none;
+   border-radius: 5px;
+   transition: all ease 0.3s;
+   box-shadow: var(--box-shadow-primary);
 
-    .faThumbsUp {
-        height: 14px;
-    }
+   .faThumbsUp {
+      height: 14px;
+   }
 
-    .faMessage {
-        height: 12px;
-    }
+   .faMessage {
+      height: 12px;
+   }
 
-    &:hover {
-        color: var(--white);
-        background-color: var(--primary-hover);
-    }
+   &:hover {
+      color: var(--white);
+      background-color: var(--primary-hover);
+   }
 
-    &:active {
-        transform: scale(0.95);
-    }
+   &:active {
+      transform: scale(0.95);
+   }
 }
 
 .loadMore {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
+   display: flex;
+   justify-content: center;
+   margin-top: 15px;
 }

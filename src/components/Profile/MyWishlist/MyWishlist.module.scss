@@ -1,106 +1,106 @@
 .myWishlist {
-    padding: 15px;
-    background-color: var(--bg);
-    border-radius: 10px;
-    box-shadow: var(--box-shadow-primary);
+   padding: 15px;
+   background-color: var(--bg);
+   border-radius: 10px;
+   box-shadow: var(--box-shadow-primary);
 
-    h3 {
-        user-select: none;
-    }
+   h3 {
+      user-select: none;
+   }
 }
 
 .myWishlistHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
 
 .filterBox {
-    min-width: 150px;
-    padding: 5px;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid var(--text-light);
+   min-width: 150px;
+   padding: 5px;
+   outline: none;
+   border-radius: 5px;
+   border: 1px solid var(--text-light);
 }
 
 .myWishlistTable {
-    width: 100%;
-    margin-top: 15px;
-    border-radius: 10px;
-    background-color: rgba(211, 211, 211, 0.25);
+   width: 100%;
+   margin-top: 15px;
+   border-radius: 10px;
+   background-color: rgba(211, 211, 211, 0.25);
 
-    th,
-    td {
-        padding: 8px;
-        text-align: center;
-    }
+   th,
+   td {
+      padding: 8px;
+      text-align: center;
+   }
 }
 
 .tableHead tr th {
-    font-weight: 500;
-    border-bottom: 1px solid var(--text-light);
+   font-weight: 500;
+   border-bottom: 1px solid var(--text-light);
 }
 
 .tableBody {
-    tr {
-        border-bottom: 1px solid var(--text-light);
-    }
+   tr {
+      border-bottom: 1px solid var(--text-light);
+   }
 
-    tr td {
-        &:nth-child(1) {
-            display: flex;
-            justify-content: center;
+   tr td {
+      &:nth-child(1) {
+         display: flex;
+         justify-content: center;
 
-            img {
-                width: 50px;
-                height: 65px;
-                border-radius: 5px;
-            }
-        }
-
-        &:nth-child(4) span {
-            padding: 5px;
-            font-size: 0.8rem;
-            color: var(--white);
+         img {
+            width: 50px;
+            height: 65px;
             border-radius: 5px;
-        }
+         }
+      }
 
-        &:nth-child(6) {
-            color: var(--primary);
-            cursor: pointer;
-        }
-    }
+      &:nth-child(4) span {
+         padding: 5px;
+         font-size: 0.8rem;
+         color: var(--white);
+         border-radius: 5px;
+      }
 
-    .available {
-        background-color: green;
-    }
-    .notAvailable {
-        background-color: darkgray;
-    }
+      &:nth-child(6) {
+         color: var(--primary);
+         cursor: pointer;
+      }
+   }
+
+   .available {
+      background-color: green;
+   }
+   .notAvailable {
+      background-color: darkgray;
+   }
 }
 
 .pagination {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 15px;
-    font-weight: 600;
+   display: flex;
+   justify-content: flex-end;
+   margin-top: 15px;
+   font-weight: 600;
 
-    button {
-        padding: 5px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all ease 0.3s;
+   button {
+      padding: 5px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all ease 0.3s;
 
-        &:hover {
-            background-color: rgb(226 232 240);
-        }
+      &:hover {
+         background-color: rgb(226 232 240);
+      }
 
-        &:active {
-            transform: scale(0.95);
-        }
-    }
+      &:active {
+         transform: scale(0.95);
+      }
+   }
 
-    .pageActive {
-        color: var(--primary);
-    }
+   .pageActive {
+      color: var(--primary);
+   }
 }
